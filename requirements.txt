@@ -1,0 +1,9 @@
+numpy
+matplotlib
+scipy
+sympy
+pandas
+seaborn
+bokeh
+plotly
+rise
