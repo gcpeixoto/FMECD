@@ -1,4 +1,4 @@
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/gcpeixoto/FMECD/master?urlpath=chttps://mybinder.org/v2/gh/gcpeixoto/FMECD/master?urlpath=conteudo.ipynbonteudo.ipynb)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/gcpeixoto/FMECD/master?urlpath=conteudo.ipynb)
 
 # FMECD - Fundamentos Matemáticos e Estatísticos para Ciência de Dados: Uma Abordagem Computacional com Python
 
