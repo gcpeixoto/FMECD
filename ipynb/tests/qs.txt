@@ -1,0 +1,118 @@
+Estatística Descritiva
+
+(Estatística Descritiva - Questão 1) Com base no banco de dados HIST_PAINEL_COVIDBR até o dia 25/07/2020. Considere o número de óbitos diários na região nordeste. Calcule:a média do número de óbitos diários diretamente;e a média através da distribuição de frequência (utilizando o número de classes padrão).Qual é aproximadamente o valor absoluto da diferença destas médias?
+A) 3.77
+B) 7.54
+C) 5.88
+D) 11.76
+E) 1.34
+ANSWER: A
+
+(Estatística Descritiva - Questão 2) Com base no banco de dados HIST_PAINEL_COVIDBR até o dia 25/07/2020. Considere o número de casos diários por região do Brasil. Qual região possui os seguintes quantis?25% - 35.7550% - 273.0075% - 2574.50
+A) Centro-Oeste
+B) Nordeste
+C) Norte
+D) Sul
+E) Sudeste
+ANSWER: A
+
+(Estatística Descritiva - Questão 3) Com base no banco de dados HIST_PAINEL_COVIDBR até o dia 25/07/2020. Considere os casos diários de COVID na região Sul. Qual a diferença entre os valores do desvio padrão e do desvio médio?
+A) 441.77
+B) 266.21
+C) 348.55
+D) 746.88
+E) 1161.29
+ANSWER: A
+
+(Estatística Descritiva - Questão 4) Com base no banco de dados HIST_PAINEL_COVIDBR até o dia 25/07/2020. Considere a distribuição de frequência do número de óbitos por região, com número de classes padrão. Em todas as regiões do Brasil a moda do número de óbitos diários sempre ocorre na classe (intervalo) que contém o valor 0. 
+ANSWER: Existem várias formas de resolver a questão. Uma delas é:
+
+covid_obitos = covid_BR.groupby(['regiao','data'])['obitosNovos'].sum()/2
+covid_obitos = covid_casos.reset_index()[['regiao','obitosNovos']] 
+for reg in covid_casos.regiao.drop_duplicates():
+     print('\n' + reg)
+     covid_reg = covid_obitos.loc[covid_obitos.regiao == reg]['obitosNovos']
+     covid_reg = dist_freq(covid_reg)
+     print(moda_dist_freq(covid_reg))
+     print(covid_reg)
+
+
+
+(Estatística Descritiva - Questão 5) Com base no banco de dados HIST_PAINEL_COVIDBR até o dia 25/07/2020. Considere os óbitos diários de COVID por região do Brasil. Em qual região do Brasil ocorre a menor discrepância entre a média e a mediana do número de óbitos diários. 
+A) Norte
+B) Nordeste
+C) Sul
+D) Sudeste
+E) Centro-Oeste
+ANSWER: A
+
+
+Manipulaçao de Dados
+
+(Manipulaçao de Dados - Questão 1) Com base no banco de dados HIST_PAINEL_COVIDBR, responda: Qual o total de óbitos por COVID-19 na cidade de Cabedelo até  dia 01/07/2020? 
+A) 31
+B) 947
+C) 553
+D) 16
+E) 19
+ANSWER: E
+
+(Manipulaçao de Dados - Questão 2) Com base no banco de dados HIST_PAINEL_COVIDBR, responda: Qual o primeiro dia em que João Pessoa teve o primeiro óbito confirmado?
+A) 05/04/2020
+B) 30/03/2020
+C) 19/03/2020
+D) 01/04/2020
+E) 10/04/2020
+ANSWER: A
+
+(Manipulaçao de Dados - Questão 3) Com base no banco de dados HIST_PAINEL_COVIDBR, responda: Quais cidades possuíam mais de 2000 óbitos até o dia 10/07/2020?
+A) Fortaleza, Rio de Janeiro e São Paulo
+B) Manaus, Rio de Janeiro e São Paulo
+C) Fortaleza, Manaus e São Paulo
+D) Fortaleza, Recife, Rio de Janeiro e São Paulo
+E) Manaus, Fortaleza, Recife e São Paulo
+ANSWER: A
+
+(Manipulaçao de Dados - Questão 4) Com base no banco de dados HIST_PAINEL_COVIDBR, responda: Até o dia 10/07/2020 existe alguma cidade em que foi reportado óbitos acumulados positivo ao mesmo tempo em que se reportou casos acumulados zero.
+ANSWER: Existe uma: Caculé. Apresentou obitosAcumulado = 1 ao mesmo tempo em que casosAcumulado = 0.   
+Observe ainda que esta cidade chegou a apresentar casosNovos negativo!   Para verificar, podemos fazer
+covid_BR.query('casosAcumulado == 0 and obitosAcumulado > 0 and data <= "2020-07-10"').municipio.drop_duplicates().array.dropna()  
+
+(Manipulaçao de Dados - Questão 5) Com base no banco de dados HIST_PAINEL_COVIDBR responda:Quantas cidades diferentes chegaram a apresentar "obitosNovos" negativo até o dia 10/07/2020?
+A) 0
+B) 709
+C) 664
+D) 2780
+E) 654
+ANSWER: E
+
+
+Visualização Gráfica de Dados
+
+(Visualização Gráfica de Dados - Questão 1) Com base no banco de dados HIST_PAINEL_COVIDBR, responda:  Através da análise do boxplot do número de óbitos por COVID-19 na cidade de João Pessoa, por dia, até dia 15/07/2020, podemos afirmar a existência de outliers?
+ANSWER: Sim, ao visualizarmos o boxplot, observamos a existência de outliers. Existem várias formas de construir tal boxplot, uma delas é:   covid_BR.query('municipio == "João Pessoa" and data <= "2020-07-15" ')['obitosNovos'].plot(kind="box")
+
+(Visualização Gráfica de Dados - Questão 2) Com base no banco de dados HIST_PAINEL_COVIDBR, responda:  Através da análise do histograma do número de óbitos por COVID-19 na cidade de Bayeux, por dia, até dia 15/07/2020, qual o intervalo de frequência do número de óbitos apresentado no bloco que contém o ponto zero?
+A) 60 a 70
+B) 50 a 60
+C) 40 a 50
+D) 0 a 10
+E) 10 a 20
+ANSWER: A
+
+(Visualização Gráfica de Dados - Questão 3) Com base no banco de dados HIST_PAINEL_COVIDBR até o dia 15/07/2020. Considere as cidades da Paraíba: João Pessoa, Campina Grande, Bayeux e Santa Rita. Qual delas possui outlier negativo no número de obitosNovos, ao realizarmos um boxplot comparativo do número de óbitos diários destas cidades?
+A) Santa Rita
+B) João Pessoa
+C) Bayeux
+D) Campina Grande
+E) Todos os outliers dos números de óbitos diários são positivos para todas as cidades.
+ANSWER: E
+
+(Visualização Gráfica de Dados - Questão 4) Com base no banco de dados HIST_PAINEL_COVIDBR até o dia 15/07/2020, responda. Ao construirmos um gráfico de linhas do número de obitosNovos da região Nordeste utilizando-se média aritmética móvel de 7 dias, podemos concluir que o número de óbitos diários no nordeste apresenta sinais de estabilização nos dois últimos meses? 
+ANSWER: Sim, podemos concluir que houve sinais de estabilização pois nestes dois meses a média aritmética móvel do número de óbitos diários oscilou na faixa de 300 a 400. Existem várias formas de construir o gráfico com as médias móveis de óbitos no Nordeste. Uma delas é:   
+covid_BR.data = pd.to_datetime(covid_BR.data) 
+covid_Nordeste_MM = pd.DataFrame( covid_BR.query('regiao == "Nordeste" and data <= "2020-07-15"').groupby(['regiao','data'])['obitosNovos'].sum()/2).rolling(7).mean() 
+covid_Nordeste_MM = covid_Nordeste_MM.reset_index().set_index('data')['obitosNovos'] 
+covid_Nordeste_MM.plot()
+
+

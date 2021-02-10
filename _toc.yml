@@ -1,0 +1,45 @@
+# The introduction file is mandatory
+- file: ipynb/00-apresentacao
+- part: Introdução
+  chapters:
+  - file: ipynb/01a-introducao
+- part: Matemática Computacional
+  numbered: false
+  chapters:
+  - file: ipynb/01b-fundamentos-python
+  - file: ipynb/02a-computacao-simbolica.ipynb
+  - file: ipynb/03a-matematica-discreta.ipynb
+  - file: ipynb/04a-computacao-vetorizada.ipynb
+  - file: ipynb/04b-plotagem-matplotlib.ipynb
+  - file: ipynb/05a-complemento-numpy.ipynb
+- part: Estatística e Análise de Dados
+  numbered: false
+  chapters:
+  - file: ipynb/06a-pandas-series.ipynb
+  - file: ipynb/06b-pandas-dataframe.ipynb
+  - file: ipynb/06c-pandas-agrupamento.ipynb
+  - file: ipynb/07a-visualizacao-dados.ipynb
+  - file: ipynb/07b-formatacao-matplotlib.ipynb
+  - file: ipynb/07c-plotly.ipynb
+  - file: ipynb/07d-seaborn.ipynb
+  - file: ipynb/08a-estatistica-descritiva.ipynb
+- part: Problemas 
+  chapters:
+  - file: ipynb/01c-laboratorio-computacional.ipynb
+  - file: ipynb/02c-laboratorio-computacional.ipynb
+  - file: ipynb/03c-laboratorio-computacional.ipynb
+  - file: ipynb/04c-laboratorio-computacional.ipynb
+  - file: ipynb/06d-laboratorio-computacional.ipynb
+  - file: ipynb/07e-laboratorio-computacional.ipynb
+  - file: ipynb/08c-laboratorio-computacional.ipynb
+#
+# MODEL: 
+# - file: intro
+#- part: Get started
+#  chapters:
+#  - file: start/overview
+#  - file: start/build
+#  - file: start/publish
+#    sections:
+#      - file: publish/gh-pages
+#      - file: publish/netlify

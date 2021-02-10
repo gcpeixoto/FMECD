@@ -1,4 +1,4 @@
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/gcpeixoto/FMECD/master?urlpath=lab/tree/conteudo.ipynb)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/gcpeixoto/FMECD/master?urlpath=lab/tree/0-conteudo.ipynb)
 
 # FMECD - Fundamentos Matemáticos e Estatísticos para Ciência de Dados: Uma Abordagem Computacional com Python
 
@@ -14,11 +14,11 @@ Durante o curso, você terá a oportunidade de fixar conceitos através de sess�
 
 ## Conteúdo 
 
-Acesse o conteúdo [aqui](https://github.com/gcpeixoto/FMECD/blob/master/conteudo.ipynb).
+Acesse o conteúdo [aqui](https://github.com/gcpeixoto/FMECD/blob/master/0-conteudo.ipynb).
 
 ## Versão interativa
 
-Acesse a versão interativa [aqui](https://mybinder.org/v2/gh/gcpeixoto/FMECD/master?urlpath=lab/tree/conteudo.ipynb).
+Acesse a versão interativa [aqui](https://mybinder.org/v2/gh/gcpeixoto/FMECD/master?urlpath=lab/tree/0-conteudo.ipynb).
 
 ## Docentes 
 
