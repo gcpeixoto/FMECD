@@ -1,0 +1,490 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laboratório Computacional 3 &#8212; Fundamentos de Matemática e Estatística para Ciência de Dados</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/cycle-ds.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Fundamentos de Matemática e Estatística para Ciência de Dados</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="00-apresentacao.html">
+   Apresentação
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Introdução
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01a-introducao.html">
+   Introdução à Ciência de Dados
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Matemática Computacional
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01b-fundamentos-python.html">
+   Fundamentos de
+   <em>
+    Python
+   </em>
+   para Computação Científica
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02a-computacao-simbolica.html">
+   Introdução à Computação Simbólica com
+   <em>
+    sympy
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03a-matematica-discreta.html">
+   Fundamentos de Matemática Discreta com Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04a-computacao-vetorizada.html">
+   Computação vetorizada com
+   <em>
+    numpy
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04b-plotagem-matplotlib.html">
+   Plotagem básica com
+   <em>
+    matplotlib
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05a-complemento-numpy.html">
+   Tópicos complementares sobre o
+   <em>
+    numpy
+   </em>
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Estatística e Análise de Dados
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="06a-pandas-series.html">
+   Manipulação de dados com
+   <em>
+    pandas
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06b-pandas-dataframe.html">
+   Operações com
+   <em>
+    DataFrames
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06c-pandas-agrupamento.html">
+   Agregação e agrupamento
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07a-visualizacao-dados.html">
+   Visualização gráfica de dados
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07b-formatacao-matplotlib.html">
+   Formatação de gráficos com
+   <em>
+    matplotlib
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07c-plotly.html">
+   Gráficos interativos com o
+   <em>
+    plotly
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07d-seaborn.html">
+   Visualização gráfica de dados com
+   <em>
+    seaborn
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08a-estatistica-descritiva.html">
+   Estatística Descritiva com apoio do
+   <em>
+    Python
+   </em>
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Problemas
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01c-laboratorio-computacional.html">
+   Laboratório Computacional 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02c-laboratorio-computacional.html">
+   Laboratório Computacional 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03c-laboratorio-computacional.html">
+   Laboratório Computacional 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04c-laboratorio-computacional.html">
+   Laboratório Computacional 4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06d-laboratorio-computacional.html">
+   Laboratório Computacional 6
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07e-laboratorio-computacional.html">
+   Laboratório Computacional 7
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08c-laboratorio-computacional.html">
+   Laboratório Computacional 8
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/ipynb/03c-laboratorio-computacional-ans.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="laboratorio-computacional-3">
+<h1>Laboratório Computacional 3<a class="headerlink" href="#laboratorio-computacional-3" title="Permalink to this headline">¶</a></h1>
+<p>No laboratório computacional, você praticará o que aprendeu. Resolva os problemas com o auxílio do Python pesquisando apenas as informações essenciais de que precisa. Não use respostas prontas.</p>
+<p><strong>Problema:</strong> Programe uma função <code class="docutils literal notranslate"><span class="pre">multadd</span></code> que multiplique cada item de uma lista <span class="math notranslate nohighlight">\(L\)</span> lista por <span class="math notranslate nohighlight">\(k\)</span> e some <span class="math notranslate nohighlight">\(c\)</span>. Por exemplo:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">multadd</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span> <span class="c1"># este é o resultado neste caso</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># opção 1</span>
+<span class="k">def</span> <span class="nf">multadd</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">c</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="n">k</span> <span class="o">+</span> <span class="n">c</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">L</span><span class="p">]</span>
+<span class="n">multadd</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># opçao 2</span>
+<span class="n">L</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span>
+<span class="n">multadd</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="n">k</span> <span class="o">+</span> <span class="n">c</span><span class="p">,</span><span class="n">L</span><span class="p">))</span>
+<span class="n">multadd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Problema:</strong> Gere uma lista aleatória de 100 inteiros não-nulos <span class="math notranslate nohighlight">\(L\)</span> contendo números pares e ímpares. Em seguida, programe uma função <code class="docutils literal notranslate"><span class="pre">f(L)</span></code> que retorne uma tupla <span class="math notranslate nohighlight">\((a,b,c,d,e)\)</span> em que:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(a\)</span> é a quantidade de números pares na lista</p></li>
+<li><p><span class="math notranslate nohighlight">\(b\)</span> é a sublista de <span class="math notranslate nohighlight">\(L\)</span> que contém apenas números pares</p></li>
+<li><p><span class="math notranslate nohighlight">\(c\)</span> é a quantidade de números ímpares na lista</p></li>
+<li><p><span class="math notranslate nohighlight">\(d\)</span> é a sublista de <span class="math notranslate nohighlight">\(L\)</span> que contém apenas números ímpares</p></li>
+<li><p><span class="math notranslate nohighlight">\(e\)</span> é um teste lógico que deve retornar <code class="docutils literal notranslate"><span class="pre">True</span></code> se <span class="math notranslate nohighlight">\(a + c\)</span> = <span class="math notranslate nohighlight">\(|L|\)</span>, onde <span class="math notranslate nohighlight">\(|L|\)</span> é a cardinalidade (número de elementos de <span class="math notranslate nohighlight">\(L\)</span>).</p></li>
+</ul>
+<p>Enfim, crie uma função <code class="docutils literal notranslate"><span class="pre">g(L,t)</span></code> que imprima os conteúdos da tupla <code class="docutils literal notranslate"><span class="pre">t</span></code> (exceto <span class="math notranslate nohighlight">\(b\)</span> e <span class="math notranslate nohighlight">\(d\)</span>) em um template que mostre o seguinte:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">|</span><span class="n">L</span><span class="o">|</span> <span class="o">=</span> <span class="o">.</span> 
+<span class="n">a</span> <span class="o">=</span> <span class="o">.</span>
+<span class="n">c</span> <span class="o">=</span> <span class="o">.</span>
+<span class="n">e</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p><strong>Nota:</strong> importe <code class="docutils literal notranslate"><span class="pre">sample</span></code> ou <code class="docutils literal notranslate"><span class="pre">randint</span></code> de <code class="docutils literal notranslate"><span class="pre">random</span></code>. Observe que, acima, os pontos <code class="docutils literal notranslate"><span class="pre">.</span></code> servem apenas para denotar <em>placeholders</em> (substitutos) que devem ser substituídos pelos números inteiros obteníveis no seu cômputo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">sample</span>
+
+<span class="n">L</span> <span class="o">=</span> <span class="n">sample</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p">),</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>    
+    <span class="n">b</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">e</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="kc">False</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">L</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">d</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+    <span class="n">a</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">a</span> <span class="o">+</span> <span class="n">c</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
+        <span class="n">e</span> <span class="o">=</span> <span class="kc">True</span> 
+    
+    <span class="k">return</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">e</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">imprime</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">tup</span><span class="p">):</span>
+    <span class="n">a</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">e</span> <span class="o">=</span> <span class="n">tup</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">tup</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">tup</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;|L| = </span><span class="si">{}</span><span class="se">\n</span><span class="s1">a = </span><span class="si">{}</span><span class="se">\n</span><span class="s1">c = </span><span class="si">{}</span><span class="se">\n</span><span class="s1">e = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">),</span><span class="n">a</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">e</span><span class="p">))</span>
+        
+<span class="n">tup</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">L</span><span class="p">);</span> <span class="n">imprime</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">tup</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Problema:</strong> Neste capítulo, apresentamos um exemplo relacionado ao teste aleatório de pessoas que entram em um hospital ao longo de um dia. Naquele exemplo, calculamos a probabilidade de a pessoa ser doadora universal, bem como de ter outro tipo sanguíneo no sistema ABO. Utilize essas informações para fazer o que se pede:</p>
+<ol class="simple">
+<li><p>Defina a probabilidade total diária <span class="math notranslate nohighlight">\(m_A\)</span> de uma pessoa que entra no hospital ter sangue do tipo <span class="math notranslate nohighlight">\(A\)</span> como:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[m_A = P(A+) + P(A-)\]</div>
+<p>onde</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(P(A+)\)</span> é a probabilidade de pessoas que entram no hospital cujo sangue é <span class="math notranslate nohighlight">\(A+\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(P(A-)\)</span> é a probabilidade de pessoas que entram no hospital cujo sangue é <span class="math notranslate nohighlight">\(A-\)</span>.</p></li>
+</ul>
+<ol class="simple">
+<li><p>Crie uma função que calcule <span class="math notranslate nohighlight">\(m_A\)</span> a partir de um teste aleatório equivalente ao mostrado na sala. Considere <span class="math notranslate nohighlight">\(N \geq 500\)</span> pessoas.</p></li>
+<li><p>Melhore o código apresentado criando uma função que realize o teste aleatório e lhe retorne as probabilidades. Seu dado de entrada será praticamente o valor de <span class="math notranslate nohighlight">\(N\)</span> e a saída um objeto iterável a seu critério (<code class="docutils literal notranslate"><span class="pre">dict</span></code>, por exemplo).</p></li>
+<li><p>Crie uma estrutura de repetição para que a função seja executada por até <span class="math notranslate nohighlight">\(q \geq 3\)</span> vezes supondo que o teste aleatório seja repetido a cada novo dia no hospital. Considere que a cada dia subsequente, <span class="math notranslate nohighlight">\(N\)</span> novas pessoas entrem no hospital.</p></li>
+<li><p>Calcule a probabilidade <span class="math notranslate nohighlight">\(m_A\)</span> para o dia 1, dia 2, … dia <span class="math notranslate nohighlight">\(q\)</span> (note que elas podem ser diferentes) e armazene os dados em alguma estrutura que você ache melhor.</p></li>
+<li><p>Determine o valor médio de probabilidades</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[M = \dfrac{m_A^1 + m_A^2 + \cdots m_A^q}{q},\]</div>
+<p>onde <span class="math notranslate nohighlight">\(m_A^j\)</span>, <span class="math notranslate nohighlight">\(j = 1,2,\ldots,q\)</span> é a probabilidade <span class="math notranslate nohighlight">\(m_A\)</span> para o <span class="math notranslate nohighlight">\(j\)</span>-ésimo dia.</p>
+<p><strong>Nota:</strong> a solução deste problema não é única, assim como não o é a forma de programar.</p>
+<p><strong>Problema:</strong> Considerando o problema anterior, você conseguiria fazer o mesmo para pessoas com sangue tipo <span class="math notranslate nohighlight">\(AB\)</span>, <span class="math notranslate nohighlight">\(B\)</span> e <span class="math notranslate nohighlight">\(O\)</span>? Se sim, quão diferente são os valores de <span class="math notranslate nohighlight">\(M\)</span> para cada grupo durante períodos de análise iguais de até <span class="math notranslate nohighlight">\(q\)</span> dias?</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./ipynb"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Gustavo Oliveira e Andrea Rocha<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

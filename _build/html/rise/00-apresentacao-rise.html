@@ -1,0 +1,749 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fundamentos Matemáticos e Estatísticos para Ciência de Dados: Uma Abordagem Computacional com Python &#8212; Fundamentos de Matemática e Estatística para Ciência de Dados</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/cycle-ds.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Fundamentos de Matemática e Estatística para Ciência de Dados</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ipynb/00-apresentacao.html">
+   Apresentação
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Introdução
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ipynb/01a-introducao.html">
+   Introdução à Ciência de Dados
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Matemática Computacional
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ipynb/01b-fundamentos-python.html">
+   Fundamentos de
+   <em>
+    Python
+   </em>
+   para Computação Científica
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ipynb/02a-computacao-simbolica.html">
+   Introdução à Computação Simbólica com
+   <em>
+    sympy
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ipynb/03a-matematica-discreta.html">
+   Fundamentos de Matemática Discreta com Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ipynb/04a-computacao-vetorizada.html">
+   Computação vetorizada com
+   <em>
+    numpy
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ipynb/04b-plotagem-matplotlib.html">
+   Plotagem básica com
+   <em>
+    matplotlib
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ipynb/05a-complemento-numpy.html">
+   Tópicos complementares sobre o
+   <em>
+    numpy
+   </em>
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Estatística e Análise de Dados
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ipynb/06a-pandas-series.html">
+   Manipulação de dados com
+   <em>
+    pandas
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ipynb/06b-pandas-dataframe.html">
+   Operações com
+   <em>
+    DataFrames
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ipynb/06c-pandas-agrupamento.html">
+   Agregação e agrupamento
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ipynb/07a-visualizacao-dados.html">
+   Visualização gráfica de dados
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ipynb/07b-formatacao-matplotlib.html">
+   Formatação de gráficos com
+   <em>
+    matplotlib
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ipynb/07c-plotly.html">
+   Gráficos interativos com o
+   <em>
+    plotly
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ipynb/07d-seaborn.html">
+   Visualização gráfica de dados com
+   <em>
+    seaborn
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ipynb/08a-estatistica-descritiva.html">
+   Estatística Descritiva com apoio do
+   <em>
+    Python
+   </em>
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Problemas
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ipynb/01c-laboratorio-computacional.html">
+   Laboratório Computacional 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ipynb/02c-laboratorio-computacional.html">
+   Laboratório Computacional 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ipynb/03c-laboratorio-computacional.html">
+   Laboratório Computacional 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ipynb/04c-laboratorio-computacional.html">
+   Laboratório Computacional 4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ipynb/06d-laboratorio-computacional.html">
+   Laboratório Computacional 6
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ipynb/07e-laboratorio-computacional.html">
+   Laboratório Computacional 7
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ipynb/08c-laboratorio-computacional.html">
+   Laboratório Computacional 8
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/rise/00-apresentacao-rise.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objetivos-do-curso">
+   Objetivos do curso
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conteudo-do-curso">
+   Conteúdo do curso
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#introducao">
+     Introdução
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#matematica">
+     Matemática
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#estatistica">
+     Estatística
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#encerramento">
+     Encerramento
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modelo-semanal-jabc">
+   Modelo Semanal
+   <span class="math notranslate nohighlight">
+    \(j\)
+   </span>
+   ABC
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exemplo-j-1">
+   Exemplo:
+   <span class="math notranslate nohighlight">
+    \(j = 1\)
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cronograma">
+   Cronograma
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#atividade-sincrona-x-assincrona">
+   Atividade síncrona x assíncrona
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plataformas">
+   Plataformas
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="fundamentos-matematicos-e-estatisticos-para-ciencia-de-dados-uma-abordagem-computacional-com-python">
+<h1>Fundamentos Matemáticos e Estatísticos para Ciência de Dados: Uma Abordagem Computacional com Python<a class="headerlink" href="#fundamentos-matematicos-e-estatisticos-para-ciencia-de-dados-uma-abordagem-computacional-com-python" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="objetivos-do-curso">
+<h2>Objetivos do curso<a class="headerlink" href="#objetivos-do-curso" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>manipular números, sequencias, conjuntos e variáveis</p></li>
+<li><p>realizar cálculos com escalares, vetores e matrizes</p></li>
+<li><p>plotar gráficos de funções</p></li>
+<li><p>processar e manipular dados genéricos</p></li>
+<li><p>construir e interpretar gráficos e tabelas</p></li>
+<li><p>realizar análise estatística simples</p></li>
+</ul>
+</div>
+<div class="section" id="conteudo-do-curso">
+<h2>Conteúdo do curso<a class="headerlink" href="#conteudo-do-curso" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="introducao">
+<h3>Introdução<a class="headerlink" href="#introducao" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Semana</p></th>
+<th class="head"><p>Assunto</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Apresentação do Curso e Introdução ao Python</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="matematica">
+<h3>Matemática<a class="headerlink" href="#matematica" title="Permalink to this headline">¶</a></h3>
+<p>Prof. Gustavo</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Semana</p></th>
+<th class="head"><p>Assunto</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>Matemática Simbólica</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>Matemática Discreta</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>Funções e Gráficos</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>Matrizes e Sistemas Lineares</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="estatistica">
+<h3>Estatística<a class="headerlink" href="#estatistica" title="Permalink to this headline">¶</a></h3>
+<p>Profa. Andrea</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Semana</p></th>
+<th class="head"><p>Assunto</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>Manipulação de Dados</p></td>
+</tr>
+<tr class="row-odd"><td><p>7</p></td>
+<td><p>Visualização de Dados</p></td>
+</tr>
+<tr class="row-even"><td><p>8</p></td>
+<td><p>Análise Exploratória</p></td>
+</tr>
+<tr class="row-odd"><td><p>9</p></td>
+<td><p>Estatística Descritiva</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="encerramento">
+<h3>Encerramento<a class="headerlink" href="#encerramento" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Semana</p></th>
+<th class="head"><p>Assunto</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>10</p></td>
+<td><p>Projeto Final</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="modelo-semanal-jabc">
+<h2>Modelo Semanal <span class="math notranslate nohighlight">\(j\)</span>ABC<a class="headerlink" href="#modelo-semanal-jabc" title="Permalink to this headline">¶</a></h2>
+<p><span class="math notranslate nohighlight">\(j = 1, 2, 3, ... 9\)</span></p>
+<ul class="simple">
+<li><p><strong>Segunda</strong>: aula síncrona com conteúdo <span class="math notranslate nohighlight">\(j\)</span>-A</p></li>
+<li><p><strong>Quarta</strong>: aula síncrona com conteúdo <span class="math notranslate nohighlight">\(j\)</span>-B</p></li>
+<li><p><strong>Sexta</strong>: atividade assíncrona com conteúdo <span class="math notranslate nohighlight">\(j\)</span>-C</p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(j = 10\)</span></p>
+<ul class="simple">
+<li><p><strong>Segunda</strong>: estudo</p></li>
+<li><p><strong>Quarta</strong>: estudo</p></li>
+<li><p><strong>Sexta</strong>: entrega de projeto</p></li>
+</ul>
+</div>
+<div class="section" id="exemplo-j-1">
+<h2>Exemplo:  <span class="math notranslate nohighlight">\(j = 1\)</span><a class="headerlink" href="#exemplo-j-1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Segunda (8/6)</strong>: aula síncrona com conteúdo <span class="math notranslate nohighlight">\(1\)</span>-A</p></li>
+<li><p><strong>Quarta (10/6)</strong>: aula síncrona com conteúdo <span class="math notranslate nohighlight">\(1\)</span>-B</p></li>
+<li><p><strong>Sexta (12/6)</strong>: atividade assíncrona com conteúdo <span class="math notranslate nohighlight">\(1\)</span>-C</p></li>
+</ul>
+</div>
+<div class="section" id="cronograma">
+<h2>Cronograma<a class="headerlink" href="#cronograma" title="Permalink to this headline">¶</a></h2>
+<table>
+<td>    
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>j</p></th>
+<th class="head"><p>ABC</p></th>
+<th class="head"><p>data</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>A</p></td>
+<td><p>8/6</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>B</p></td>
+<td><p>10/6</p></td>
+</tr>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>C</p></td>
+<td><p>12/6</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>A</p></td>
+<td><p>15/6</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>B</p></td>
+<td><p>17/6</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>C</p></td>
+<td><p>19/6</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>A</p></td>
+<td><p>22/6</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>B</p></td>
+<td><p>24/6</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>C</p></td>
+<td><p>26/6</p></td>
+</tr>
+</tbody>
+</table>
+</td>    
+<td>       
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>j</p></th>
+<th class="head"><p>ABC</p></th>
+<th class="head"><p>data</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>A</p></td>
+<td><p>29/6</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>B</p></td>
+<td><p>1/7</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>C</p></td>
+<td><p>3/7</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>A</p></td>
+<td><p>6/7</p></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>B</p></td>
+<td><p>8/7</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>C</p></td>
+<td><p>10/7</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>A</p></td>
+<td><p>13/7</p></td>
+</tr>
+<tr class="row-odd"><td><p>7</p></td>
+<td><p>B</p></td>
+<td><p>15/7</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>C</p></td>
+<td><p>17/7</p></td>
+</tr>
+</tbody>
+</table>
+</td>  
+<td>       
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>j</p></th>
+<th class="head"><p>ABC</p></th>
+<th class="head"><p>data</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>8</p></td>
+<td><p>A</p></td>
+<td><p>20/7</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>B</p></td>
+<td><p>22/7</p></td>
+</tr>
+<tr class="row-even"><td><p>8</p></td>
+<td><p>C</p></td>
+<td><p>24/7</p></td>
+</tr>
+<tr class="row-odd"><td><p>9</p></td>
+<td><p>A</p></td>
+<td><p>3/8</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>B</p></td>
+<td><p>5/8</p></td>
+</tr>
+<tr class="row-odd"><td><p>9</p></td>
+<td><p>C</p></td>
+<td><p>7/8</p></td>
+</tr>
+<tr class="row-even"><td><p>10</p></td>
+<td><p>projeto</p></td>
+<td><p>10/8</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>projeto</p></td>
+<td><p>12/8</p></td>
+</tr>
+<tr class="row-even"><td><p>10</p></td>
+<td><p>entrega</p></td>
+<td><p>14/8</p></td>
+</tr>
+</tbody>
+</table>
+</td>       
+</table></div>
+<div class="section" id="atividade-sincrona-x-assincrona">
+<h2>Atividade síncrona x assíncrona<a class="headerlink" href="#atividade-sincrona-x-assincrona" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Síncrona: presença de docente</p></li>
+<li><p>Neste curso: aulas online</p></li>
+<li><p>Assíncrona: estudo individual ou em grupo</p></li>
+<li><p>Neste curso: materiais disponibilizados</p></li>
+</ul>
+</div>
+<div class="section" id="plataformas">
+<h2>Plataformas<a class="headerlink" href="#plataformas" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Moodle Classes: materiais didáticos</p></li>
+<li><p>Google Meet: aulas remotas</p></li>
+<li><p>Binder: prática computacional em tempo real</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./rise"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Gustavo Oliveira e Andrea Rocha<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

@@ -1,0 +1,1823 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formatação de gráficos com matplotlib &#8212; Fundamentos de Matemática e Estatística para Ciência de Dados</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Gráficos interativos com o plotly" href="07c-plotly.html" />
+    <link rel="prev" title="Visualização gráfica de dados" href="07a-visualizacao-dados.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/cycle-ds.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Fundamentos de Matemática e Estatística para Ciência de Dados</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="00-apresentacao.html">
+   Apresentação
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Introdução
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01a-introducao.html">
+   Introdução à Ciência de Dados
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Matemática Computacional
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01b-fundamentos-python.html">
+   Fundamentos de
+   <em>
+    Python
+   </em>
+   para Computação Científica
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02a-computacao-simbolica.html">
+   Introdução à Computação Simbólica com
+   <em>
+    sympy
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03a-matematica-discreta.html">
+   Fundamentos de Matemática Discreta com Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04a-computacao-vetorizada.html">
+   Computação vetorizada com
+   <em>
+    numpy
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04b-plotagem-matplotlib.html">
+   Plotagem básica com
+   <em>
+    matplotlib
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05a-complemento-numpy.html">
+   Tópicos complementares sobre o
+   <em>
+    numpy
+   </em>
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Estatística e Análise de Dados
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="06a-pandas-series.html">
+   Manipulação de dados com
+   <em>
+    pandas
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06b-pandas-dataframe.html">
+   Operações com
+   <em>
+    DataFrames
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06c-pandas-agrupamento.html">
+   Agregação e agrupamento
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07a-visualizacao-dados.html">
+   Visualização gráfica de dados
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Formatação de gráficos com
+   <em>
+    matplotlib
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07c-plotly.html">
+   Gráficos interativos com o
+   <em>
+    plotly
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07d-seaborn.html">
+   Visualização gráfica de dados com
+   <em>
+    seaborn
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08a-estatistica-descritiva.html">
+   Estatística Descritiva com apoio do
+   <em>
+    Python
+   </em>
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Problemas
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01c-laboratorio-computacional.html">
+   Laboratório Computacional 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02c-laboratorio-computacional.html">
+   Laboratório Computacional 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03c-laboratorio-computacional.html">
+   Laboratório Computacional 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04c-laboratorio-computacional.html">
+   Laboratório Computacional 4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06d-laboratorio-computacional.html">
+   Laboratório Computacional 6
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07e-laboratorio-computacional.html">
+   Laboratório Computacional 7
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08c-laboratorio-computacional.html">
+   Laboratório Computacional 8
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/ipynb/07b-formatacao-matplotlib.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#grafico-de-linhas">
+   Gráfico de Linhas
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#grafico-de-colunas-e-de-linhas">
+   Gráfico de Colunas e de Linhas
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#grafico-de-setores">
+   Gráfico de Setores
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#grafico-de-dispersao">
+   Gráfico de Dispersão
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#graficos-lado-a-lado">
+   Gráficos Lado a Lado
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#histograma">
+   Histograma
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#boxplot">
+   BoxPlot
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="formatacao-de-graficos-com-matplotlib">
+<h1>Formatação de gráficos com <em>matplotlib</em><a class="headerlink" href="#formatacao-de-graficos-com-matplotlib" title="Permalink to this headline">¶</a></h1>
+<p>Vamos começar refazendo os gráficos que fizemos anteriormente com o método <strong>plot</strong> dos <em>DataFrames</em> e <em>Series</em> utilizando as funções do <strong>matplotlib.pyplot</strong>.</p>
+<p>O <strong>matplotlib</strong> transforma os dados em gráficos através de duas componentes: <strong>figuras</strong> (por exemplo janelas) e <strong>eixos</strong> (uma região onde os pontos podem ser determinados por meio de coordenadas). Se temos uma figura bidimensional, tipicamente os eixos são <em>x</em>-<em>y</em>, mas podemos ter coordenadas polares também. Se temos uma figura tridimensional, os eixos tipicamente são <em>x</em>-<em>y</em>-<em>z</em>, mas também podemos ter coordenadas esféricas, cilíndricas, etc.</p>
+<p>Como as figuras são determinadas pelas posições no plano ou no espaço, utilizamos com mais frequência os <strong>eixos</strong> de um objeto do <strong>matplotlib</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># Aqui utilizaremos a biblioteca matplotlib</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">serie_Idade</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span><span class="s1">&#39;Ana&#39;</span><span class="p">:</span><span class="mi">20</span><span class="p">,</span> <span class="s1">&#39;João&#39;</span><span class="p">:</span> <span class="mi">19</span><span class="p">,</span> <span class="s1">&#39;Maria&#39;</span><span class="p">:</span> <span class="mi">21</span><span class="p">,</span> <span class="s1">&#39;Pedro&#39;</span><span class="p">:</span> <span class="mi">22</span><span class="p">,</span> <span class="s1">&#39;Túlio&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">},</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Idade&quot;</span><span class="p">)</span>
+<span class="n">serie_Peso</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span><span class="s1">&#39;Ana&#39;</span><span class="p">:</span><span class="mi">55</span><span class="p">,</span> <span class="s1">&#39;João&#39;</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span> <span class="s1">&#39;Maria&#39;</span><span class="p">:</span> <span class="mi">62</span><span class="p">,</span> <span class="s1">&#39;Pedro&#39;</span><span class="p">:</span> <span class="mi">67</span><span class="p">,</span> <span class="s1">&#39;Túlio&#39;</span><span class="p">:</span> <span class="mi">73</span><span class="p">},</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Peso&quot;</span><span class="p">)</span>
+<span class="n">serie_Altura</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span><span class="s1">&#39;Ana&#39;</span><span class="p">:</span><span class="mi">162</span><span class="p">,</span> <span class="s1">&#39;João&#39;</span><span class="p">:</span> <span class="mi">178</span><span class="p">,</span> <span class="s1">&#39;Maria&#39;</span><span class="p">:</span> <span class="mi">162</span><span class="p">,</span> <span class="s1">&#39;Pedro&#39;</span><span class="p">:</span> <span class="mi">165</span><span class="p">,</span> <span class="s1">&#39;Túlio&#39;</span><span class="p">:</span> <span class="mi">171</span><span class="p">},</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Altura&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dicionario_series_exemplo</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Idade&#39;</span><span class="p">:</span> <span class="n">serie_Idade</span><span class="p">,</span> <span class="s1">&#39;Peso&#39;</span><span class="p">:</span> <span class="n">serie_Peso</span><span class="p">,</span> <span class="s1">&#39;Altura&#39;</span><span class="p">:</span> <span class="n">serie_Altura</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_dict_series</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">dicionario_series_exemplo</span><span class="p">);</span><span class="n">df_dict_series</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Idade</th>
+      <th>Peso</th>
+      <th>Altura</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Ana</th>
+      <td>20</td>
+      <td>55</td>
+      <td>162</td>
+    </tr>
+    <tr>
+      <th>João</th>
+      <td>19</td>
+      <td>80</td>
+      <td>178</td>
+    </tr>
+    <tr>
+      <th>Maria</th>
+      <td>21</td>
+      <td>62</td>
+      <td>162</td>
+    </tr>
+    <tr>
+      <th>Pedro</th>
+      <td>22</td>
+      <td>67</td>
+      <td>165</td>
+    </tr>
+    <tr>
+      <th>Túlio</th>
+      <td>20</td>
+      <td>73</td>
+      <td>171</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_exemplo</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;06b-exemplo_data.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">df_exemplo</span><span class="p">[</span><span class="s1">&#39;coluna_3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span><span class="n">index</span><span class="o">=</span><span class="n">df_exemplo</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">df_exemplo</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>coluna_1</th>
+      <th>coluna_2</th>
+      <th>coluna_3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-01-01</th>
+      <td>-0.416092</td>
+      <td>1.810364</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2020-01-02</th>
+      <td>-0.137970</td>
+      <td>2.578520</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>2020-01-03</th>
+      <td>0.575827</td>
+      <td>0.060866</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>2020-01-04</th>
+      <td>-0.017367</td>
+      <td>1.299587</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>2020-01-05</th>
+      <td>1.384279</td>
+      <td>-0.381732</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>2020-01-06</th>
+      <td>0.549706</td>
+      <td>-1.308789</td>
+      <td>6.0</td>
+    </tr>
+    <tr>
+      <th>2020-01-07</th>
+      <td>-0.282296</td>
+      <td>-1.688979</td>
+      <td>7.0</td>
+    </tr>
+    <tr>
+      <th>2020-01-08</th>
+      <td>-0.989730</td>
+      <td>-0.028121</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <th>2020-01-09</th>
+      <td>0.275582</td>
+      <td>-0.177659</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2020-01-10</th>
+      <td>0.685132</td>
+      <td>0.502535</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">covid_PB</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://superset.plataformatarget.com.br/superset/explore_json/?form_data=%7B</span><span class="si">%22s</span><span class="s1">lice_id</span><span class="si">%22%</span><span class="s1">3A1550%7D&amp;csv=true&#39;</span><span class="p">,</span> 
+                             <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">covid_PB</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>casosAcumulados</th>
+      <th>casosNovos</th>
+      <th>descartados</th>
+      <th>recuperados</th>
+      <th>obitosAcumulados</th>
+      <th>obitosNovos</th>
+      <th>Letalidade</th>
+    </tr>
+    <tr>
+      <th>data</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2021-02-03</th>
+      <td>194519</td>
+      <td>1054</td>
+      <td>234902</td>
+      <td>149248</td>
+      <td>4096</td>
+      <td>14</td>
+      <td>0.0211</td>
+    </tr>
+    <tr>
+      <th>2021-02-02</th>
+      <td>193465</td>
+      <td>867</td>
+      <td>234366</td>
+      <td>149242</td>
+      <td>4082</td>
+      <td>14</td>
+      <td>0.0211</td>
+    </tr>
+    <tr>
+      <th>2021-02-01</th>
+      <td>192598</td>
+      <td>1014</td>
+      <td>234215</td>
+      <td>149235</td>
+      <td>4068</td>
+      <td>12</td>
+      <td>0.0211</td>
+    </tr>
+    <tr>
+      <th>2021-01-31</th>
+      <td>191584</td>
+      <td>1104</td>
+      <td>234198</td>
+      <td>148856</td>
+      <td>4056</td>
+      <td>8</td>
+      <td>0.0212</td>
+    </tr>
+    <tr>
+      <th>2021-01-30</th>
+      <td>190480</td>
+      <td>1065</td>
+      <td>233698</td>
+      <td>148722</td>
+      <td>4048</td>
+      <td>12</td>
+      <td>0.0213</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">covid_BR</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;06b-HIST_PAINEL_COVIDBR_18jul2020.xlsx&quot;</span><span class="p">)</span>
+<span class="n">covid_BR</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>regiao</th>
+      <th>estado</th>
+      <th>municipio</th>
+      <th>coduf</th>
+      <th>codmun</th>
+      <th>codRegiaoSaude</th>
+      <th>nomeRegiaoSaude</th>
+      <th>data</th>
+      <th>semanaEpi</th>
+      <th>populacaoTCU2019</th>
+      <th>casosAcumulado</th>
+      <th>casosNovos</th>
+      <th>obitosAcumulado</th>
+      <th>obitosNovos</th>
+      <th>Recuperadosnovos</th>
+      <th>emAcompanhamentoNovos</th>
+      <th>interior/metropolitana</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>Brasil</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>76</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2020-02-25</td>
+      <td>9</td>
+      <td>210147125</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>Brasil</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>76</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2020-02-26</td>
+      <td>9</td>
+      <td>210147125</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>Brasil</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>76</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2020-02-27</td>
+      <td>9</td>
+      <td>210147125</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>Brasil</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>76</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2020-02-28</td>
+      <td>9</td>
+      <td>210147125</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>Brasil</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>76</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2020-02-29</td>
+      <td>9</td>
+      <td>210147125</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="section" id="grafico-de-linhas">
+<h2>Gráfico de Linhas<a class="headerlink" href="#grafico-de-linhas" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>  <span class="c1"># Este comando cria uma figura com um eixo</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df_exemplo</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">df_exemplo</span><span class="p">[</span><span class="s1">&#39;coluna_1&#39;</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Primeira Coluna&#39;</span><span class="p">)</span> <span class="c1"># Inserimos a linha relativa à coluna 1</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df_exemplo</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">df_exemplo</span><span class="p">[</span><span class="s1">&#39;coluna_2&#39;</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Segunda Coluna&#39;</span><span class="p">)</span> <span class="c1"># Inserimos a linha relativa à coluna 2</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df_exemplo</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">df_exemplo</span><span class="p">[</span><span class="s1">&#39;coluna_3&#39;</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Terceira Coluna&#39;</span><span class="p">)</span> <span class="c1"># Inserimos a linha relativa à coluna 3</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Data&#39;</span><span class="p">)</span> <span class="c1"># Rótulo do eixo x</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Valor&#39;</span><span class="p">)</span> <span class="c1"># Rótulo do eixo y</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Gráfico do df_exemplo&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fa2736a9090&gt;
+</pre></div>
+</div>
+<img alt="../_images/07b-formatacao-matplotlib_11_1.png" src="../_images/07b-formatacao-matplotlib_11_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>  <span class="c1"># Este comando cria uma figura com um eixo</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df_exemplo</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">df_exemplo</span><span class="p">[</span><span class="s1">&#39;coluna_1&#39;</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Primeira Coluna&#39;</span><span class="p">,</span> 
+        <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span> <span class="c1"># Inserimos a linha relativa à coluna 1, definimos a cor vermelha</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df_exemplo</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">df_exemplo</span><span class="p">[</span><span class="s1">&#39;coluna_2&#39;</span><span class="p">],</span> 
+        <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Segunda Coluna&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">6.0</span><span class="p">)</span> <span class="c1"># Inserimos a linha relativa à coluna 2 e aumentamos a grossura da linha</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df_exemplo</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">df_exemplo</span><span class="p">[</span><span class="s1">&#39;coluna_3&#39;</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Terceira Coluna&#39;</span><span class="p">)</span> <span class="c1"># Inserimos a linha relativa à coluna 3</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Data&#39;</span><span class="p">)</span> <span class="c1"># Rótulo do eixo x</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Valor&#39;</span><span class="p">)</span> <span class="c1"># Rótulo do eixo y</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Gráfico do df_exemplo&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">autofmt_xdate</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/07b-formatacao-matplotlib_12_0.png" src="../_images/07b-formatacao-matplotlib_12_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">covid_PB</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">covid_PB</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">covid_PB_casos_obitos</span> <span class="o">=</span> <span class="n">covid_PB</span><span class="p">[[</span><span class="s1">&#39;casosAcumulados&#39;</span><span class="p">,</span> <span class="s1">&#39;obitosAcumulados&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>  
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">covid_PB_casos_obitos</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">covid_PB_casos_obitos</span><span class="p">[</span><span class="s1">&#39;casosAcumulados&#39;</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Total de Casos&#39;</span><span class="p">,</span> 
+        <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span> 
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">covid_PB_casos_obitos</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">covid_PB_casos_obitos</span><span class="p">[</span><span class="s1">&#39;obitosAcumulados&#39;</span><span class="p">],</span> 
+        <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Total de Óbitos&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Data&#39;</span><span class="p">)</span> <span class="c1"># Rótulo do eixo x</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Total&#39;</span><span class="p">)</span> <span class="c1"># Rótulo do eixo y</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Casos e Óbitos de COVID-19 na Paraíba&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">autofmt_xdate</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/07b-formatacao-matplotlib_13_0.png" src="../_images/07b-formatacao-matplotlib_13_0.png" />
+</div>
+</div>
+<p>Podemos alterar a apresentação das datas utilizando o subpacote <em>dates</em> do <em>matplotlib</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.dates</span> <span class="k">as</span> <span class="nn">mdates</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>  
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">covid_PB_casos_obitos</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">covid_PB_casos_obitos</span><span class="p">[</span><span class="s1">&#39;casosAcumulados&#39;</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Total de Casos&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span> 
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">covid_PB_casos_obitos</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">covid_PB_casos_obitos</span><span class="p">[</span><span class="s1">&#39;obitosAcumulados&#39;</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Total de Óbitos&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Data&#39;</span><span class="p">)</span> <span class="c1"># Rótulo do eixo x</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Total&#39;</span><span class="p">)</span> <span class="c1"># Rótulo do eixo y</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Casos e Óbitos de COVID-19 na Paraíba&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">mdates</span><span class="o">.</span><span class="n">DayLocator</span><span class="p">(</span><span class="n">interval</span><span class="o">=</span><span class="mi">7</span><span class="p">))</span> <span class="c1">#Intervalo entre os tracinhos</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">mdates</span><span class="o">.</span><span class="n">DayLocator</span><span class="p">(</span><span class="n">interval</span><span class="o">=</span><span class="mi">21</span><span class="p">))</span> <span class="c1">#Intervalo entre as datas</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">mdates</span><span class="o">.</span><span class="n">DateFormatter</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">/%m/%Y&#39;</span><span class="p">))</span> <span class="c1">#Formato da data</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">autofmt_xdate</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/07b-formatacao-matplotlib_16_0.png" src="../_images/07b-formatacao-matplotlib_16_0.png" />
+</div>
+</div>
+<p>Vamos agora alterar o formato dos números do eixo <em>y</em>. Para tanto iremos definir uma função para realizar a formatação e utilizaremos a função <em>FuncFormatter</em> do subpacote <em>matplotlib.ticker</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib.ticker</span> <span class="kn">import</span> <span class="n">FuncFormatter</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">inserir_mil</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">pos</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s1">&#39;</span><span class="si">%1i</span><span class="s1"> mil&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="mf">1e-3</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>  
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">covid_PB_casos_obitos</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">covid_PB_casos_obitos</span><span class="p">[</span><span class="s1">&#39;casosAcumulados&#39;</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Total de Casos&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span> 
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">covid_PB_casos_obitos</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">covid_PB_casos_obitos</span><span class="p">[</span><span class="s1">&#39;obitosAcumulados&#39;</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Total de Óbitos&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Data&#39;</span><span class="p">)</span> <span class="c1"># Rótulo do eixo x</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Total&#39;</span><span class="p">)</span> <span class="c1"># Rótulo do eixo y</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Casos e Óbitos de COVID-19 na Paraíba&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">mdates</span><span class="o">.</span><span class="n">DayLocator</span><span class="p">(</span><span class="n">interval</span><span class="o">=</span><span class="mi">7</span><span class="p">))</span> <span class="c1">#Intervalo entre os tracinhos</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">mdates</span><span class="o">.</span><span class="n">DayLocator</span><span class="p">(</span><span class="n">interval</span><span class="o">=</span><span class="mi">21</span><span class="p">))</span> <span class="c1">#Intervalo entre as datas</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">mdates</span><span class="o">.</span><span class="n">DateFormatter</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">/%m/%Y&#39;</span><span class="p">))</span> <span class="c1">#Formato da data</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">autofmt_xdate</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">FuncFormatter</span><span class="p">(</span><span class="n">inserir_mil</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/07b-formatacao-matplotlib_19_0.png" src="../_images/07b-formatacao-matplotlib_19_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">covid_regioes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+
+<span class="n">regioes</span> <span class="o">=</span> <span class="n">covid_BR</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;regiao != &quot;Brasil&quot;&#39;</span><span class="p">)[</span><span class="s1">&#39;regiao&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span><span class="o">.</span><span class="n">array</span>
+
+<span class="k">for</span> <span class="n">regiao</span> <span class="ow">in</span> <span class="n">regioes</span><span class="p">:</span>
+    <span class="n">temp_series</span> <span class="o">=</span> <span class="n">covid_BR</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;regiao == @regiao&#39;</span><span class="p">)[</span><span class="s1">&#39;obitosAcumulado&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span>
+    <span class="c1">#Obs.: Utilizamos @ na frente do nome da variável para utilizar o valor da variável no query.</span>
+    <span class="c1">#Obs.: Dividimos por 2, pois os óbitos estão sendo contados duas vezes, </span>
+    <span class="c1">#uma para quando codmun == nan e outra quando não é nulo</span>
+    <span class="n">temp_series</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;obitos_&#39;</span> <span class="o">+</span> <span class="n">regiao</span>
+    <span class="n">covid_regioes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">covid_regioes</span><span class="p">,</span> <span class="n">temp_series</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    
+<span class="n">covid_regioes</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">covid_regioes</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">covid_regioes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>obitos_Norte</th>
+      <th>obitos_Nordeste</th>
+      <th>obitos_Sudeste</th>
+      <th>obitos_Sul</th>
+      <th>obitos_Centro-Oeste</th>
+    </tr>
+    <tr>
+      <th>data</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-02-25</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2020-02-26</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2020-02-27</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2020-02-28</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2020-02-29</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2020-07-14</th>
+      <td>10628.0</td>
+      <td>23925.0</td>
+      <td>33718.0</td>
+      <td>2740.0</td>
+      <td>3122.0</td>
+    </tr>
+    <tr>
+      <th>2020-07-15</th>
+      <td>10693.0</td>
+      <td>24272.0</td>
+      <td>34246.0</td>
+      <td>2870.0</td>
+      <td>3285.0</td>
+    </tr>
+    <tr>
+      <th>2020-07-16</th>
+      <td>10790.0</td>
+      <td>24645.0</td>
+      <td>34857.0</td>
+      <td>2975.0</td>
+      <td>3421.0</td>
+    </tr>
+    <tr>
+      <th>2020-07-17</th>
+      <td>10911.0</td>
+      <td>24902.0</td>
+      <td>35374.0</td>
+      <td>3104.0</td>
+      <td>3560.0</td>
+    </tr>
+    <tr>
+      <th>2020-07-18</th>
+      <td>10972.0</td>
+      <td>25194.0</td>
+      <td>35732.0</td>
+      <td>3199.0</td>
+      <td>3675.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>145 rows × 5 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>  
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">covid_regioes</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">covid_regioes</span><span class="p">[</span><span class="s1">&#39;obitos_Norte&#39;</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Norte&#39;</span><span class="p">)</span> 
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">covid_regioes</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">covid_regioes</span><span class="p">[</span><span class="s1">&#39;obitos_Nordeste&#39;</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Nordeste&#39;</span><span class="p">)</span> 
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">covid_regioes</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">covid_regioes</span><span class="p">[</span><span class="s1">&#39;obitos_Sudeste&#39;</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Sudeste&#39;</span><span class="p">)</span> 
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">covid_regioes</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">covid_regioes</span><span class="p">[</span><span class="s1">&#39;obitos_Sul&#39;</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Sul&#39;</span><span class="p">)</span> 
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">covid_regioes</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">covid_regioes</span><span class="p">[</span><span class="s1">&#39;obitos_Centro-Oeste&#39;</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Centro-Oeste&#39;</span><span class="p">)</span> 
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Data&#39;</span><span class="p">)</span> <span class="c1"># Rótulo do eixo x</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Total de Óbitos&#39;</span><span class="p">)</span> <span class="c1"># Rótulo do eixo y</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Óbitos de COVID-19 nas regiões do Brasil&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">mdates</span><span class="o">.</span><span class="n">DayLocator</span><span class="p">(</span><span class="n">interval</span><span class="o">=</span><span class="mi">7</span><span class="p">))</span> <span class="c1">#Intervalo entre os tracinhos</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">mdates</span><span class="o">.</span><span class="n">DayLocator</span><span class="p">(</span><span class="n">interval</span><span class="o">=</span><span class="mi">21</span><span class="p">))</span> <span class="c1">#Intervalo entre as datas</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">mdates</span><span class="o">.</span><span class="n">DateFormatter</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">/%m/%Y&#39;</span><span class="p">))</span> <span class="c1">#Formato da data</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">autofmt_xdate</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">FuncFormatter</span><span class="p">(</span><span class="n">inserir_mil</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/07b-formatacao-matplotlib_21_0.png" src="../_images/07b-formatacao-matplotlib_21_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="grafico-de-colunas-e-de-linhas">
+<h2>Gráfico de Colunas e de Linhas<a class="headerlink" href="#grafico-de-colunas-e-de-linhas" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">covid_Regioes</span> <span class="o">=</span> <span class="n">covid_BR</span><span class="p">[[</span><span class="s1">&#39;regiao&#39;</span><span class="p">,</span><span class="s1">&#39;obitosNovos&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;regiao&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;regiao != &quot;Brasil&quot;&#39;</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">covid_Regioes</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">covid_Regioes</span><span class="p">[</span><span class="s1">&#39;obitosNovos&#39;</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">FuncFormatter</span><span class="p">(</span><span class="n">inserir_mil</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Total de Óbitos&#39;</span><span class="p">)</span> <span class="c1"># Rótulo do eixo y</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Óbitos de COVID-19 nas regiões do Brasil até o dia 18/07/2020&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Óbitos de COVID-19 nas regiões do Brasil até o dia 18/07/2020&#39;)
+</pre></div>
+</div>
+<img alt="../_images/07b-formatacao-matplotlib_23_1.png" src="../_images/07b-formatacao-matplotlib_23_1.png" />
+</div>
+</div>
+<p>Podemos inserir o total de cada região em cima do retângulo correspondente. Para tanto, utilizaremos a seguinte função disponível na página do <em>matplotlib</em>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">autolabel</span><span class="p">(</span><span class="n">rects</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Attach a text label above each bar in *rects*, displaying its height.&quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">rect</span> <span class="ow">in</span> <span class="n">rects</span><span class="p">:</span>
+        <span class="n">height</span> <span class="o">=</span> <span class="n">rect</span><span class="o">.</span><span class="n">get_height</span><span class="p">()</span>
+        <span class="c1">#ax.annotate(&#39;{}&#39;.format(height), #antigo</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:.0f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">height</span><span class="p">),</span> <span class="c1">#Modificamos para apresentar o número inteiro                    </span>
+                    <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">get_x</span><span class="p">()</span> <span class="o">+</span> <span class="n">rect</span><span class="o">.</span><span class="n">get_width</span><span class="p">()</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span><span class="p">),</span>
+                    <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>  <span class="c1"># 3 points vertical offset</span>
+                    <span class="n">textcoords</span><span class="o">=</span><span class="s2">&quot;offset points&quot;</span><span class="p">,</span>
+                    <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">covid_Regioes</span> <span class="o">=</span> <span class="n">covid_BR</span><span class="p">[[</span><span class="s1">&#39;regiao&#39;</span><span class="p">,</span><span class="s1">&#39;obitosNovos&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;regiao&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;regiao != &quot;Brasil&quot;&#39;</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">40000</span><span class="p">)</span> <span class="c1"># aumentamos o limite da coordenada y</span>
+<span class="n">retangulos</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">covid_Regioes</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">covid_Regioes</span><span class="p">[</span><span class="s1">&#39;obitosNovos&#39;</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">FuncFormatter</span><span class="p">(</span><span class="n">inserir_mil</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Total de Óbitos&#39;</span><span class="p">)</span> <span class="c1"># Rótulo do eixo y</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Óbitos de COVID-19 nas regiões do Brasil até o dia 18/07/2020&quot;</span><span class="p">)</span>
+<span class="n">autolabel</span><span class="p">(</span><span class="n">retangulos</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/07b-formatacao-matplotlib_26_0.png" src="../_images/07b-formatacao-matplotlib_26_0.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>Para realizarmos os “plots” agrupados das barras devemos realizar 5 “plots” distintos, um para cada barra.</p></li>
+<li><p>Cada plot sofrerá uma translação (exceto o do meio).</p></li>
+<li><p>Iremos reduzir a largura de cada barra.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">covid_Regioes</span> <span class="o">=</span> <span class="n">covid_BR</span><span class="p">[[</span><span class="s1">&#39;regiao&#39;</span><span class="p">,</span><span class="s1">&#39;obitosNovos&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;regiao&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;regiao != &quot;Brasil&quot;&#39;</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+<span class="n">largura</span> <span class="o">=</span> <span class="mf">0.3</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">retangulo1</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">largura</span><span class="p">],</span> <span class="n">covid_Regioes</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s1">&#39;Norte&#39;</span><span class="p">],[</span><span class="s1">&#39;obitosNovos&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()[</span><span class="mi">0</span><span class="p">],</span> <span class="n">largura</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Norte&#39;</span><span class="p">)</span>
+<span class="n">retangulo2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">([</span><span class="o">-</span><span class="n">largura</span><span class="p">],</span> <span class="n">covid_Regioes</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s1">&#39;Nordeste&#39;</span><span class="p">],[</span><span class="s1">&#39;obitosNovos&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()[</span><span class="mi">0</span><span class="p">],</span> <span class="n">largura</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Nordeste&#39;</span><span class="p">)</span>
+<span class="n">retangulo3</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="n">covid_Regioes</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s1">&#39;Centro-Oeste&#39;</span><span class="p">],[</span><span class="s1">&#39;obitosNovos&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()[</span><span class="mi">0</span><span class="p">],</span> <span class="n">largura</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Centro-Oeste&#39;</span><span class="p">)</span>
+<span class="n">retangulo4</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">([</span><span class="n">largura</span><span class="p">],</span> <span class="n">covid_Regioes</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s1">&#39;Sudeste&#39;</span><span class="p">],[</span><span class="s1">&#39;obitosNovos&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()[</span><span class="mi">0</span><span class="p">],</span> <span class="n">largura</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Sudeste&#39;</span><span class="p">)</span>
+<span class="n">retangulo5</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">([</span><span class="mi">2</span><span class="o">*</span><span class="n">largura</span><span class="p">],</span> <span class="n">covid_Regioes</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s1">&#39;Sul&#39;</span><span class="p">],[</span><span class="s1">&#39;obitosNovos&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()[</span><span class="mi">0</span><span class="p">],</span> <span class="n">largura</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Sul&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">FuncFormatter</span><span class="p">(</span><span class="n">inserir_mil</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Total de Óbitos&#39;</span><span class="p">)</span> <span class="c1"># Rótulo do eixo y</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Óbitos de COVID-19 nas regiões do Brasil até o dia 18/07/2020&quot;</span><span class="p">)</span>
+<span class="n">autolabel</span><span class="p">(</span><span class="n">retangulo1</span><span class="p">);</span> <span class="n">autolabel</span><span class="p">(</span><span class="n">retangulo2</span><span class="p">);</span> <span class="n">autolabel</span><span class="p">(</span><span class="n">retangulo3</span><span class="p">);</span> <span class="n">autolabel</span><span class="p">(</span><span class="n">retangulo4</span><span class="p">);</span> <span class="n">autolabel</span><span class="p">(</span><span class="n">retangulo5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">40000</span><span class="p">)</span> <span class="c1"># aumentamos o limite da coordenada y</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">)</span> <span class="c1"># Limites que iremos utilizar na coordenada y</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([],</span> <span class="p">[])</span> <span class="c1"># Remover os &quot;ticks&quot; no eixo x</span>
+<span class="c1">#plt.xticks([0], [&#39;Região&#39;]) # Se quisermos incluir o rótulo &quot;Região&quot; na posição 0 do eixo x</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Região&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fa283b23250&gt;
+</pre></div>
+</div>
+<img alt="../_images/07b-formatacao-matplotlib_29_1.png" src="../_images/07b-formatacao-matplotlib_29_1.png" />
+</div>
+</div>
+<p>Para empilharmos as barras manualmente devemos utilizar o argumento <strong>bottom</strong>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">largura</span> <span class="o">=</span> <span class="mf">0.25</span>
+<span class="n">obitos_norte</span> <span class="o">=</span> <span class="n">covid_Regioes</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s1">&#39;Norte&#39;</span><span class="p">],[</span><span class="s1">&#39;obitosNovos&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">obitos_nordeste</span> <span class="o">=</span> <span class="n">covid_Regioes</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s1">&#39;Nordeste&#39;</span><span class="p">],[</span><span class="s1">&#39;obitosNovos&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">obitos_centro_oeste</span> <span class="o">=</span> <span class="n">covid_Regioes</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s1">&#39;Centro-Oeste&#39;</span><span class="p">],[</span><span class="s1">&#39;obitosNovos&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">obitos_sudeste</span> <span class="o">=</span> <span class="n">covid_Regioes</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s1">&#39;Sudeste&#39;</span><span class="p">],[</span><span class="s1">&#39;obitosNovos&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">obitos_sul</span> <span class="o">=</span> <span class="n">covid_Regioes</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s1">&#39;Sul&#39;</span><span class="p">],[</span><span class="s1">&#39;obitosNovos&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">retangulo1</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">([</span><span class="mf">0.5</span><span class="p">],</span> <span class="n">obitos_norte</span><span class="p">,</span> <span class="n">largura</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Norte&#39;</span><span class="p">)</span>
+<span class="n">retangulo2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">([</span><span class="mf">0.5</span><span class="p">],</span> <span class="n">obitos_nordeste</span><span class="p">,</span> <span class="n">largura</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Nordeste&#39;</span><span class="p">,</span> <span class="n">bottom</span> <span class="o">=</span> <span class="n">obitos_norte</span><span class="p">)</span>
+<span class="n">retangulo3</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">([</span><span class="mf">0.5</span><span class="p">],</span> <span class="n">obitos_centro_oeste</span><span class="p">,</span> <span class="n">largura</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Centro-Oeste&#39;</span><span class="p">,</span> <span class="n">bottom</span> <span class="o">=</span> <span class="n">obitos_norte</span> <span class="o">+</span> <span class="n">obitos_nordeste</span><span class="p">)</span>
+<span class="n">retangulo4</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">([</span><span class="mf">0.5</span><span class="p">],</span> <span class="n">obitos_sudeste</span><span class="p">,</span> <span class="n">largura</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Sudeste&#39;</span><span class="p">,</span> <span class="n">bottom</span> <span class="o">=</span> <span class="n">obitos_norte</span> <span class="o">+</span> 
+                    <span class="n">obitos_nordeste</span> <span class="o">+</span> <span class="n">obitos_centro_oeste</span><span class="p">)</span>
+<span class="n">retangulo5</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">([</span><span class="mf">0.5</span><span class="p">],</span> <span class="n">obitos_sul</span><span class="p">,</span> <span class="n">largura</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Sul&#39;</span><span class="p">,</span> <span class="n">bottom</span> <span class="o">=</span> <span class="n">obitos_norte</span> <span class="o">+</span> 
+                    <span class="n">obitos_nordeste</span> <span class="o">+</span> <span class="n">obitos_centro_oeste</span> <span class="o">+</span> <span class="n">obitos_sudeste</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">FuncFormatter</span><span class="p">(</span><span class="n">inserir_mil</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Total de Óbitos&#39;</span><span class="p">)</span> <span class="c1"># Rótulo do eixo y</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Óbitos de COVID-19 nas regiões do Brasil até o dia 18/07/2020&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([],</span> <span class="p">[])</span>
+<span class="c1">#plt.xticks([0], [&#39;Região&#39;]) # Se quisermos incluir o rótulo &quot;Região&quot; na posição 0 do eixo x</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Região&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fa28c036b50&gt;
+</pre></div>
+</div>
+<img alt="../_images/07b-formatacao-matplotlib_32_1.png" src="../_images/07b-formatacao-matplotlib_32_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df_dict_series</span><span class="o">.</span><span class="n">index</span><span class="p">))</span>
+<span class="n">largura</span> <span class="o">=</span> <span class="mf">0.25</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">retangulo1</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">largura</span><span class="p">,</span> <span class="n">df_dict_series</span><span class="o">.</span><span class="n">Idade</span><span class="p">,</span> <span class="n">largura</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Idade&#39;</span><span class="p">)</span>
+<span class="n">retangulo2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">df_dict_series</span><span class="o">.</span><span class="n">Peso</span><span class="p">,</span> <span class="n">largura</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Peso&#39;</span><span class="p">)</span>
+<span class="n">retangulo3</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">largura</span><span class="p">,</span> <span class="n">df_dict_series</span><span class="o">.</span><span class="n">Altura</span><span class="p">,</span> <span class="n">largura</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Altura&#39;</span><span class="p">)</span>
+<span class="n">autolabel</span><span class="p">(</span><span class="n">retangulo1</span><span class="p">);</span> <span class="n">autolabel</span><span class="p">(</span><span class="n">retangulo2</span><span class="p">);</span> <span class="n">autolabel</span><span class="p">(</span><span class="n">retangulo3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Valor&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Características&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">df_dict_series</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fa28801bad0&gt;
+</pre></div>
+</div>
+<img alt="../_images/07b-formatacao-matplotlib_33_1.png" src="../_images/07b-formatacao-matplotlib_33_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df_dict_series</span><span class="o">.</span><span class="n">index</span><span class="p">))</span>
+<span class="n">largura</span> <span class="o">=</span> <span class="mf">0.25</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">retangulo1</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">df_dict_series</span><span class="o">.</span><span class="n">Idade</span><span class="p">,</span> <span class="n">largura</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Idade&#39;</span><span class="p">)</span>
+<span class="n">retangulo2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">df_dict_series</span><span class="o">.</span><span class="n">Peso</span><span class="p">,</span> <span class="n">largura</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Peso&#39;</span><span class="p">,</span> <span class="n">bottom</span> <span class="o">=</span> <span class="n">df_dict_series</span><span class="o">.</span><span class="n">Idade</span><span class="p">)</span>
+<span class="n">retangulo3</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">df_dict_series</span><span class="o">.</span><span class="n">Altura</span><span class="p">,</span> <span class="n">largura</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Altura&#39;</span><span class="p">,</span> <span class="n">bottom</span> <span class="o">=</span> <span class="n">df_dict_series</span><span class="o">.</span><span class="n">Idade</span> <span class="o">+</span> <span class="n">df_dict_series</span><span class="o">.</span><span class="n">Peso</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Valor&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Características&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">df_dict_series</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fa28117e090&gt;
+</pre></div>
+</div>
+<img alt="../_images/07b-formatacao-matplotlib_34_1.png" src="../_images/07b-formatacao-matplotlib_34_1.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>Para construir os gráficos de barras procedemos de maneira análoga ao que foi feito acima.</p></li>
+<li><p>Substituímos o método <strong>bar</strong> por <strong>barh</strong></p></li>
+<li><p>Caso haja interesse deve modificar a função autolabel, alterando a altura, <em>height</em>, pela largura, <em>width</em>.</p></li>
+</ul>
+</div>
+<div class="section" id="grafico-de-setores">
+<h2>Gráfico de Setores<a class="headerlink" href="#grafico-de-setores" title="Permalink to this headline">¶</a></h2>
+<p>Neste caso devemos modificar o <em>DataFrame</em> para conter percentuais (ou pesos).</p>
+<ul class="simple">
+<li><p>Vamos usar os parâmetros:</p></li>
+<li><p><strong>autopct</strong> que adiciona o percentual de cada “fatia”.</p></li>
+<li><p><strong>shadow</strong> que adiciona sombra</p></li>
+<li><p><strong>explode</strong> que separa fatias selecionadas</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_dict_series_pct</span> <span class="o">=</span> <span class="n">df_dict_series</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df_dict_series_pct</span><span class="o">.</span><span class="n">Idade</span> <span class="o">=</span> <span class="n">df_dict_series_pct</span><span class="o">.</span><span class="n">Idade</span><span class="o">/</span><span class="n">df_dict_series_pct</span><span class="o">.</span><span class="n">Idade</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">df_dict_series_pct</span><span class="o">.</span><span class="n">Peso</span> <span class="o">=</span> <span class="n">df_dict_series_pct</span><span class="o">.</span><span class="n">Peso</span><span class="o">/</span><span class="n">df_dict_series_pct</span><span class="o">.</span><span class="n">Peso</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">df_dict_series_pct</span><span class="o">.</span><span class="n">Altura</span> <span class="o">=</span> <span class="n">df_dict_series_pct</span><span class="o">.</span><span class="n">Altura</span><span class="o">/</span><span class="n">df_dict_series_pct</span><span class="o">.</span><span class="n">Altura</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">df_dict_series_pct</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Idade</th>
+      <th>Peso</th>
+      <th>Altura</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Ana</th>
+      <td>0.196078</td>
+      <td>0.163205</td>
+      <td>0.193317</td>
+    </tr>
+    <tr>
+      <th>João</th>
+      <td>0.186275</td>
+      <td>0.237389</td>
+      <td>0.212411</td>
+    </tr>
+    <tr>
+      <th>Maria</th>
+      <td>0.205882</td>
+      <td>0.183976</td>
+      <td>0.193317</td>
+    </tr>
+    <tr>
+      <th>Pedro</th>
+      <td>0.215686</td>
+      <td>0.198813</td>
+      <td>0.196897</td>
+    </tr>
+    <tr>
+      <th>Túlio</th>
+      <td>0.196078</td>
+      <td>0.216617</td>
+      <td>0.204057</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">figs</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span> <span class="c1">#1 linha3 e 3 colunas de &quot;plots&quot;</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">df_dict_series_pct</span><span class="o">.</span><span class="n">Idade</span><span class="p">,</span>  <span class="n">labels</span><span class="o">=</span><span class="n">df_dict_series_pct</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">autopct</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%1.1f%%</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">shadow</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>  <span class="c1"># Igualando os eixos para garantir que obteremos um círculo</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Idade&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">df_dict_series_pct</span><span class="o">.</span><span class="n">Peso</span><span class="p">,</span>  <span class="n">labels</span><span class="o">=</span><span class="n">df_dict_series_pct</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">autopct</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%1.1f%%</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">shadow</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>  
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Peso&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">df_dict_series_pct</span><span class="o">.</span><span class="n">Altura</span><span class="p">,</span>  <span class="n">labels</span><span class="o">=</span><span class="n">df_dict_series_pct</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">autopct</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%1.1f%%</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">shadow</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>  
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Altura&#39;</span><span class="p">)</span> <span class="c1">#Atribuímos a uma variável para não termos saída</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/07b-formatacao-matplotlib_39_0.png" src="../_images/07b-formatacao-matplotlib_39_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">covid_Regioes_pct</span> <span class="o">=</span> <span class="n">covid_Regioes</span><span class="o">/</span><span class="n">covid_Regioes</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">covid_Regioes_pct</span><span class="p">[</span><span class="s1">&#39;explodir&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">covid_Regioes_pct</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">regiao</span><span class="p">:</span> <span class="mf">0.1</span> <span class="k">if</span> <span class="n">regiao</span> <span class="o">==</span> <span class="s1">&#39;Nordeste&#39;</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">covid_Regioes_pct</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>obitosNovos</th>
+      <th>explodir</th>
+    </tr>
+    <tr>
+      <th>regiao</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Centro-Oeste</th>
+      <td>0.046654</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Nordeste</th>
+      <td>0.319834</td>
+      <td>0.1</td>
+    </tr>
+    <tr>
+      <th>Norte</th>
+      <td>0.139288</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Sudeste</th>
+      <td>0.453613</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Sul</th>
+      <td>0.040611</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">covid_Regioes_pct</span><span class="o">.</span><span class="n">obitosNovos</span><span class="p">,</span> <span class="n">explode</span><span class="o">=</span><span class="n">covid_Regioes_pct</span><span class="o">.</span><span class="n">explodir</span><span class="p">,</span> 
+       <span class="n">labels</span><span class="o">=</span><span class="n">covid_Regioes_pct</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">autopct</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%1.1f%%</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">shadow</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Percentual de Óbitos de COVID-19 nas Regiões do Brasil até o Dia 18/07/2020&#39;</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/07b-formatacao-matplotlib_41_0.png" src="../_images/07b-formatacao-matplotlib_41_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="grafico-de-dispersao">
+<h2>Gráfico de Dispersão<a class="headerlink" href="#grafico-de-dispersao" title="Permalink to this headline">¶</a></h2>
+<p>Para gráficos de dispersão vários argumentos são os mesmos que já vimos no método <strong>plot</strong> do <em>pandas</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df_exemplo</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">df_exemplo</span><span class="p">[</span><span class="s1">&#39;coluna_1&#39;</span><span class="p">])</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">autofmt_xdate</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Data&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Valores da Coluna 1&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Gráfico do df_exemplo&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Gráfico do df_exemplo&#39;)
+</pre></div>
+</div>
+<img alt="../_images/07b-formatacao-matplotlib_43_1.png" src="../_images/07b-formatacao-matplotlib_43_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df_exemplo</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">df_exemplo</span><span class="p">[</span><span class="s1">&#39;coluna_1&#39;</span><span class="p">],</span> <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">df_exemplo</span><span class="p">[</span><span class="s1">&#39;coluna_2&#39;</span><span class="p">])</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">autofmt_xdate</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Data&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Valores da Coluna 1&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Gráfico do df_exemplo&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Gráfico do df_exemplo&#39;)
+</pre></div>
+</div>
+<img alt="../_images/07b-formatacao-matplotlib_44_1.png" src="../_images/07b-formatacao-matplotlib_44_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">covid_PB_casos_obitos</span> <span class="o">=</span> <span class="n">covid_PB</span><span class="p">[[</span><span class="s1">&#39;obitosNovos&#39;</span><span class="p">,</span> <span class="s1">&#39;casosNovos&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">grafico</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">covid_PB_casos_obitos</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">covid_PB_casos_obitos</span><span class="o">.</span><span class="n">casosNovos</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">covid_PB_casos_obitos</span><span class="o">.</span><span class="n">obitosNovos</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">autofmt_xdate</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Data&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Casos COVID-19 em PB&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Casos e Óbitos de COVID-19 na Paraíba&#39;</span><span class="p">)</span>
+<span class="n">color_map</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">get_children</span><span class="p">()[</span><span class="mi">4</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">grafico</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Óbitos&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7fa271177550&gt;
+</pre></div>
+</div>
+<img alt="../_images/07b-formatacao-matplotlib_45_1.png" src="../_images/07b-formatacao-matplotlib_45_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">covid_PB_casos_obitos</span> <span class="o">=</span> <span class="n">covid_PB</span><span class="p">[[</span><span class="s1">&#39;obitosNovos&#39;</span><span class="p">,</span> <span class="s1">&#39;casosNovos&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">grafico</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">covid_PB_casos_obitos</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">covid_PB_casos_obitos</span><span class="o">.</span><span class="n">casosNovos</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">covid_PB_casos_obitos</span><span class="o">.</span><span class="n">obitosNovos</span><span class="p">,</span>
+                    <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;cool&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">autofmt_xdate</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Data&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Casos COVID-19 em PB&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Casos e Óbitos de COVID-19 na Paraíba&#39;</span><span class="p">)</span>
+<span class="n">color_map</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">get_children</span><span class="p">()[</span><span class="mi">4</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">grafico</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Óbitos&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7fa270830690&gt;
+</pre></div>
+</div>
+<img alt="../_images/07b-formatacao-matplotlib_46_1.png" src="../_images/07b-formatacao-matplotlib_46_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df_exemplo</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">df_exemplo</span><span class="p">[</span><span class="s1">&#39;coluna_1&#39;</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Coluna 1&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df_exemplo</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">df_exemplo</span><span class="p">[</span><span class="s1">&#39;coluna_2&#39;</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Coluna 2&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df_exemplo</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">df_exemplo</span><span class="p">[</span><span class="s1">&#39;coluna_3&#39;</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Coluna 3&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">autofmt_xdate</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Valor&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Data&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Data&#39;)
+</pre></div>
+</div>
+<img alt="../_images/07b-formatacao-matplotlib_47_1.png" src="../_images/07b-formatacao-matplotlib_47_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="graficos-lado-a-lado">
+<h2>Gráficos Lado a Lado<a class="headerlink" href="#graficos-lado-a-lado" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Vamos modificar esta função para podermos utilizá-la quando temos mais de um gráfico ao mesmo tempo</span>
+<span class="k">def</span> <span class="nf">autolabel</span><span class="p">(</span><span class="n">rects</span><span class="p">,</span> <span class="n">ax</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Attach a text label above each bar in *rects*, displaying its height.&quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">rect</span> <span class="ow">in</span> <span class="n">rects</span><span class="p">:</span>
+        <span class="n">height</span> <span class="o">=</span> <span class="n">rect</span><span class="o">.</span><span class="n">get_height</span><span class="p">()</span>
+        <span class="c1">#ax.annotate(&#39;{}&#39;.format(height), #antigo</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:.0f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">height</span><span class="p">),</span> <span class="c1">#Modificamos para apresentar o número inteiro                    </span>
+                    <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">get_x</span><span class="p">()</span> <span class="o">+</span> <span class="n">rect</span><span class="o">.</span><span class="n">get_width</span><span class="p">()</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span><span class="p">),</span>
+                    <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>  <span class="c1"># 3 points vertical offset</span>
+                    <span class="n">textcoords</span><span class="o">=</span><span class="s2">&quot;offset points&quot;</span><span class="p">,</span>
+                    <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">covid_Regioes</span> <span class="o">=</span> <span class="n">covid_BR</span><span class="p">[[</span><span class="s1">&#39;regiao&#39;</span><span class="p">,</span><span class="s1">&#39;obitosNovos&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;regiao&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;regiao != &quot;Brasil&quot;&#39;</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+<span class="n">figs</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">40000</span><span class="p">)</span> <span class="c1"># aumentamos o limite da coordenada y</span>
+<span class="n">retangulos</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">covid_Regioes</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">covid_Regioes</span><span class="p">[</span><span class="s1">&#39;obitosNovos&#39;</span><span class="p">])</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">FuncFormatter</span><span class="p">(</span><span class="n">inserir_mil</span><span class="p">))</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Total de Óbitos&#39;</span><span class="p">)</span> <span class="c1"># Rótulo do eixo y</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Óbitos de COVID-19 nas regiões do Brasil até o dia 18/07/2020&quot;</span><span class="p">)</span>
+<span class="n">autolabel</span><span class="p">(</span><span class="n">retangulos</span><span class="p">,</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">covid_Regioes_pct</span><span class="o">.</span><span class="n">obitosNovos</span><span class="p">,</span> <span class="n">explode</span><span class="o">=</span><span class="n">covid_Regioes_pct</span><span class="o">.</span><span class="n">explodir</span><span class="p">,</span> 
+       <span class="n">labels</span><span class="o">=</span><span class="n">covid_Regioes_pct</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">autopct</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%1.1f%%</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">shadow</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Percentual de Óbitos de COVID-19 nas Regiões do Brasil até o Dia 18/07/2020&#39;</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/07b-formatacao-matplotlib_50_0.png" src="../_images/07b-formatacao-matplotlib_50_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="histograma">
+<h2>Histograma<a class="headerlink" href="#histograma" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">covid_regioes</span><span class="o">.</span><span class="n">obitos_Nordeste</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lime&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Frequência&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Óbitos Diários por COVID-19&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Nordeste&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Nordeste&#39;)
+</pre></div>
+</div>
+<img alt="../_images/07b-formatacao-matplotlib_52_1.png" src="../_images/07b-formatacao-matplotlib_52_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span> <span class="c1">#sharey=True indica que o eixo y será o mesmo para todos os gráficos</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">covid_regioes</span><span class="o">.</span><span class="n">obitos_Nordeste</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s1">&#39;step&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Frequência&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Óbitos Diários por COVID-19&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Nordeste&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">covid_regioes</span><span class="o">.</span><span class="n">obitos_Nordeste</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Frequência&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Óbitos Diários por COVID-19&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Nordeste&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Nordeste&#39;)
+</pre></div>
+</div>
+<img alt="../_images/07b-formatacao-matplotlib_53_1.png" src="../_images/07b-formatacao-matplotlib_53_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">([</span><span class="n">covid_regioes</span><span class="o">.</span><span class="n">obitos_Nordeste</span><span class="p">,</span> <span class="n">covid_regioes</span><span class="o">.</span><span class="n">obitos_Sudeste</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s1">&#39;step&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Nordeste&#39;</span><span class="p">,</span> <span class="s1">&#39;Sudeste&#39;</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Frequência&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Óbitos Diários por COVID-19&#39;</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/07b-formatacao-matplotlib_54_0.png" src="../_images/07b-formatacao-matplotlib_54_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="boxplot">
+<h2>BoxPlot<a class="headerlink" href="#boxplot" title="Permalink to this headline">¶</a></h2>
+<p>O método para criar o <em>boxplot</em> utilizando o <strong>matplotlib</strong> se resume a fornecer uma lista (ou similar) de valores para os quais queremos os <em>boxplots</em> e uma lista (ou similar) contendo as posições nas quais queremos que os <em>boxplots</em> apareçam.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">dados</span> <span class="o">=</span> <span class="p">[</span><span class="n">df_exemplo</span><span class="p">[</span><span class="s1">&#39;coluna_1&#39;</span><span class="p">],</span> <span class="n">df_exemplo</span><span class="p">[</span><span class="s1">&#39;coluna_2&#39;</span><span class="p">],</span> <span class="n">df_exemplo</span><span class="p">[</span><span class="s1">&#39;coluna_3&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()]</span>
+<span class="n">posicoes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dados</span><span class="p">)))</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">dados</span><span class="p">,</span> <span class="n">positions</span><span class="o">=</span><span class="n">posicoes</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([</span><span class="s1">&#39;Coluna 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Coluna 2&#39;</span><span class="p">,</span> <span class="s1">&#39;Coluna 3&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/gustavo/anaconda3/lib/python3.7/site-packages/numpy/core/_asarray.py:83: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify &#39;dtype=object&#39; when creating the ndarray
+  return array(a, dtype, copy=False, order=order)
+</pre></div>
+</div>
+<img alt="../_images/07b-formatacao-matplotlib_56_1.png" src="../_images/07b-formatacao-matplotlib_56_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">covid_norte</span> <span class="o">=</span> <span class="n">covid_regioes</span><span class="o">.</span><span class="n">obitos_Norte</span>
+<span class="n">covid_nordeste</span> <span class="o">=</span> <span class="n">covid_regioes</span><span class="o">.</span><span class="n">obitos_Nordeste</span>
+<span class="n">covid_sudeste</span> <span class="o">=</span> <span class="n">covid_regioes</span><span class="o">.</span><span class="n">obitos_Sudeste</span>
+<span class="n">covid_sul</span> <span class="o">=</span> <span class="n">covid_regioes</span><span class="o">.</span><span class="n">obitos_Sul</span>
+<span class="n">covid_centro_oeste</span> <span class="o">=</span> <span class="n">covid_regioes</span><span class="p">[</span><span class="s1">&#39;obitos_Centro-Oeste&#39;</span><span class="p">]</span>
+<span class="n">covid_box</span> <span class="o">=</span> <span class="p">[</span><span class="n">covid_norte</span><span class="p">,</span> <span class="n">covid_nordeste</span><span class="p">,</span> <span class="n">covid_sudeste</span><span class="p">,</span> <span class="n">covid_sul</span><span class="p">,</span> <span class="n">covid_centro_oeste</span><span class="p">]</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">posicoes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">covid_box</span><span class="p">)))</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">covid_box</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">positions</span><span class="o">=</span><span class="n">posicoes</span><span class="p">,</span> <span class="n">sym</span><span class="o">=</span><span class="s1">&#39;+&#39;</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([</span><span class="s1">&#39;Norte&#39;</span><span class="p">,</span> <span class="s1">&#39;Nordeste&#39;</span><span class="p">,</span> <span class="s1">&#39;Sudeste&#39;</span><span class="p">,</span> <span class="s1">&#39;Sul&#39;</span><span class="p">,</span> <span class="s1">&#39;Centro-Oeste&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/07b-formatacao-matplotlib_57_0.png" src="../_images/07b-formatacao-matplotlib_57_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">covid_box_2</span> <span class="o">=</span> <span class="p">[</span><span class="n">covid_sul</span><span class="p">,</span> <span class="n">covid_centro_oeste</span><span class="p">]</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">posicoes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">covid_box_2</span><span class="p">)))</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">covid_box_2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">positions</span><span class="o">=</span><span class="n">posicoes</span><span class="p">,</span> <span class="n">sym</span><span class="o">=</span><span class="s1">&#39;r+&#39;</span><span class="p">)</span> <span class="c1">#r indica &#39;red&#39;, vermelho, + é o símbolo para o outlier</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([</span><span class="s1">&#39;Sul&#39;</span><span class="p">,</span> <span class="s1">&#39;Centro-Oeste&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/07b-formatacao-matplotlib_58_0.png" src="../_images/07b-formatacao-matplotlib_58_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">covid_box_2</span> <span class="o">=</span> <span class="p">[</span><span class="n">covid_sul</span><span class="p">,</span> <span class="n">covid_centro_oeste</span><span class="p">]</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">posicoes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">covid_box_2</span><span class="p">)))</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">covid_box_2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">positions</span><span class="o">=</span><span class="n">posicoes</span><span class="p">,</span> <span class="n">sym</span><span class="o">=</span><span class="s1">&#39;g.&#39;</span><span class="p">)</span> <span class="c1">#r indica &#39;red&#39;, vermelho, + é o símbolo para o outlier</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([</span><span class="s1">&#39;Sul&#39;</span><span class="p">,</span> <span class="s1">&#39;Centro-Oeste&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/07b-formatacao-matplotlib_59_0.png" src="../_images/07b-formatacao-matplotlib_59_0.png" />
+</div>
+</div>
+<p><strong>Obs.:</strong> Muitos dos argumentos utilizados nos métodos acima também funcionam no método <strong>plot</strong> do <em>pandas</em>, vale a pena testar!</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./ipynb"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="07a-visualizacao-dados.html" title="previous page">Visualização gráfica de dados</a>
+    <a class='right-next' id="next-link" href="07c-plotly.html" title="next page">Gráficos interativos com o <em>plotly</em></a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Gustavo Oliveira e Andrea Rocha<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

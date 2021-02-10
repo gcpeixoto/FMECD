@@ -1,0 +1,1892 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Visualização gráfica de dados &#8212; Fundamentos de Matemática e Estatística para Ciência de Dados</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Formatação de gráficos com matplotlib" href="07b-formatacao-matplotlib.html" />
+    <link rel="prev" title="Agregação e agrupamento" href="06c-pandas-agrupamento.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/cycle-ds.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Fundamentos de Matemática e Estatística para Ciência de Dados</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="00-apresentacao.html">
+   Apresentação
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Introdução
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01a-introducao.html">
+   Introdução à Ciência de Dados
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Matemática Computacional
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01b-fundamentos-python.html">
+   Fundamentos de
+   <em>
+    Python
+   </em>
+   para Computação Científica
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02a-computacao-simbolica.html">
+   Introdução à Computação Simbólica com
+   <em>
+    sympy
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03a-matematica-discreta.html">
+   Fundamentos de Matemática Discreta com Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04a-computacao-vetorizada.html">
+   Computação vetorizada com
+   <em>
+    numpy
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04b-plotagem-matplotlib.html">
+   Plotagem básica com
+   <em>
+    matplotlib
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05a-complemento-numpy.html">
+   Tópicos complementares sobre o
+   <em>
+    numpy
+   </em>
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Estatística e Análise de Dados
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="06a-pandas-series.html">
+   Manipulação de dados com
+   <em>
+    pandas
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06b-pandas-dataframe.html">
+   Operações com
+   <em>
+    DataFrames
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06c-pandas-agrupamento.html">
+   Agregação e agrupamento
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Visualização gráfica de dados
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07b-formatacao-matplotlib.html">
+   Formatação de gráficos com
+   <em>
+    matplotlib
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07c-plotly.html">
+   Gráficos interativos com o
+   <em>
+    plotly
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07d-seaborn.html">
+   Visualização gráfica de dados com
+   <em>
+    seaborn
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08a-estatistica-descritiva.html">
+   Estatística Descritiva com apoio do
+   <em>
+    Python
+   </em>
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Problemas
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01c-laboratorio-computacional.html">
+   Laboratório Computacional 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02c-laboratorio-computacional.html">
+   Laboratório Computacional 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03c-laboratorio-computacional.html">
+   Laboratório Computacional 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04c-laboratorio-computacional.html">
+   Laboratório Computacional 4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06d-laboratorio-computacional.html">
+   Laboratório Computacional 6
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07e-laboratorio-computacional.html">
+   Laboratório Computacional 7
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08c-laboratorio-computacional.html">
+   Laboratório Computacional 8
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/ipynb/07a-visualizacao-dados.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#intercalando-matplotlib-e-pandas">
+   Intercalando
+   <em>
+    matplotlib
+   </em>
+   e
+   <em>
+    pandas
+   </em>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#grafico-de-linhas">
+     Gráfico de Linhas
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#grafico-de-colunas">
+     Gráfico de Colunas
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#grafico-de-barras">
+     Gráfico de Barras
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#grafico-de-setores">
+     Gráfico de Setores
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#grafico-de-dispersao">
+     Gráfico de Dispersão
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#histograma">
+     Histograma
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#boxplot">
+     BoxPlot
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="visualizacao-grafica-de-dados">
+<h1>Visualização gráfica de dados<a class="headerlink" href="#visualizacao-grafica-de-dados" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="intercalando-matplotlib-e-pandas">
+<h2>Intercalando <em>matplotlib</em> e <em>pandas</em><a class="headerlink" href="#intercalando-matplotlib-e-pandas" title="Permalink to this headline">¶</a></h2>
+<p>As <em>Series</em> e os <em>DataFrames</em> possuem um método <code class="docutils literal notranslate"><span class="pre">plot</span></code> de visualização gráfica construído com base no <em>matplotlib</em> que contempla diversos tipos de gráficos, incluindo gráficos estatísticos.</p>
+<p>Ao utilizar o método <code class="docutils literal notranslate"><span class="pre">plot</span></code> em uma <em>Series</em> ou <em>DataFrame</em>, não haverá necessidade de importar o <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code>, uma vez que as funções e métodos utilizados já foram importados pelo <em>pandas</em>.</p>
+<p>Primeiramente veremos construções gráficas com base no método <code class="docutils literal notranslate"><span class="pre">plot</span></code>. Vamos começar importando e construindo os <em>DataFrames</em> a serem utilizados.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">serie_Idade</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span><span class="s1">&#39;Ana&#39;</span><span class="p">:</span><span class="mi">20</span><span class="p">,</span> <span class="s1">&#39;João&#39;</span><span class="p">:</span> <span class="mi">19</span><span class="p">,</span> <span class="s1">&#39;Maria&#39;</span><span class="p">:</span> <span class="mi">21</span><span class="p">,</span> <span class="s1">&#39;Pedro&#39;</span><span class="p">:</span> <span class="mi">22</span><span class="p">,</span> <span class="s1">&#39;Túlio&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">},</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Idade&quot;</span><span class="p">)</span>
+<span class="n">serie_Peso</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span><span class="s1">&#39;Ana&#39;</span><span class="p">:</span><span class="mi">55</span><span class="p">,</span> <span class="s1">&#39;João&#39;</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span> <span class="s1">&#39;Maria&#39;</span><span class="p">:</span> <span class="mi">62</span><span class="p">,</span> <span class="s1">&#39;Pedro&#39;</span><span class="p">:</span> <span class="mi">67</span><span class="p">,</span> <span class="s1">&#39;Túlio&#39;</span><span class="p">:</span> <span class="mi">73</span><span class="p">},</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Peso&quot;</span><span class="p">)</span>
+<span class="n">serie_Altura</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span><span class="s1">&#39;Ana&#39;</span><span class="p">:</span><span class="mi">162</span><span class="p">,</span> <span class="s1">&#39;João&#39;</span><span class="p">:</span> <span class="mi">178</span><span class="p">,</span> <span class="s1">&#39;Maria&#39;</span><span class="p">:</span> <span class="mi">162</span><span class="p">,</span> <span class="s1">&#39;Pedro&#39;</span><span class="p">:</span> <span class="mi">165</span><span class="p">,</span> <span class="s1">&#39;Túlio&#39;</span><span class="p">:</span> <span class="mi">171</span><span class="p">},</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Altura&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dicionario_series_exemplo</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Idade&#39;</span><span class="p">:</span> <span class="n">serie_Idade</span><span class="p">,</span> <span class="s1">&#39;Peso&#39;</span><span class="p">:</span> <span class="n">serie_Peso</span><span class="p">,</span> <span class="s1">&#39;Altura&#39;</span><span class="p">:</span> <span class="n">serie_Altura</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_dict_series</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">dicionario_series_exemplo</span><span class="p">);</span><span class="n">df_dict_series</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Idade</th>
+      <th>Peso</th>
+      <th>Altura</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Ana</th>
+      <td>20</td>
+      <td>55</td>
+      <td>162</td>
+    </tr>
+    <tr>
+      <th>João</th>
+      <td>19</td>
+      <td>80</td>
+      <td>178</td>
+    </tr>
+    <tr>
+      <th>Maria</th>
+      <td>21</td>
+      <td>62</td>
+      <td>162</td>
+    </tr>
+    <tr>
+      <th>Pedro</th>
+      <td>22</td>
+      <td>67</td>
+      <td>165</td>
+    </tr>
+    <tr>
+      <th>Túlio</th>
+      <td>20</td>
+      <td>73</td>
+      <td>171</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_exemplo</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/exemplo_data.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">);</span><span class="n">df_exemplo</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>coluna_1</th>
+      <th>coluna_2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-01-01</th>
+      <td>-0.416092</td>
+      <td>1.810364</td>
+    </tr>
+    <tr>
+      <th>2020-01-02</th>
+      <td>-0.137970</td>
+      <td>2.578520</td>
+    </tr>
+    <tr>
+      <th>2020-01-03</th>
+      <td>0.575827</td>
+      <td>0.060866</td>
+    </tr>
+    <tr>
+      <th>2020-01-04</th>
+      <td>-0.017367</td>
+      <td>1.299587</td>
+    </tr>
+    <tr>
+      <th>2020-01-05</th>
+      <td>1.384279</td>
+      <td>-0.381732</td>
+    </tr>
+    <tr>
+      <th>2020-01-06</th>
+      <td>0.549706</td>
+      <td>-1.308789</td>
+    </tr>
+    <tr>
+      <th>2020-01-07</th>
+      <td>-0.282296</td>
+      <td>-1.688979</td>
+    </tr>
+    <tr>
+      <th>2020-01-08</th>
+      <td>-0.989730</td>
+      <td>-0.028121</td>
+    </tr>
+    <tr>
+      <th>2020-01-09</th>
+      <td>0.275582</td>
+      <td>-0.177659</td>
+    </tr>
+    <tr>
+      <th>2020-01-10</th>
+      <td>0.685132</td>
+      <td>0.502535</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_exemplo</span><span class="p">[</span><span class="s1">&#39;coluna_3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span><span class="n">index</span><span class="o">=</span><span class="n">df_exemplo</span><span class="o">.</span><span class="n">index</span><span class="p">);</span><span class="n">df_exemplo</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>coluna_1</th>
+      <th>coluna_2</th>
+      <th>coluna_3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-01-01</th>
+      <td>-0.416092</td>
+      <td>1.810364</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2020-01-02</th>
+      <td>-0.137970</td>
+      <td>2.578520</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>2020-01-03</th>
+      <td>0.575827</td>
+      <td>0.060866</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>2020-01-04</th>
+      <td>-0.017367</td>
+      <td>1.299587</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>2020-01-05</th>
+      <td>1.384279</td>
+      <td>-0.381732</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>2020-01-06</th>
+      <td>0.549706</td>
+      <td>-1.308789</td>
+      <td>6.0</td>
+    </tr>
+    <tr>
+      <th>2020-01-07</th>
+      <td>-0.282296</td>
+      <td>-1.688979</td>
+      <td>7.0</td>
+    </tr>
+    <tr>
+      <th>2020-01-08</th>
+      <td>-0.989730</td>
+      <td>-0.028121</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <th>2020-01-09</th>
+      <td>0.275582</td>
+      <td>-0.177659</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2020-01-10</th>
+      <td>0.685132</td>
+      <td>0.502535</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">covid_PB</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://superset.plataformatarget.com.br/superset/explore_json/?form_data=%7B</span><span class="si">%22s</span><span class="s1">lice_id</span><span class="si">%22%</span><span class="s1">3A1550%7D&amp;csv=true&#39;</span><span class="p">,</span> 
+                             <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">covid_PB</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>casosAcumulados</th>
+      <th>casosNovos</th>
+      <th>descartados</th>
+      <th>recuperados</th>
+      <th>obitosAcumulados</th>
+      <th>obitosNovos</th>
+      <th>Letalidade</th>
+    </tr>
+    <tr>
+      <th>data</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2021-02-09</th>
+      <td>199706</td>
+      <td>971</td>
+      <td>237369</td>
+      <td>152779</td>
+      <td>4171</td>
+      <td>13</td>
+      <td>0.0209</td>
+    </tr>
+    <tr>
+      <th>2021-02-08</th>
+      <td>198735</td>
+      <td>611</td>
+      <td>237189</td>
+      <td>151879</td>
+      <td>4158</td>
+      <td>12</td>
+      <td>0.0209</td>
+    </tr>
+    <tr>
+      <th>2021-02-07</th>
+      <td>198124</td>
+      <td>664</td>
+      <td>237072</td>
+      <td>151535</td>
+      <td>4146</td>
+      <td>11</td>
+      <td>0.0209</td>
+    </tr>
+    <tr>
+      <th>2021-02-06</th>
+      <td>197460</td>
+      <td>918</td>
+      <td>236774</td>
+      <td>150175</td>
+      <td>4135</td>
+      <td>12</td>
+      <td>0.0209</td>
+    </tr>
+    <tr>
+      <th>2021-02-05</th>
+      <td>196542</td>
+      <td>1060</td>
+      <td>236216</td>
+      <td>150169</td>
+      <td>4123</td>
+      <td>13</td>
+      <td>0.0210</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">covid_BR</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;data/HIST_PAINEL_COVIDBR_18jul2020.xlsx&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">covid_BR</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>regiao</th>
+      <th>estado</th>
+      <th>municipio</th>
+      <th>coduf</th>
+      <th>codmun</th>
+      <th>codRegiaoSaude</th>
+      <th>nomeRegiaoSaude</th>
+      <th>data</th>
+      <th>semanaEpi</th>
+      <th>populacaoTCU2019</th>
+      <th>casosAcumulado</th>
+      <th>casosNovos</th>
+      <th>obitosAcumulado</th>
+      <th>obitosNovos</th>
+      <th>Recuperadosnovos</th>
+      <th>emAcompanhamentoNovos</th>
+      <th>interior/metropolitana</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>Brasil</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>76</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2020-02-25</td>
+      <td>9</td>
+      <td>210147125</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>Brasil</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>76</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2020-02-26</td>
+      <td>9</td>
+      <td>210147125</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>Brasil</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>76</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2020-02-27</td>
+      <td>9</td>
+      <td>210147125</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>Brasil</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>76</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2020-02-28</td>
+      <td>9</td>
+      <td>210147125</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>Brasil</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>76</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2020-02-29</td>
+      <td>9</td>
+      <td>210147125</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="section" id="grafico-de-linhas">
+<h3>Gráfico de Linhas<a class="headerlink" href="#grafico-de-linhas" title="Permalink to this headline">¶</a></h3>
+<p>O gráfico de linhas é formado por pontos no plano a partir de duas variáveis e, em seguida, estes pontos são ligados por segmentos de retas. Este é o gráfico padrão construído pelo método <code class="docutils literal notranslate"><span class="pre">plot</span></code>. Para construí-lo basta “chamar” o método <code class="docutils literal notranslate"><span class="pre">plot</span></code> sem argumentos adicionais.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_exemplo</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/07a-visualizacao-dados_14_0.png" src="../_images/07a-visualizacao-dados_14_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">covid_PB_casos_obitos</span> <span class="o">=</span> <span class="n">covid_PB</span><span class="p">[[</span><span class="s1">&#39;casosAcumulados&#39;</span><span class="p">,</span> <span class="s1">&#39;obitosAcumulados&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+<span class="n">covid_PB_casos_obitos</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/07a-visualizacao-dados_15_0.png" src="../_images/07a-visualizacao-dados_15_0.png" />
+</div>
+</div>
+<p><strong>Obs.</strong>: Note que houve uma sobreposição dos valores no eixo <em>x</em>.</p>
+<p>Se convertermos o <em>index</em> para data, isto será corrigido, pois se o tipo do dado for data, o pandas implementa o método <code class="docutils literal notranslate"><span class="pre">autofmt_xdate</span></code> que corrige a sobreposição:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">covid_PB</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">covid_PB</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">covid_PB_casos_obitos</span> <span class="o">=</span> <span class="n">covid_PB</span><span class="p">[[</span><span class="s1">&#39;casosAcumulados&#39;</span><span class="p">,</span> <span class="s1">&#39;obitosAcumulados&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+<span class="n">covid_PB_casos_obitos</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/07a-visualizacao-dados_18_0.png" src="../_images/07a-visualizacao-dados_18_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">covid_regioes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+
+<span class="n">regioes</span> <span class="o">=</span> <span class="n">covid_BR</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;regiao != &quot;Brasil&quot;&#39;</span><span class="p">)[</span><span class="s1">&#39;regiao&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span><span class="o">.</span><span class="n">array</span>
+
+<span class="k">for</span> <span class="n">regiao</span> <span class="ow">in</span> <span class="n">regioes</span><span class="p">:</span>
+    <span class="n">temp_series</span> <span class="o">=</span> <span class="n">covid_BR</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;regiao == @regiao&#39;</span><span class="p">)[</span><span class="s1">&#39;obitosAcumulado&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span>
+    <span class="c1">#Obs.: Utilizamos @ na frente do nome da variável para utilizar o valor da variável no query.</span>
+    <span class="n">temp_series</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;obitos_&#39;</span> <span class="o">+</span> <span class="n">regiao</span>
+    <span class="n">covid_regioes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">covid_regioes</span><span class="p">,</span> <span class="n">temp_series</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    
+<span class="n">covid_regioes</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">covid_regioes</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">covid_regioes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>obitos_Norte</th>
+      <th>obitos_Nordeste</th>
+      <th>obitos_Sudeste</th>
+      <th>obitos_Sul</th>
+      <th>obitos_Centro-Oeste</th>
+    </tr>
+    <tr>
+      <th>data</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-02-25</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2020-02-26</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2020-02-27</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2020-02-28</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2020-02-29</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2020-07-14</th>
+      <td>10628.0</td>
+      <td>23925.0</td>
+      <td>33718.0</td>
+      <td>2740.0</td>
+      <td>3122.0</td>
+    </tr>
+    <tr>
+      <th>2020-07-15</th>
+      <td>10693.0</td>
+      <td>24272.0</td>
+      <td>34246.0</td>
+      <td>2870.0</td>
+      <td>3285.0</td>
+    </tr>
+    <tr>
+      <th>2020-07-16</th>
+      <td>10790.0</td>
+      <td>24645.0</td>
+      <td>34857.0</td>
+      <td>2975.0</td>
+      <td>3421.0</td>
+    </tr>
+    <tr>
+      <th>2020-07-17</th>
+      <td>10911.0</td>
+      <td>24902.0</td>
+      <td>35374.0</td>
+      <td>3104.0</td>
+      <td>3560.0</td>
+    </tr>
+    <tr>
+      <th>2020-07-18</th>
+      <td>10972.0</td>
+      <td>25194.0</td>
+      <td>35732.0</td>
+      <td>3199.0</td>
+      <td>3675.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>145 rows × 5 columns</p>
+</div></div></div>
+</div>
+<p>O argumento <code class="docutils literal notranslate"><span class="pre">figsize</span></code> permite inserir uma tupla para definir as dimensões horizontais e verticais, respectivamente, em polegadas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">covid_regioes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">7</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/07a-visualizacao-dados_21_0.png" src="../_images/07a-visualizacao-dados_21_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="grafico-de-colunas">
+<h3>Gráfico de Colunas<a class="headerlink" href="#grafico-de-colunas" title="Permalink to this headline">¶</a></h3>
+<p>O gráfico de colunas é formado por uma coleção de colunas, com bases de mesmo comprimento, e igualmente espaçados. O eixo horizontal do gráfico consiste das diferentes categorias consideradas, e o eixo vertical é proporcional ao valor do dado. Podemos criar gráficos em colunas utilizando o argument <code class="docutils literal notranslate"><span class="pre">kind</span></code> do método <code class="docutils literal notranslate"><span class="pre">plot</span></code>. Assim, para criar um gráfico de colunas, basta utilizar <code class="docutils literal notranslate"><span class="pre">plot(kind</span> <span class="pre">=</span> <span class="pre">'bar')</span></code>.  Também podemos criar estes gráficos utilizando o método <code class="docutils literal notranslate"><span class="pre">plot.bar()</span></code>. As duas formas são equivalentes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_dict_series</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;bar&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/07a-visualizacao-dados_23_0.png" src="../_images/07a-visualizacao-dados_23_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_dict_series</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/07a-visualizacao-dados_24_0.png" src="../_images/07a-visualizacao-dados_24_0.png" />
+</div>
+</div>
+<p>Também podemos “empilhar” as barras para cada <em>index</em> utilizando o argumento <code class="docutils literal notranslate"><span class="pre">stacked=True</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_dict_series</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">stacked</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/07a-visualizacao-dados_26_0.png" src="../_images/07a-visualizacao-dados_26_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">covid_Regioes</span> <span class="o">=</span> <span class="n">covid_BR</span><span class="p">[[</span><span class="s1">&#39;regiao&#39;</span><span class="p">,</span><span class="s1">&#39;obitosNovos&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;regiao&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;regiao != &quot;Brasil&quot;&#39;</span><span class="p">)</span>
+<span class="n">covid_Regioes</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/07a-visualizacao-dados_27_0.png" src="../_images/07a-visualizacao-dados_27_0.png" />
+</div>
+</div>
+<p>Vamos agora considerar os <em>óbitos</em> como <code class="docutils literal notranslate"><span class="pre">index</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">covid_Regioes_casos_obitos</span> <span class="o">=</span> <span class="n">covid_BR</span><span class="p">[[</span><span class="s1">&#39;regiao&#39;</span><span class="p">,</span>
+                                       <span class="s1">&#39;obitosNovos&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;regiao&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;regiao != &quot;Brasil&quot;&#39;</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+<span class="n">covid_Regioes_casos_obitos</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/07a-visualizacao-dados_29_0.png" src="../_images/07a-visualizacao-dados_29_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">covid_Regioes_casos_obitos</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">stacked</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/07a-visualizacao-dados_30_0.png" src="../_images/07a-visualizacao-dados_30_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="grafico-de-barras">
+<h3>Gráfico de Barras<a class="headerlink" href="#grafico-de-barras" title="Permalink to this headline">¶</a></h3>
+<p>O gráfico de barras é construído da mesma forma do gráfico em colunas, entretanto, muda-se a orientação. Neste caso, o eixo horizontal do gráfico é proporcional ao valor do dado, e o eixo vertical consiste das diferentes categorias consideradas. Para criar um gráfico de barras, basta utilizar <code class="docutils literal notranslate"><span class="pre">plot(kind</span> <span class="pre">=</span> <span class="pre">'barh')</span></code>.  Também podemos criar estes gráficos utilizando o método <code class="docutils literal notranslate"><span class="pre">plot.barh()</span></code>. As duas formas são equivalentes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_dict_series</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;barh&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/07a-visualizacao-dados_32_0.png" src="../_images/07a-visualizacao-dados_32_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_dict_series</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/07a-visualizacao-dados_33_0.png" src="../_images/07a-visualizacao-dados_33_0.png" />
+</div>
+</div>
+<p>Também podemos “empilhar” as barras para cada índice utilizando o argumento <code class="docutils literal notranslate"><span class="pre">stacked=True</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_dict_series</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">stacked</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/07a-visualizacao-dados_35_0.png" src="../_images/07a-visualizacao-dados_35_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">covid_Regioes</span> <span class="o">=</span> <span class="n">covid_BR</span><span class="p">[[</span><span class="s1">&#39;regiao&#39;</span><span class="p">,</span><span class="s1">&#39;obitosNovos&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;regiao&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;regiao != &quot;Brasil&quot;&#39;</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+<span class="n">covid_Regioes</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/07a-visualizacao-dados_36_0.png" src="../_images/07a-visualizacao-dados_36_0.png" />
+</div>
+</div>
+<p>Vamos agora considerar as <em>óbitos</em> como <code class="docutils literal notranslate"><span class="pre">index</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">covid_Regioes_casos_obitos</span> <span class="o">=</span> <span class="n">covid_BR</span><span class="p">[[</span><span class="s1">&#39;regiao&#39;</span><span class="p">,</span>
+                                       <span class="s1">&#39;obitosNovos&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;regiao&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;regiao != &quot;Brasil&quot;&#39;</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+<span class="n">covid_Regioes_casos_obitos</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/07a-visualizacao-dados_38_0.png" src="../_images/07a-visualizacao-dados_38_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">covid_Regioes_casos_obitos</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">stacked</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/07a-visualizacao-dados_39_0.png" src="../_images/07a-visualizacao-dados_39_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="grafico-de-setores">
+<h3>Gráfico de Setores<a class="headerlink" href="#grafico-de-setores" title="Permalink to this headline">¶</a></h3>
+<p>O gráfico de setores, que também é popularmente conhecido como <strong>gráfico pizza</strong>, é um gráfico em que um círculo é dividido em setores, onde cada setor representa uma categoria considerada pelo conjunto de dados, e os ângulos dos setores são proporcionais aos valores dos dados em cada categoria.</p>
+<p>Podemos criar gráficos de setores utilizando o argumento <code class="docutils literal notranslate"><span class="pre">kind</span></code> do método <code class="docutils literal notranslate"><span class="pre">plot</span></code>. Assim, para criar um gráfico de setores, basta utilizar <code class="docutils literal notranslate"><span class="pre">plot(kind</span> <span class="pre">=</span> <span class="pre">'pie')</span></code>. Também podemos criar estes gráficos utilizando o método <code class="docutils literal notranslate"><span class="pre">plot.pie()</span></code>. As duas formas são equivalentes. Para este gráfico é conveniente utilizar o argumento <code class="docutils literal notranslate"><span class="pre">figsize</span></code> já que o tamanho padrão tende a ser muito pequeno.</p>
+<p>Além disso, tipicamente é necessário acrescentar <code class="docutils literal notranslate"><span class="pre">subplots=True</span></code> para a criação de uma “pizza” para cada coluna numérica.
+Em uma <em>Series</em> do <em>pandas</em>, não é necessário o argumento <code class="docutils literal notranslate"><span class="pre">subplots=True</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_dict_series</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">subplots</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span><span class="mi">7</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/07a-visualizacao-dados_41_0.png" src="../_images/07a-visualizacao-dados_41_0.png" />
+</div>
+</div>
+<p>Aqui temos um gráfico acerca da mortalidade de COVID-19 através das diferentes regiões do Brasil.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">covid_Regioes_casos_obitos</span><span class="o">.</span><span class="n">obitosNovos</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">7</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/07a-visualizacao-dados_43_0.png" src="../_images/07a-visualizacao-dados_43_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="grafico-de-dispersao">
+<h3>Gráfico de Dispersão<a class="headerlink" href="#grafico-de-dispersao" title="Permalink to this headline">¶</a></h3>
+<p>O gráfico de dispersão representa dados de duas (ou mais) variáveis utilizando as coordenadas cartesianas para exibir valores de um conjunto de dados. Os dados são exibidos como uma coleção de pontos, cada um com o valor de uma variável determinando a posição no eixo horizontal e o valor da outra variável determinando a posição no eixo vertical. Quando há mais de duas variáveis, utilizam-se recursos adicionais como tamanhos dos pontos e/ou cores dos pontos.</p>
+<p>Para criar um gráfico de dispersão, basta utilizar <code class="docutils literal notranslate"><span class="pre">plot(kind</span> <span class="pre">=</span> <span class="pre">'scatter')</span></code>. Também podemos criar estes gráficos utilizando o método <code class="docutils literal notranslate"><span class="pre">plot.scatter()</span></code>. As duas formas são equivalentes.</p>
+<p>Neste caso, devemos incluir dois argumentos: <code class="docutils literal notranslate"><span class="pre">x</span></code> e <code class="docutils literal notranslate"><span class="pre">y</span></code>, representando a abscissa e a ordenada, respectivamente. Para utilizar o <em>index</em> como eixo <code class="docutils literal notranslate"><span class="pre">x</span></code> é preciso que o <em>index</em> seja uma coluna, para tanto pode-se utilizar o método <code class="docutils literal notranslate"><span class="pre">reset_index()</span></code>. Assim, como nos outros métodos, podemos utilizar o argumento <code class="docutils literal notranslate"><span class="pre">rot</span></code> para rotacionar os rótulos do eixo <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_exemplo</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span><span class="s1">&#39;coluna_1&#39;</span> <span class="p">,</span> <span class="n">rot</span> <span class="o">=</span> <span class="mi">45</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/07a-visualizacao-dados_45_0.png" src="../_images/07a-visualizacao-dados_45_0.png" />
+</div>
+</div>
+<p>Podemos utilizar o argumento <strong>s</strong> para inserir o <em>tamanho</em> como uma variável gráfica (lembrando que o tamanho deve ser positivo):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_exemplo</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;coluna_1&#39;</span><span class="p">,</span> <span class="n">rot</span> <span class="o">=</span> <span class="mi">45</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">df_exemplo</span><span class="p">[</span><span class="s1">&#39;coluna_2&#39;</span><span class="p">])</span><span class="o">*</span><span class="mi">100</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/07a-visualizacao-dados_47_0.png" src="../_images/07a-visualizacao-dados_47_0.png" />
+</div>
+</div>
+<p>Podemos utilizar o argumento <code class="docutils literal notranslate"><span class="pre">c</span></code> para definir uma variável inserir a <em>cor</em> como uma variável gráfica:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">covid_PB_casos_obitos</span> <span class="o">=</span> <span class="n">covid_PB</span><span class="p">[[</span><span class="s1">&#39;obitosNovos&#39;</span><span class="p">,</span> <span class="s1">&#39;casosNovos&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">covid_PB_casos_obitos</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;casosNovos&#39;</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="s1">&#39;obitosNovos&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/07a-visualizacao-dados_50_0.png" src="../_images/07a-visualizacao-dados_50_0.png" />
+</div>
+</div>
+<p>O tamanho e cores também podem ser fixados para fins estéticos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_exemplo</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;coluna_1&#39;</span><span class="p">,</span> <span class="n">rot</span> <span class="o">=</span> <span class="mi">45</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">100</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/07a-visualizacao-dados_52_0.png" src="../_images/07a-visualizacao-dados_52_0.png" />
+</div>
+</div>
+<p>Para criar múltiplos gráficos de dispersão sobrepostos, utilizamos o argumento <code class="docutils literal notranslate"><span class="pre">ax</span></code>.</p>
+<p>Para definir o rótulo do eixo <code class="docutils literal notranslate"><span class="pre">y</span></code> utilizamos: <code class="docutils literal notranslate"><span class="pre">ax.set_ylabel(&quot;Valor&quot;)</span></code>.</p>
+<p>Para definir o rótulo do eixo <code class="docutils literal notranslate"><span class="pre">x</span></code> utilizamos: <code class="docutils literal notranslate"><span class="pre">ax.set_xlabel(&quot;Data&quot;)</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">df_exemplo</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;coluna_1&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;coluna_1&#39;</span><span class="p">,</span> 
+                                           <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">rot</span> <span class="o">=</span> <span class="mi">45</span><span class="p">)</span>
+<span class="n">df_exemplo</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;coluna_2&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;coluna_2&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span>
+                                      <span class="n">rot</span> <span class="o">=</span> <span class="mi">45</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Valor&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Data&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Data&#39;)
+</pre></div>
+</div>
+<img alt="../_images/07a-visualizacao-dados_54_1.png" src="../_images/07a-visualizacao-dados_54_1.png" />
+</div>
+</div>
+<p>Para sobrepor mais de dois gráficos, basta repetir o método anterior mais de uma vez:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">df_exemplo</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;coluna_1&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;coluna_1&#39;</span><span class="p">,</span> 
+                                           <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">rot</span> <span class="o">=</span> <span class="mi">45</span><span class="p">)</span>
+<span class="n">df_exemplo</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;coluna_2&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;coluna_2&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span>
+                                      <span class="n">rot</span> <span class="o">=</span> <span class="mi">45</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">)</span>
+<span class="n">df_exemplo</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;coluna_3&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;coluna_3&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span>
+                                      <span class="n">rot</span> <span class="o">=</span> <span class="mi">45</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Valor&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Data&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Data&#39;)
+</pre></div>
+</div>
+<img alt="../_images/07a-visualizacao-dados_56_1.png" src="../_images/07a-visualizacao-dados_56_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="histograma">
+<h3>Histograma<a class="headerlink" href="#histograma" title="Permalink to this headline">¶</a></h3>
+<p>O histograma é formado por uma justaposição de retângulos de bases com o mesmo comprimento. O comprimento da base é justamente a amplitude do intervalo e a altura do retângulo é dada pela frequência absoluta do intervalo. O histograma é a representação gráfica de <em>distribuição de frequência</em>.</p>
+<p>Para criar um histograma, basta utilizar <code class="docutils literal notranslate"><span class="pre">plot(kind</span> <span class="pre">=</span> <span class="pre">'hist')</span></code>. Também podemos criar histogramas utilizando o método <code class="docutils literal notranslate"><span class="pre">plot.hist()</span></code>. As duas formas são equivalentes.</p>
+<p>Um parâmetro comumente utilizado é <code class="docutils literal notranslate"><span class="pre">alpha</span></code> que define a transparência dos histogramas e é dado por um número entre 0 e 1. Outro parâmetro comumente utilizado é <code class="docutils literal notranslate"><span class="pre">bins</span></code> que determina o número de intervalos a serem considerados. Se quisermos que os histogramas sejam “plotados” separadamente, utilizamos o método <code class="docutils literal notranslate"><span class="pre">hist()</span></code> diretamente.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">covid_BR_regioes</span> <span class="o">=</span> <span class="n">covid_BR</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;regiao != &quot;Brasil&quot;&#39;</span><span class="p">)</span>
+<span class="n">covid_BR_regioes</span> <span class="o">=</span> <span class="n">covid_BR_regioes</span><span class="p">[[</span><span class="s1">&#39;regiao&#39;</span><span class="p">,</span><span class="s1">&#39;obitosNovos&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;regiao&#39;</span><span class="p">,</span><span class="s1">&#39;data&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span>
+
+<span class="n">covid_BR_reg</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">regiao</span> <span class="ow">in</span> <span class="n">covid_BR_regioes</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">():</span>
+    <span class="n">covid_BR_reg</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">covid_BR_reg</span><span class="p">,</span> <span class="n">covid_BR_regioes</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">regiao</span><span class="p">]],</span> 
+                             <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;obitosNovos&#39;</span><span class="p">:</span><span class="s1">&#39;obitos_&#39;</span><span class="o">+</span><span class="n">regiao</span><span class="p">},</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    
+<span class="n">covid_BR_reg</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>obitos_Centro-Oeste</th>
+      <th>obitos_Nordeste</th>
+      <th>obitos_Norte</th>
+      <th>obitos_Sudeste</th>
+      <th>obitos_Sul</th>
+    </tr>
+    <tr>
+      <th>data</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-02-25</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2020-02-26</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2020-02-27</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2020-02-28</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2020-02-29</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2020-07-14</th>
+      <td>88.0</td>
+      <td>315.0</td>
+      <td>76.0</td>
+      <td>682.0</td>
+      <td>139.0</td>
+    </tr>
+    <tr>
+      <th>2020-07-15</th>
+      <td>163.0</td>
+      <td>347.0</td>
+      <td>65.0</td>
+      <td>528.0</td>
+      <td>130.0</td>
+    </tr>
+    <tr>
+      <th>2020-07-16</th>
+      <td>136.0</td>
+      <td>373.0</td>
+      <td>97.0</td>
+      <td>611.0</td>
+      <td>105.0</td>
+    </tr>
+    <tr>
+      <th>2020-07-17</th>
+      <td>139.0</td>
+      <td>257.0</td>
+      <td>121.0</td>
+      <td>517.0</td>
+      <td>129.0</td>
+    </tr>
+    <tr>
+      <th>2020-07-18</th>
+      <td>115.0</td>
+      <td>292.0</td>
+      <td>61.0</td>
+      <td>358.0</td>
+      <td>95.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>145 rows × 5 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">covid_BR_NE</span> <span class="o">=</span> <span class="n">covid_BR</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;regiao == &quot;Nordeste&quot;&#39;</span><span class="p">)[</span><span class="s1">&#39;obitosNovos&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span>
+<span class="n">covid_BR_NE</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;obitos_NE&#39;</span>
+
+<span class="n">covid_BR_SE</span> <span class="o">=</span> <span class="n">covid_BR</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;regiao == &quot;Sudeste&quot;&#39;</span><span class="p">)[</span><span class="s1">&#39;obitosNovos&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span>
+<span class="n">covid_BR_SE</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;obitos_SE&#39;</span>
+
+<span class="n">covid_BR_NE_SE</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">covid_BR_NE</span><span class="p">,</span><span class="n">covid_BR_SE</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">covid_BR_NE_SE</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>obitos_NE</th>
+      <th>obitos_SE</th>
+    </tr>
+    <tr>
+      <th>data</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-02-25</th>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2020-02-26</th>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2020-02-27</th>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2020-02-28</th>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2020-02-29</th>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2020-07-14</th>
+      <td>315.0</td>
+      <td>682.0</td>
+    </tr>
+    <tr>
+      <th>2020-07-15</th>
+      <td>347.0</td>
+      <td>528.0</td>
+    </tr>
+    <tr>
+      <th>2020-07-16</th>
+      <td>373.0</td>
+      <td>611.0</td>
+    </tr>
+    <tr>
+      <th>2020-07-17</th>
+      <td>257.0</td>
+      <td>517.0</td>
+    </tr>
+    <tr>
+      <th>2020-07-18</th>
+      <td>292.0</td>
+      <td>358.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>145 rows × 2 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">covid_BR_reg</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">),</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/07a-visualizacao-dados_60_0.png" src="../_images/07a-visualizacao-dados_60_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">covid_BR_NE_SE</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">7</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/07a-visualizacao-dados_61_0.png" src="../_images/07a-visualizacao-dados_61_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">covid_BR_NE_SE</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/07a-visualizacao-dados_62_0.png" src="../_images/07a-visualizacao-dados_62_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">covid_BR_NE_SE</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/07a-visualizacao-dados_63_0.png" src="../_images/07a-visualizacao-dados_63_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">covid_BR_reg</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/07a-visualizacao-dados_64_0.png" src="../_images/07a-visualizacao-dados_64_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">covid_BR_reg</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/07a-visualizacao-dados_65_0.png" src="../_images/07a-visualizacao-dados_65_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="boxplot">
+<h3>BoxPlot<a class="headerlink" href="#boxplot" title="Permalink to this headline">¶</a></h3>
+<p>O boxplot representa a variação dos dados de uma variável, por meio de uma caixa, onde são apresentados os <em>quartis</em>, e retas apresentando os limites inferior e superior dos dados. Os valores discrepantes ou <em>outliers</em> são plotados como pontos individuais.</p>
+<p>Para criar um BoxPlot, basta utilizar <code class="docutils literal notranslate"><span class="pre">plot(kind</span> <span class="pre">=</span> <span class="pre">'box')</span></code>. Também podemos criar BoxPlots utilizando o método <code class="docutils literal notranslate"><span class="pre">plot.box()</span></code>. As duas formas são equivalentes. O argumento <code class="docutils literal notranslate"><span class="pre">vert=False</span></code> faz com que os BoxPlots fiquem horizontais.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">covid_regioes_obitosDiarios</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+
+<span class="n">regioes</span> <span class="o">=</span> <span class="n">covid_BR</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;regiao != &quot;Brasil&quot;&#39;</span><span class="p">)[</span><span class="s1">&#39;regiao&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span><span class="o">.</span><span class="n">array</span>
+
+<span class="k">for</span> <span class="n">regiao</span> <span class="ow">in</span> <span class="n">regioes</span><span class="p">:</span>
+    <span class="n">temp_series</span> <span class="o">=</span> <span class="n">covid_BR</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;regiao == @regiao&#39;</span><span class="p">)[</span><span class="s1">&#39;obitosNovos&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span>
+    <span class="c1">#Obs.: Utilizamos @ na frente do nome da variável para utilizar o valor da variável no query.</span>
+    <span class="n">temp_series</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;obitos_&#39;</span> <span class="o">+</span> <span class="n">regiao</span>
+    <span class="n">covid_regioes_obitosDiarios</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">covid_regioes_obitosDiarios</span><span class="p">,</span> <span class="n">temp_series</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    
+<span class="n">covid_regioes_obitosDiarios</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">covid_regioes_obitosDiarios</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">covid_regioes_obitosDiarios</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>obitos_Norte</th>
+      <th>obitos_Nordeste</th>
+      <th>obitos_Sudeste</th>
+      <th>obitos_Sul</th>
+      <th>obitos_Centro-Oeste</th>
+    </tr>
+    <tr>
+      <th>data</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-07-14</th>
+      <td>76.0</td>
+      <td>315.0</td>
+      <td>682.0</td>
+      <td>139.0</td>
+      <td>88.0</td>
+    </tr>
+    <tr>
+      <th>2020-07-15</th>
+      <td>65.0</td>
+      <td>347.0</td>
+      <td>528.0</td>
+      <td>130.0</td>
+      <td>163.0</td>
+    </tr>
+    <tr>
+      <th>2020-07-16</th>
+      <td>97.0</td>
+      <td>373.0</td>
+      <td>611.0</td>
+      <td>105.0</td>
+      <td>136.0</td>
+    </tr>
+    <tr>
+      <th>2020-07-17</th>
+      <td>121.0</td>
+      <td>257.0</td>
+      <td>517.0</td>
+      <td>129.0</td>
+      <td>139.0</td>
+    </tr>
+    <tr>
+      <th>2020-07-18</th>
+      <td>61.0</td>
+      <td>292.0</td>
+      <td>358.0</td>
+      <td>95.0</td>
+      <td>115.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">covid_regioes_obitosDiarios</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">box</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/07a-visualizacao-dados_68_0.png" src="../_images/07a-visualizacao-dados_68_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">covid_regioes_obitosDiarios</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">box</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="n">vert</span><span class="o">=</span><span class="kc">False</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/07a-visualizacao-dados_69_0.png" src="../_images/07a-visualizacao-dados_69_0.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./ipynb"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="06c-pandas-agrupamento.html" title="previous page">Agregação e agrupamento</a>
+    <a class='right-next' id="next-link" href="07b-formatacao-matplotlib.html" title="next page">Formatação de gráficos com <em>matplotlib</em></a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Gustavo Oliveira e Andrea Rocha<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

@@ -1,0 +1,805 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Questionário - Semana 4 &#8212; Fundamentos de Matemática e Estatística para Ciência de Dados</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/cycle-ds.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Fundamentos de Matemática e Estatística para Ciência de Dados</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="00-apresentacao.html">
+   Apresentação
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Introdução
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01a-introducao.html">
+   Introdução à Ciência de Dados
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Matemática Computacional
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01b-fundamentos-python.html">
+   Fundamentos de
+   <em>
+    Python
+   </em>
+   para Computação Científica
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02a-computacao-simbolica.html">
+   Introdução à Computação Simbólica com
+   <em>
+    sympy
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03a-matematica-discreta.html">
+   Fundamentos de Matemática Discreta com Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04a-computacao-vetorizada.html">
+   Computação vetorizada com
+   <em>
+    numpy
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04b-plotagem-matplotlib.html">
+   Plotagem básica com
+   <em>
+    matplotlib
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05a-complemento-numpy.html">
+   Tópicos complementares sobre o
+   <em>
+    numpy
+   </em>
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Estatística e Análise de Dados
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="06a-pandas-series.html">
+   Manipulação de dados com
+   <em>
+    pandas
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06b-pandas-dataframe.html">
+   Operações com
+   <em>
+    DataFrames
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06c-pandas-agrupamento.html">
+   Agregação e agrupamento
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07a-visualizacao-dados.html">
+   Visualização Gráfica de Dados
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Problemas
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01c-laboratorio-computacional.html">
+   Laboratório Computacional 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02c-laboratorio-computacional.html">
+   Laboratório Computacional 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03c-laboratorio-computacional.html">
+   Laboratório Computacional 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04c-laboratorio-computacional.html">
+   Laboratório Computacional 4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06d-laboratorio-computacional.html">
+   Laboratório Computacional 6
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/ipynb/questionario-4-completo.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contextualizacao">
+   Contextualização
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#o-imc">
+     O IMC
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#jogadores-da-copa-2018">
+     Jogadores da Copa 2018
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#taxa-metabolica-basal-tmb">
+     Taxa Metabólica Basal (TMB)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-fisica-do-chute-de-uma-bola">
+     A física do chute de uma bola
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#questao-1">
+   Questão 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#questao-2">
+   Questão 2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#questao-3">
+   Questão 3
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#questao-4">
+   Questão 4
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#questao-5">
+   Questão 5
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="questionario-semana-4">
+<h1>Questionário - Semana 4<a class="headerlink" href="#questionario-semana-4" title="Permalink to this headline">¶</a></h1>
+<p>Leia o texto a seguir para responder o questionário.</p>
+<div class="section" id="contextualizacao">
+<h2>Contextualização<a class="headerlink" href="#contextualizacao" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="o-imc">
+<h3>O IMC<a class="headerlink" href="#o-imc" title="Permalink to this headline">¶</a></h3>
+<p>O índice de massa corpórea (IMC) é usado para saber se um indivíduo está no peso ideal. Ele é definido pela fórmula</p>
+<div class="math notranslate nohighlight">
+\[IMC = \dfrac{M}{A^2},\]</div>
+<p>onde <span class="math notranslate nohighlight">\(M\)</span> é a massa (considere quilogramas) do indivíduo e <span class="math notranslate nohighlight">\(A\)</span> é a sua altura (considere metros). Um indíviduo tem <em>peso normal</em> se seu IMC estiver no intervalo faixa <span class="math notranslate nohighlight">\(18.5 \leq IMC &lt; 25.0\)</span>.</p>
+</div>
+<div class="section" id="jogadores-da-copa-2018">
+<h3>Jogadores da Copa 2018<a class="headerlink" href="#jogadores-da-copa-2018" title="Permalink to this headline">¶</a></h3>
+<p>A seleção brasileira masculina de futebol profissional convocada para a Copa do Mundo 2018 era composta de 23 jogadores, a saber: Alisson, Casemiro, Cássio, Danilo, Douglas Costa, Ederson, Fagner, Fernandinho, Filipe Luis, Firmino, Fred, Gabriel Jesus, Geromel, Marcelo, Marquinhos, Miranda, Neymar, Paulinho, Philippe Coutinho, Renato Augusto, Taison, Thiago Silva e Willian.</p>
+<p>O arquivo <code class="docutils literal notranslate"><span class="pre">04c-copa2018.npy</span></code>, disponibilizado juntamente com este arquivo, contém uma tabela de peso, altura e idade de cada um desses atletas.</p>
+<p><a class="reference external" href="https://www.espn.com.br/artigo/_/id/4310177/selecao-brasileira-veja-o-censo-completo-dos-jogadores-que-vao-a-copa">[Fonte: ESPN]</a></p>
+</div>
+<div class="section" id="taxa-metabolica-basal-tmb">
+<h3>Taxa Metabólica Basal (TMB)<a class="headerlink" href="#taxa-metabolica-basal-tmb" title="Permalink to this headline">¶</a></h3>
+<p>A TMB é a quantidade mínima de energia que o ser humano, em repouso, precisa para sobreviver. A <em>Equação de Mifflin - St. Jeor</em> para calcular a TMB em kcal/dia (quilocalorias por dia) de pessoas do sexo masculino é dada por:</p>
+<div class="math notranslate nohighlight">
+\[TMB = 10M + 6.25A + 5I + 5,\]</div>
+<p>onde <span class="math notranslate nohighlight">\(M\)</span> é a massa do indivíduo, <span class="math notranslate nohighlight">\(A\)</span> sua altura e <span class="math notranslate nohighlight">\(I\)</span> sua idade.</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Basal_metabolic_rate">[Fonte: Wiikipedia]</a></p>
+</div>
+<div class="section" id="a-fisica-do-chute-de-uma-bola">
+<h3>A física do chute de uma bola<a class="headerlink" href="#a-fisica-do-chute-de-uma-bola" title="Permalink to this headline">¶</a></h3>
+<p>O movimento executado por uma bola de futebol ao ser chutada a partir do campo por um jogador é similar ao movimento parabólico de um projétil. A velocidade da bola <span class="math notranslate nohighlight">\(V_b\)</span> pode ser calculada pela expressão:</p>
+<div class="math notranslate nohighlight">
+\[V_b = V_p\left( \dfrac{M_p}{M_p + M_b} \right)(1 + e),\]</div>
+<p>onde <span class="math notranslate nohighlight">\(V_p\)</span> é a velocidade da perna do chutador, <span class="math notranslate nohighlight">\(M_p\)</span> é a massa da perna do chutador, <span class="math notranslate nohighlight">\(M_b\)</span> é a massa da bola e <span class="math notranslate nohighlight">\(e\)</span> é o <em>coeficiente de restituição</em> da bola.</p>
+<p>O alcance <span class="math notranslate nohighlight">\(a\)</span> é a medida horizontal máxima que a bola atinge a partir do ponto de lançamento de acordo com um certo ângulo em que é lançada. Como conhecemos da Física Básica, a fórmula para o alcance é dada por:</p>
+<div class="math notranslate nohighlight">
+\[a = \dfrac{V_b^2\textrm{sen}(2\alpha)}{g}\]</div>
+<p>Diante disso, considere os seguintes dados:</p>
+<ul class="simple">
+<li><p>A massa da bola de futebol profissional é de 400 gramas e seu coeficiente de restituição é 0.7.</p></li>
+<li><p>A massa da perna de um jogador equivale a 20% de sua massa.</p></li>
+<li><p>A velocidade da perna de um jogador é de 20 m/s.</p></li>
+<li><p>A constante gravitacional equivale a 9.8 m/s<sup>2</sup>.</p></li>
+</ul>
+<p><a class="reference external" href="http://www.mathematicshed.com/uploads/1/2/5/7/12572836/physicsofkickingsoccerball.pdf">[Fonte: Physics of Kicking a Soccer Ball]</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="questao-1">
+<h2>Questão 1<a class="headerlink" href="#questao-1" title="Permalink to this headline">¶</a></h2>
+<p>Escreva uma função que retorne uma tupla <code class="docutils literal notranslate"><span class="pre">(x,y)</span></code>, em que:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: o <span class="math notranslate nohighlight">\(IMC\)</span> médio do grupo de jogadores cujo nome profissional (conforme aparece na lista; inclua sobrenomes, se for o caso) tem a primeira letra como consoante e a última como vogal. Considere apenas uma casa decimal.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: o número de jogadores que satisfazem à condição anterior.</p></li>
+</ul>
+<p>Assinale a alternativa correta:</p>
+<p>a. <code class="docutils literal notranslate"><span class="pre">(22.6,14)</span></code></p>
+<p>b. <code class="docutils literal notranslate"><span class="pre">(22.5,12)</span></code> (&lt;–)</p>
+<p>c. <code class="docutils literal notranslate"><span class="pre">(22.1,12)</span></code></p>
+<p>d. <code class="docutils literal notranslate"><span class="pre">(22.2,23)</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;04c-copa2018.npy&#39;</span><span class="p">,</span><span class="n">allow_pickle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">jogador</span> <span class="o">=</span> <span class="n">lu</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">massa</span> <span class="o">=</span> <span class="n">lu</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">altura</span> <span class="o">=</span> <span class="n">lu</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">idade</span> <span class="o">=</span> <span class="n">lu</span><span class="p">[:,</span><span class="mi">3</span><span class="p">]</span>
+
+<span class="n">imc</span> <span class="o">=</span> <span class="n">massa</span><span class="o">/</span><span class="n">altura</span><span class="o">**</span><span class="mi">2</span> <span class="c1"># IMC</span>
+
+<span class="n">g1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">imc</span> <span class="o">&lt;</span> <span class="mf">21.7</span><span class="p">,</span><span class="kc">True</span><span class="p">,</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># grupo 1</span>
+<span class="n">g2</span> <span class="o">=</span> <span class="n">g1</span> <span class="o">==</span> <span class="kc">False</span> <span class="c1"># grupo 2</span>
+
+<span class="c1"># PLOT</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">jogador</span><span class="p">,</span><span class="n">imc</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">jogador</span><span class="p">[</span><span class="n">g1</span><span class="p">],</span><span class="n">imc</span><span class="p">[</span><span class="n">g1</span><span class="p">],</span><span class="s1">&#39;vr&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">jogador</span><span class="p">[</span><span class="n">g2</span><span class="p">],</span><span class="n">imc</span><span class="p">[</span><span class="n">g2</span><span class="p">],</span><span class="s1">&#39;^b&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">jogador</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">imc</span><span class="p">))</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">imc</span><span class="p">),</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="p">[</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;IMC&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;IMC - Jogadores da Seleção Brasileira (Copa 2018)&#39;</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;#407294&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+<span class="c1">#plt.savefig(&#39;IMC.png&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/questionario-4-completo_4_0.png" src="../_images/questionario-4-completo_4_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># </span>
+<span class="kn">import</span> <span class="nn">string</span>
+<span class="n">lets</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">ascii_lowercase</span><span class="p">))</span>
+<span class="n">vogs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">,</span><span class="s1">&#39;i&#39;</span><span class="p">,</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="s1">&#39;u&#39;</span><span class="p">])</span>
+<span class="n">cons</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">((</span><span class="nb">set</span><span class="p">(</span><span class="n">lets</span><span class="p">)</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">vogs</span><span class="p">)))))</span>
+
+<span class="n">ivc</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># indices</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">n</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">jogador</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="n">cons</span> <span class="ow">and</span> <span class="n">n</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="n">vogs</span><span class="p">:</span>        
+        <span class="n">ivc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        
+<span class="n">imc</span><span class="p">[</span><span class="n">ivc</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="nb">len</span><span class="p">(</span><span class="n">ivc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(22.48055104970767, 12)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="questao-2">
+<h2>Questão 2<a class="headerlink" href="#questao-2" title="Permalink to this headline">¶</a></h2>
+<p>Considere a lista de jogadores que você usou na questão anterior (com inicial e última letra segundo às condições). Nesta lista, você possui <span class="math notranslate nohighlight">\(n\)</span> jogadores com nome duplo (nome + sobrenome). Se <span class="math notranslate nohighlight">\(M\)</span> é o maior <span class="math notranslate nohighlight">\(IMC\)</span> entre estes <span class="math notranslate nohighlight">\(n\)</span> jogadores com nome duplo e <span class="math notranslate nohighlight">\(m\)</span> o menor <span class="math notranslate nohighlight">\(IMC\)</span>, assinale a alternativa correta para o valor de <span class="math notranslate nohighlight">\(x = |M - m|\)</span>, isto é, a maior variação de <span class="math notranslate nohighlight">\(IMC\)</span> entre os <span class="math notranslate nohighlight">\(n\)</span> jogadores.</p>
+<p>Use duas casas decimais:</p>
+<p>a. <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">1.01</span></code></p>
+<p>b. <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">0.65</span></code></p>
+<p>c. <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">0.90</span></code></p>
+<p>d. <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">2.26</span></code> (&lt;–)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">duplo</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Douglas Costa&#39;</span><span class="p">,</span><span class="s1">&#39;Philippe Coutinho&#39;</span><span class="p">,</span><span class="s1">&#39;Renato Augusto&#39;</span><span class="p">,</span><span class="s1">&#39;Thiago Silva&#39;</span><span class="p">]</span>
+
+<span class="n">ic</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># indices</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">n</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">jogador</span><span class="p">):</span>    
+    <span class="k">if</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">duplo</span><span class="p">:</span>          
+        <span class="n">ic</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+<span class="nb">round</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">imc</span><span class="p">[</span><span class="n">ic</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">imc</span><span class="p">[</span><span class="n">ic</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()),</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Douglas Costa
+Philippe Coutinho
+Renato Augusto
+Thiago Silva
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.26
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jogador</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;Alisson&#39;, &#39;Casemiro&#39;, &#39;Cássio&#39;, &#39;Danilo&#39;, &#39;Douglas Costa&#39;,
+       &#39;Ederson&#39;, &#39;Fagner&#39;, &#39;Fernandinho&#39;, &#39;Filipe Luis&#39;, &#39;Firmino&#39;,
+       &#39;Fred&#39;, &#39;Gabriel Jesus&#39;, &#39;Geromel&#39;, &#39;Marcelo&#39;, &#39;Marquinhos&#39;,
+       &#39;Miranda&#39;, &#39;Neymar&#39;, &#39;Paulinho&#39;, &#39;Philippe Coutinho&#39;,
+       &#39;Renato Augusto&#39;, &#39;Taison&#39;, &#39;Thiago Silva&#39;, &#39;Willian&#39;],
+      dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">imc</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([23.299799895836188, 23.92485822306238, 23.405654174884944,
+       21.85727788279773, 22.30935640886966, 24.280263614290668,
+       20.549886621315196, 21.38593635289987, 22.34029706557179,
+       22.587833094227893, 19.95728440880922, 21.877551020408163,
+       21.606648199445985, 22.12973972783723, 21.798202394816204,
+       22.54595907041276, 19.487382745408905, 22.6421929718633,
+       20.86111966075032, 23.12406058503873, 21.63331530557058,
+       22.99262444384723, 21.79944510503369], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ic</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[4, 19, 21]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="questao-3">
+<h2>Questão 3<a class="headerlink" href="#questao-3" title="Permalink to this headline">¶</a></h2>
+<p>Considere que a escalação da seleção brasileira da Copa 2018 listada acima permanecesse a mesma ao longo do tempo. Assuma que a idade dos jogadores no início de 2018 era aquela disponibilizada no arquivo. Use a equação de Mifflin - St. Jeor para calcular qual seria a demanda calórica total E em kcal para manter o time apenas respirando durante todo o ano de 2027, isto é, o valor da TMB. Então, assinale a alternativa correta.</p>
+<p><strong>Obs.</strong>:Note que a idade dos jogadores muda anualmente.</p>
+<p>a. 7.7x10<sup>8</sup> kcal &lt; E &lt; 7.8x10<sup>8</sup> kcal (&lt;–)</p>
+<p>b. 7.5x10<sup>8</sup> kcal &lt; E &lt; 7.6x10<sup>8</sup> kcal</p>
+<p>c. 7.6x10<sup>8</sup> kcal &lt; E &lt; 7.7x10<sup>8</sup> kcal</p>
+<p>d. 7.8x10<sup>8</sup> kcal &lt; E &lt; 7.9x10<sup>8</sup> kcal</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Eq. Mifflin - St. Jeor</span>
+<span class="n">mifflin</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">M</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">I</span><span class="p">:</span> <span class="mi">10</span><span class="o">*</span><span class="n">M</span> <span class="o">+</span> <span class="mf">6.25</span><span class="o">*</span><span class="n">A</span> <span class="o">+</span> <span class="mi">5</span><span class="o">*</span><span class="n">I</span> <span class="o">+</span> <span class="mi">5</span> <span class="c1"># kcal / dia </span>
+
+<span class="n">TMB_jogadores</span> <span class="o">=</span> <span class="n">mifflin</span><span class="p">(</span><span class="n">massa</span><span class="p">,</span><span class="n">altura</span><span class="p">,</span><span class="n">idade</span><span class="p">)</span>
+
+<span class="c1"># energia necessária nos próximos 5 anos</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">TMB</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+    <span class="n">TMB</span><span class="p">[</span><span class="mi">2018</span><span class="o">+</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">365</span><span class="o">*</span><span class="n">mifflin</span><span class="p">(</span><span class="n">massa</span><span class="p">,</span><span class="n">altura</span><span class="p">,</span><span class="n">idade</span><span class="o">+</span><span class="n">i</span><span class="p">))</span> <span class="c1"># kcal necessárias por ano para o time</span>
+    
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">TMB</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>    
+    <span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">TMB</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="s1">&#39;ro-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;kcal&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span><span class="mi">2018</span><span class="o">+</span><span class="n">y</span><span class="p">));</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Demanda calórica total da seleção brasileira - TMB&#39;</span><span class="p">);</span>
+<span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">TMB</span><span class="p">[</span><span class="mi">2027</span><span class="p">]</span><span class="si">:</span><span class="s1">e</span><span class="si">}</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;7.732046e+06&#39;
+</pre></div>
+</div>
+<img alt="../_images/questionario-4-completo_12_1.png" src="../_images/questionario-4-completo_12_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="questao-4">
+<h2>Questão 4<a class="headerlink" href="#questao-4" title="Permalink to this headline">¶</a></h2>
+<p>Assuma que um campo de futebol profissional “padrão FIFA” possui área de 100 x 68 <sup>2</sup>. Além disso, defina um <em>Whole-Field Kicker</em> (WFK) o jogador que, chutando uma bola a um ângulo de 45 graus, consegue transportá-la de gol a gol, ou seja de uma linha de fundo a outra, e como <em>Not Whole-Field Kicker</em> (not WFK) aquele que não consegue realizar esta proeza. Usando os dados disponíveis na tabela dos jogadores da seleção de 2018 e a equação do alcance, determine a tupla
+<code class="docutils literal notranslate"><span class="pre">(x,y,u,v)</span></code>, onde:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: o nome do WFK do time que tem o chute mais longe.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: o alcance máximo de chute do jogador <code class="docutils literal notranslate"><span class="pre">x</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">u</span></code>: o nome do WFK do time que tem o chute mais curto.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">v</span></code>: o alcance máximo de chute do jogador <code class="docutils literal notranslate"><span class="pre">u</span></code></p></li>
+</ul>
+<p>Assinale a alternativa correta:</p>
+<p>a. <code class="docutils literal notranslate"><span class="pre">('Cássio',</span> <span class="pre">101.50,</span> <span class="pre">'Fagner',</span> <span class="pre">100.05)</span></code></p>
+<p>b. <code class="docutils literal notranslate"><span class="pre">('Cássio',</span> <span class="pre">100.90,</span> <span class="pre">'Fred',</span> <span class="pre">98.42)</span></code></p>
+<p>c. <code class="docutils literal notranslate"><span class="pre">('Cássio',</span> <span class="pre">100.87,</span> <span class="pre">'Paulinho',</span> <span class="pre">100.05)</span></code> (&lt;–)</p>
+<p>d. <code class="docutils literal notranslate"><span class="pre">('Alisson',</span> <span class="pre">100.87,</span> <span class="pre">'Paulinho',</span> <span class="pre">100.00)</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># vp: velocidade da perna do jogador (fixa: 20 m/s)</span>
+<span class="c1"># mp: massa da perna do jogador (10% da massa do jogador)</span>
+<span class="c1"># e: coeficiente de restituição da bola (média da bola oficial: 0.7)</span>
+<span class="c1"># mb: massa da bola de futebol oficial (mb = 0.4 kg)</span>
+<span class="c1"># alpha: angulo de lançamento da bola (chute)</span>
+<span class="c1"># g: constante gravitacional (9.8 m/s2)</span>
+
+<span class="c1"># velocidade da bola em m/s</span>
+<span class="n">vb</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">vp</span><span class="p">,</span><span class="n">mp</span><span class="p">,</span><span class="n">mb</span><span class="p">,</span><span class="n">e</span><span class="p">:</span> <span class="n">vp</span><span class="o">*</span><span class="p">(</span><span class="n">mp</span><span class="o">/</span><span class="p">(</span><span class="n">mp</span> <span class="o">+</span> <span class="n">mb</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">e</span><span class="p">)</span>
+
+<span class="c1"># formula do alcance: movimento projetil</span>
+<span class="n">alcance</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">vb</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">g</span><span class="p">:</span> <span class="n">vb</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">alpha</span><span class="p">)</span><span class="o">/</span><span class="n">g</span>
+
+<span class="c1"># Considere o campo FIFA: 100 m x 68 m</span>
+
+<span class="n">e</span> <span class="o">=</span> <span class="mf">0.7</span>
+<span class="n">vp</span> <span class="o">=</span> <span class="mf">20.0</span>
+<span class="n">mb</span> <span class="o">=</span> <span class="mf">0.4</span>
+<span class="n">g</span> <span class="o">=</span> <span class="mf">9.8</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mi">45</span>
+
+<span class="n">MP</span> <span class="o">=</span> <span class="mf">0.2</span><span class="o">*</span><span class="n">massa</span> <span class="c1"># massas perna</span>
+<span class="n">VB</span> <span class="o">=</span> <span class="n">vb</span><span class="p">(</span><span class="n">vp</span><span class="p">,</span><span class="n">MP</span><span class="p">,</span><span class="n">mb</span><span class="p">,</span><span class="n">e</span><span class="p">)</span> <span class="c1"># vels bola</span>
+<span class="n">ALC</span> <span class="o">=</span> <span class="n">alcance</span><span class="p">(</span><span class="n">VB</span><span class="p">,</span><span class="n">alpha</span><span class="p">,</span><span class="n">g</span><span class="p">)</span>
+
+<span class="c1"># quais jogadores conseguem um &#39;chute de campo inteiro&#39;</span>
+<span class="n">kicker</span> <span class="o">=</span> <span class="n">ALC</span> <span class="o">&gt;=</span> <span class="mi">100</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">jogador</span><span class="p">,</span><span class="n">ALC</span><span class="p">,</span><span class="s1">&#39;ro&#39;</span><span class="p">,</span><span class="n">mfc</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">jogador</span><span class="p">[</span><span class="n">kicker</span><span class="p">],</span><span class="n">ALC</span><span class="p">[</span><span class="n">kicker</span><span class="p">],</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;metros&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;not WFK&#39;</span><span class="p">,</span><span class="s1">&#39;WFK&#39;</span><span class="p">]);</span> <span class="c1"># Whole-Field Kicker</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">);</span>
+
+
+<span class="c1"># maior, menor alcance</span>
+<span class="n">jkicker</span> <span class="o">=</span> <span class="n">jogador</span><span class="p">[</span><span class="n">kicker</span><span class="p">]</span>
+<span class="n">jkicker</span>
+<span class="n">maior</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">ALC</span><span class="p">[</span><span class="n">kicker</span><span class="p">])</span>
+<span class="n">menor</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">ALC</span><span class="p">[</span><span class="n">kicker</span><span class="p">])</span>
+<span class="n">jkicker</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">ALC</span><span class="p">[</span><span class="n">kicker</span><span class="p">])],</span><span class="nb">round</span><span class="p">(</span><span class="n">maior</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">jkicker</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">ALC</span><span class="p">[</span><span class="n">kicker</span><span class="p">])],</span><span class="nb">round</span><span class="p">(</span><span class="n">menor</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;Cássio&#39;, 100.87, &#39;Paulinho&#39;, 100.05)
+</pre></div>
+</div>
+<img alt="../_images/questionario-4-completo_14_1.png" src="../_images/questionario-4-completo_14_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ALC</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([100.6623355477662, 100.43417336459261, 100.87066525130435,
+       99.97787720718757, 99.3430986388783, 100.60726109356631,
+       98.54194788727982, 99.43037568157428, 99.97787720718757,
+       99.97787720718757, 98.42679516806024, 99.43037568157428,
+       100.24827026077386, 99.43037568157428, 99.90583406255675,
+       100.24827026077386, 98.65338915390679, 100.04807406457067,
+       98.86583246069982, 100.3736981750168, 99.1607341089165,
+       100.18320567039869, 99.3430986388783], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="questao-5">
+<h2>Questão 5<a class="headerlink" href="#questao-5" title="Permalink to this headline">¶</a></h2>
+<p>Ao chutar a bola do mesmo modo como explicado na questão anterior, cada jogador faz com que a bola atinja uma altura máxima. Suponha que M1, M2 e M3 sejam os valores de altura máxima dos chutes realizados pelos jogadores da seleção de 2018 cujos nomes iniciam-se pela letra M, mas organizados em ordem alfabética a partir da segunda letra em diante. Considerando os mesmos dados físicos da questão anterior e a fórmula para a altura máxima dada por</p>
+<div class="math notranslate nohighlight">
+\[h = \dfrac{ V_b^2\textrm{sen}^2(\alpha) }{2g},\]</div>
+<p>assinale a alternativa correta.</p>
+<p><strong>Obs.:</strong> use duas casas decimais.</p>
+<p>a. M1 &gt; M2 &gt; M3</p>
+<p>b. M1 &lt; M2 &lt; M3 (&lt;–)</p>
+<p>c. M1 = M2 &lt; M3</p>
+<p>d. M1 = M3 &gt; M2</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># vp: velocidade da perna do jogador (fixa: 20 m/s)</span>
+<span class="c1"># mp: massa da perna do jogador (10% da massa do jogador)</span>
+<span class="c1"># e: coeficiente de restituição da bola (média da bola oficial: 0.7)</span>
+<span class="c1"># mb: massa da bola de futebol oficial (mb = 0.4 kg)</span>
+<span class="c1"># alpha: angulo de lançamento da bola (chute)</span>
+<span class="c1"># g: constante gravitacional (9.8 m/s2)</span>
+
+<span class="c1"># velocidade da bola em m/s</span>
+<span class="n">vb</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">vp</span><span class="p">,</span><span class="n">mp</span><span class="p">,</span><span class="n">mb</span><span class="p">,</span><span class="n">e</span><span class="p">:</span> <span class="n">vp</span><span class="o">*</span><span class="p">(</span><span class="n">mp</span><span class="o">/</span><span class="p">(</span><span class="n">mp</span> <span class="o">+</span> <span class="n">mb</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">e</span><span class="p">)</span>
+
+<span class="c1"># formula da altura maxima</span>
+<span class="n">altmax</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">vb</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">g</span><span class="p">:</span> <span class="p">(</span><span class="n">vb</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">g</span><span class="p">)</span>
+
+<span class="n">e</span> <span class="o">=</span> <span class="mf">0.7</span>
+<span class="n">vp</span> <span class="o">=</span> <span class="mf">20.0</span>
+<span class="n">mb</span> <span class="o">=</span> <span class="mf">0.4</span>
+<span class="n">g</span> <span class="o">=</span> <span class="mf">9.8</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mi">45</span>
+
+<span class="n">MP</span> <span class="o">=</span> <span class="mf">0.2</span><span class="o">*</span><span class="n">massa</span> <span class="c1"># massas perna</span>
+<span class="n">VB</span> <span class="o">=</span> <span class="n">vb</span><span class="p">(</span><span class="n">vp</span><span class="p">,</span><span class="n">MP</span><span class="p">,</span><span class="n">mb</span><span class="p">,</span><span class="n">e</span><span class="p">)</span> <span class="c1"># vels bola</span>
+<span class="n">ALT</span> <span class="o">=</span> <span class="n">altmax</span><span class="p">(</span><span class="n">VB</span><span class="p">,</span><span class="n">alpha</span><span class="p">,</span><span class="n">g</span><span class="p">)</span>
+
+<span class="n">jogm</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Marcelo&#39;</span><span class="p">,</span><span class="s1">&#39;Marquinhos&#39;</span><span class="p">,</span><span class="s1">&#39;Miranda&#39;</span><span class="p">]</span>
+
+<span class="n">idm</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">jogador</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">jogm</span><span class="p">:</span>
+        <span class="n">idm</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ALC</span><span class="p">[</span><span class="n">idm</span><span class="p">],</span><span class="n">ALT</span><span class="p">[</span><span class="n">idm</span><span class="p">],</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Alcance [m]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Altura máxima [m]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">ALT</span><span class="p">[</span><span class="n">idm</span><span class="p">]),[</span><span class="s1">&#39;M1&#39;</span><span class="p">,</span><span class="s1">&#39;M2&#39;</span><span class="p">,</span><span class="s1">&#39;M3&#39;</span><span class="p">],</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ALT</span><span class="p">[</span><span class="n">idm</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[40.26371392886744 40.456247851280324 40.59491526583438]
+</pre></div>
+</div>
+<img alt="../_images/questionario-4-completo_17_1.png" src="../_images/questionario-4-completo_17_1.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./ipynb"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Gustavo Oliveira e Andrea Rocha<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

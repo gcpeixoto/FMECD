@@ -1,7 +1,6 @@
 .DS_Store
 .ipynb_checkpoints/
 rise/.ipynb_checkpoints/
-_build/
 .swp
 *.*.swp
 *.*.swo
