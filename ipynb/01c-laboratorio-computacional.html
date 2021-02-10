@@ -1,0 +1,453 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laboratório Computacional 1 &#8212; Fundamentos de Matemática e Estatística para Ciência de Dados</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Laboratório Computacional 2" href="02c-laboratorio-computacional.html" />
+    <link rel="prev" title="Estatística Descritiva com apoio do Python" href="08a-estatistica-descritiva.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/cycle-ds.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Fundamentos de Matemática e Estatística para Ciência de Dados</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="00-apresentacao.html">
+   Apresentação
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Introdução
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01a-introducao.html">
+   Introdução à Ciência de Dados
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Matemática Computacional
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01b-fundamentos-python.html">
+   Fundamentos de
+   <em>
+    Python
+   </em>
+   para Computação Científica
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02a-computacao-simbolica.html">
+   Introdução à Computação Simbólica com
+   <em>
+    sympy
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03a-matematica-discreta.html">
+   Fundamentos de Matemática Discreta com Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04a-computacao-vetorizada.html">
+   Computação vetorizada com
+   <em>
+    numpy
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04b-plotagem-matplotlib.html">
+   Plotagem básica com
+   <em>
+    matplotlib
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05a-complemento-numpy.html">
+   Tópicos complementares sobre o
+   <em>
+    numpy
+   </em>
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Estatística e Análise de Dados
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="06a-pandas-series.html">
+   Manipulação de dados com
+   <em>
+    pandas
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06b-pandas-dataframe.html">
+   Operações com
+   <em>
+    DataFrames
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06c-pandas-agrupamento.html">
+   Agregação e agrupamento
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07a-visualizacao-dados.html">
+   Visualização gráfica de dados
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07b-formatacao-matplotlib.html">
+   Formatação de gráficos com
+   <em>
+    matplotlib
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07c-plotly.html">
+   Gráficos interativos com o
+   <em>
+    plotly
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07d-seaborn.html">
+   Visualização gráfica de dados com
+   <em>
+    seaborn
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08a-estatistica-descritiva.html">
+   Estatística Descritiva com apoio do
+   <em>
+    Python
+   </em>
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Problemas
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Laboratório Computacional 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02c-laboratorio-computacional.html">
+   Laboratório Computacional 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03c-laboratorio-computacional.html">
+   Laboratório Computacional 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04c-laboratorio-computacional.html">
+   Laboratório Computacional 4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06d-laboratorio-computacional.html">
+   Laboratório Computacional 6
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07e-laboratorio-computacional.html">
+   Laboratório Computacional 7
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08c-laboratorio-computacional.html">
+   Laboratório Computacional 8
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/ipynb/01c-laboratorio-computacional.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="laboratorio-computacional-1">
+<h1>Laboratório Computacional 1<a class="headerlink" href="#laboratorio-computacional-1" title="Permalink to this headline">¶</a></h1>
+<p>No laboratório computacional, você praticará o que aprendeu. Resolva os problemas com o auxílio do Python pesquisando apenas as informações essenciais de que precisa. Não use respostas prontas.</p>
+<p><strong>Problema:</strong> Quantos segundos existem em um século? Escreva a resposta usando um objeto <code class="docutils literal notranslate"><span class="pre">str</span></code> que denote o número de acordo com nosso sistema decimal (separado por milhar, milhão, etc.) e imprima o resultado com <code class="docutils literal notranslate"><span class="pre">print</span></code>. A resposta deve ser algo do tipo</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;1 século possui x.xxx.xxx.xxx segundos&#39;</span>
+</pre></div>
+</div>
+<p><strong>Problema:</strong> Escreva um código para calcular as raízes da equação <span class="math notranslate nohighlight">\(ax^2 + bx + c = 0\)</span>, para <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span> e <span class="math notranslate nohighlight">\(c\)</span> conhecidos e do tipo <code class="docutils literal notranslate"><span class="pre">int</span></code>. Em que situação sua resposta seria um objeto <code class="docutils literal notranslate"><span class="pre">complex</span></code>? Mostre um exemplo. <em>Obs.:</em> use <code class="docutils literal notranslate"><span class="pre">1j</span></code> para construir a parte imaginária.</p>
+<p><strong>Problema:</strong> Observe a tabela a seguir, onde <strong>DS (UA)</strong> é a distância do referido planeta do até o Sol em unidades astronômicas (UA), <strong>Tm (F)</strong> sua temperatura superficial mínima em graus Farenheit e <strong>TM (F)</strong> sua temperatura superficial máxima em graus Farenheit.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>DS (UA)</p></th>
+<th class="head"><p>Tm (<span class="math notranslate nohighlight">\(^{\circ}\)</span>C)</p></th>
+<th class="head"><p>TM (<span class="math notranslate nohighlight">\(^{\circ}\)</span>C)</p></th>
+<th class="head"><p>DS (km)</p></th>
+<th class="head"><p>TmM (<span class="math notranslate nohighlight">\(^{\circ}\)</span>C)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Mercúrio</p></td>
+<td><p>0.39</p></td>
+<td><p>-275</p></td>
+<td><p>840</p></td>
+<td><p>?</p></td>
+<td><p>?</p></td>
+</tr>
+<tr class="row-odd"><td><p>Vênus</p></td>
+<td><p>0.723</p></td>
+<td><p>870</p></td>
+<td><p>870</p></td>
+<td><p>?</p></td>
+<td><p>?</p></td>
+</tr>
+<tr class="row-even"><td><p>Terra</p></td>
+<td><p>1.0</p></td>
+<td><p>-129</p></td>
+<td><p>136</p></td>
+<td><p>?</p></td>
+<td><p>?</p></td>
+</tr>
+<tr class="row-odd"><td><p>Marte</p></td>
+<td><p>1.524</p></td>
+<td><p>-195</p></td>
+<td><p>70</p></td>
+<td><p>?</p></td>
+<td><p>?</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>Escreva um código para converter a temperatura dos planetas de graus Farenheit (<span class="math notranslate nohighlight">\(^{\circ}\)</span>F) para Celsius (<span class="math notranslate nohighlight">\(^{\circ}\)</span>C).</p></li>
+<li><p>Escreva um código para converter unidades astronômicas em quilômetros.</p></li>
+<li><p>Imprima os valores que deveriam ser inseridos na coluna <strong>DS (km)</strong> horizontalmente usando <code class="docutils literal notranslate"><span class="pre">print</span></code>.</p></li>
+<li><p>Repita o item anterior para a coluna <strong>TmM (<span class="math notranslate nohighlight">\(^{\circ}\)</span>C)</strong>, que é a média aritmética entre <strong>Tm</strong> e <strong>TM</strong>.</p></li>
+</ul>
+<p><em>Observação:</em> use notação científica (exemplo: <span class="math notranslate nohighlight">\(4.2 \times 10^8\)</span> pode ser escrito como <code class="docutils literal notranslate"><span class="pre">4.2e8</span></code> em Python).</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./ipynb"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="08a-estatistica-descritiva.html" title="previous page">Estatística Descritiva com apoio do <em>Python</em></a>
+    <a class='right-next' id="next-link" href="02c-laboratorio-computacional.html" title="next page">Laboratório Computacional 2</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Gustavo Oliveira e Andrea Rocha<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

@@ -1,0 +1,591 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Questionário - Semana 3 &#8212; Fundamentos de Matemática e Estatística para Ciência de Dados</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/cycle-ds.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Fundamentos de Matemática e Estatística para Ciência de Dados</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="00-apresentacao.html">
+   Apresentação
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Introdução
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01a-introducao.html">
+   Introdução à Ciência de Dados
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Matemática Computacional
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01b-fundamentos-python.html">
+   Fundamentos de
+   <em>
+    Python
+   </em>
+   para Computação Científica
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02a-computacao-simbolica.html">
+   Introdução à Computação Simbólica com
+   <em>
+    sympy
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03a-matematica-discreta.html">
+   Fundamentos de Matemática Discreta com Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04a-computacao-vetorizada.html">
+   Computação vetorizada com
+   <em>
+    numpy
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04b-plotagem-matplotlib.html">
+   Plotagem básica com
+   <em>
+    matplotlib
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05a-complemento-numpy.html">
+   Tópicos complementares sobre o
+   <em>
+    numpy
+   </em>
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Estatística e Análise de Dados
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="06a-pandas-series.html">
+   Manipulação de dados com
+   <em>
+    pandas
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06b-pandas-dataframe.html">
+   Operações com
+   <em>
+    DataFrames
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06c-pandas-agrupamento.html">
+   Agregação e agrupamento
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07a-visualizacao-dados.html">
+   Visualização Gráfica de Dados
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Problemas
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01c-laboratorio-computacional.html">
+   Laboratório Computacional 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02c-laboratorio-computacional.html">
+   Laboratório Computacional 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03c-laboratorio-computacional.html">
+   Laboratório Computacional 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04c-laboratorio-computacional.html">
+   Laboratório Computacional 4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06d-laboratorio-computacional.html">
+   Laboratório Computacional 6
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/ipynb/questionario-3-apoio.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#indice-de-seguranca-de-energia">
+   Índice de Segurança de Energia
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#questao-1">
+     Questão 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#questao-2">
+     Questão 2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#questao-3">
+     Questão 3
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#questao-4">
+     Questão 4
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#questao-5">
+     Questão 5
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="questionario-semana-3">
+<h1>Questionário - Semana 3<a class="headerlink" href="#questionario-semana-3" title="Permalink to this headline">¶</a></h1>
+<p><strong>Nota</strong>: utilize este texto como acessório para inserir as respostas no questionário 3.</p>
+<p>Leia o texto a seguir para responder o questionário.</p>
+<div class="section" id="indice-de-seguranca-de-energia">
+<h2>Índice de Segurança de Energia<a class="headerlink" href="#indice-de-seguranca-de-energia" title="Permalink to this headline">¶</a></h2>
+<p>Cada país possui uma demanda diferente de energia para conseguir manter suas atividades cotidianas funcionando, tais como transportes, consumo doméstico e serviços. A segurança energética de um país tem impacto direto na sua atividade econômica e no crescimento de sua riqueza interna.</p>
+<p>O <em>Índice de Segurança de Energia</em> (ISE) de um país pode ser calculado a partir de 15 dimensões distintas, que são características intrínsecas do país. e uma série de parâmetros. Entretanto, nós vamos considerar apenas três aqui, a saber: <em>disponibilidade energética</em>, <em>nível de alfabetização</em> e <em>empregabilidade</em>.</p>
+<p>A disponibilidade energética (DE) é calculada em função de três parâmetros:</p>
+<ul class="simple">
+<li><p>potencial energético total do país (fontes renováveis e não renováveis), medido em TWh (terawatts-hora);</p></li>
+<li><p>população (número inteiro) e</p></li>
+<li><p>número de aeroportos (número inteiro).</p></li>
+</ul>
+<p>O nível de alfabetização (NA) também é calculado em função de três parâmetros:</p>
+<ul class="simple">
+<li><p>número de documentos científicos citados por pesquisadores de outros países (número inteiro);</p></li>
+<li><p>percentual do PIB gasto em educação (percentual) e</p></li>
+<li><p>percentual de graduados nas áreas de ciência e tecnologia (percentual).</p></li>
+</ul>
+<p>A empregabilidade (E) é estimada com base em dois parâmetros:</p>
+<ul class="simple">
+<li><p>número de empregos no setor da energia, medido em TWh e</p></li>
+<li><p>taxa de desemprego (percentual).</p></li>
+</ul>
+<p>A partir de fórmulas específicas para cada parâmetro e dimensão, valores médios são computados e o ISE pode ser finalmente obtido a partir de uma média desses valores médios. O ISE é um valor que varia de 0 a 100. Um país com ISE = 0 não possui nenhuma segurança energética para seu futuro, ao passo que um país com ISE = 100 está perfeitamente assegurado. Entretanto, nenhum país no mundo possui um ISE maior do que 60.</p>
+<p>Para a estimativa do ISE, é evidente que informações a respeito das dimensões e parâmetros anteriores sejam conhecidas. Porém, essas informações não são facilmente obtidas para todos os países do mundo. Alguns nem mesmo possuem setores de governo suficientemente evoluídos com os registros delas. Diante disso, faremos a classificação de um país nivelando-o de acordo com o número <span class="math notranslate nohighlight">\(p\)</span> de parâmetros informativos que são <strong>desconhecidos</strong> da seguinte maneira. Um país será de:</p>
+<ul class="simple">
+<li><p>nível 1, se <span class="math notranslate nohighlight">\(0 \leq p \leq 5\)</span></p></li>
+<li><p>nível 2, se <span class="math notranslate nohighlight">\(5 &lt; p \leq 10\)</span></p></li>
+<li><p>nível 3, se <span class="math notranslate nohighlight">\(10 &lt; p \leq 15\)</span></p></li>
+<li><p>nível 4, se <span class="math notranslate nohighlight">\(p &gt; 15\)</span></p></li>
+</ul>
+<p>Isto é, um país de nível 1 é aquele para o qual poucos parâmetros não são conhecidos a respeito dele, enquanto que um país de nível 4 apresenta um quadro muito deficiente de informações.</p>
+<p>A tabela a seguir lista alguns países juntamente com seu nível e ISE.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>País</p></th>
+<th class="text-align:right head"><p>ISE</p></th>
+<th class="text-align:right head"><p>Nível</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>Alemanha</p></td>
+<td class="text-align:right"><p>58.2</p></td>
+<td class="text-align:right"><p>1</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>EUA</p></td>
+<td class="text-align:right"><p>57.9</p></td>
+<td class="text-align:right"><p>1</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Brasil</p></td>
+<td class="text-align:right"><p>51.3</p></td>
+<td class="text-align:right"><p>1</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Israel</p></td>
+<td class="text-align:right"><p>49.8</p></td>
+<td class="text-align:right"><p>1</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Madagascar</p></td>
+<td class="text-align:right"><p>39</p></td>
+<td class="text-align:right"><p>2</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Síria</p></td>
+<td class="text-align:right"><p>35.9</p></td>
+<td class="text-align:right"><p>2</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Suriname</p></td>
+<td class="text-align:right"><p>37.1</p></td>
+<td class="text-align:right"><p>2</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Laos</p></td>
+<td class="text-align:right"><p>36.5</p></td>
+<td class="text-align:right"><p>2</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Timor Leste</p></td>
+<td class="text-align:right"><p>35</p></td>
+<td class="text-align:right"><p>3</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Afeganistão</p></td>
+<td class="text-align:right"><p>34</p></td>
+<td class="text-align:right"><p>3</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Fiji</p></td>
+<td class="text-align:right"><p>33.5</p></td>
+<td class="text-align:right"><p>3</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Gâmbia</p></td>
+<td class="text-align:right"><p>33</p></td>
+<td class="text-align:right"><p>3</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Kosovo</p></td>
+<td class="text-align:right"><p>21</p></td>
+<td class="text-align:right"><p>4</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Aruba</p></td>
+<td class="text-align:right"><p>12.2</p></td>
+<td class="text-align:right"><p>4</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Gibraltar</p></td>
+<td class="text-align:right"><p>9.9</p></td>
+<td class="text-align:right"><p>4</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Martinica</p></td>
+<td class="text-align:right"><p>6.4</p></td>
+<td class="text-align:right"><p>4</p></td>
+</tr>
+</tbody>
+</table>
+<p>A partir dessas informações, responda as questões a seguir.</p>
+<p>Fonte: <a class="reference external" href="https://www.mdpi.com/1996-1073/13/10/2502/htm">[Azzuni e Breyer]</a>, com adaptações.</p>
+<div class="section" id="questao-1">
+<h3>Questão 1<a class="headerlink" href="#questao-1" title="Permalink to this headline">¶</a></h3>
+<p>Suponha que você recebeu a incumbência de analisar esses dados, mas lhe advertiram sobre o seguinte: a tabela  está desordenada em relação ao nome dos países e, além disso, esqueceram de adicionar os quatro países a seguir:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>País</p></th>
+<th class="text-align:right head"><p>ISE</p></th>
+<th class="text-align:right head"><p>Nível</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>Senegal</p></td>
+<td class="text-align:right"><p>46.2</p></td>
+<td class="text-align:right"><p>1</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Líbano</p></td>
+<td class="text-align:right"><p>37.6</p></td>
+<td class="text-align:right"><p>2</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Mali</p></td>
+<td class="text-align:right"><p>35.3</p></td>
+<td class="text-align:right"><p>3</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Andorra</p></td>
+<td class="text-align:right"><p>17.1</p></td>
+<td class="text-align:right"><p>4</p></td>
+</tr>
+</tbody>
+</table>
+<p>Use todo o seu conhecimento sobre listas, tuplas, dicionários, conjuntos e controle de fluxo para organizar esses dados ordenando os países em ordem alfabética e incluindo o que foi esquecido.</p>
+<p>Considere que <code class="docutils literal notranslate"><span class="pre">pais</span></code> é uma lista contendo os nomes dos países da tabela completa (em ordem alfabética) e <code class="docutils literal notranslate"><span class="pre">ise</span></code>  uma segunda lista contendo os valores correspondentes de ISE (na mesma ordem alfabética). Assinale a alternativa correta:</p>
+<p>a. <code class="docutils literal notranslate"><span class="pre">pais[9]</span> <span class="pre">=</span> <span class="pre">'Afeganistão'</span></code> e <code class="docutils literal notranslate"><span class="pre">ISE[14]</span> <span class="pre">=</span> <span class="pre">9.9</span></code></p>
+<p>b. <code class="docutils literal notranslate"><span class="pre">pais[9]</span> <span class="pre">=</span> <span class="pre">'Laos'</span></code> e <code class="docutils literal notranslate"><span class="pre">ISE[14]</span> <span class="pre">=</span> <span class="pre">33.0</span></code></p>
+<p>c. <code class="docutils literal notranslate"><span class="pre">pais[9]</span> <span class="pre">=</span> <span class="pre">'Israel'</span></code> e <code class="docutils literal notranslate"><span class="pre">ISE[14]</span> <span class="pre">=</span> <span class="pre">35.3</span></code></p>
+<p>d. <code class="docutils literal notranslate"><span class="pre">pais[9]</span> <span class="pre">=</span> <span class="pre">'Gâmbia'</span></code> e <code class="docutils literal notranslate"><span class="pre">ISE[14]</span> <span class="pre">=</span> <span class="pre">39.0</span></code></p>
+</div>
+<div class="section" id="questao-2">
+<h3>Questão 2<a class="headerlink" href="#questao-2" title="Permalink to this headline">¶</a></h3>
+<p>Considere a seguinte associação de cor para cada país mediante o seu nível (valor <span class="math notranslate nohighlight">\(p\)</span>).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;azul&#39;</span>
+<span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;amarelo&#39;</span>
+<span class="mi">3</span><span class="p">:</span> <span class="s1">&#39;laranja&#39;</span>
+<span class="mi">4</span><span class="p">:</span> <span class="s1">&#39;vermelho&#39;</span>
+</pre></div>
+</div>
+<p>Crie um dicionário <code class="docutils literal notranslate"><span class="pre">{chave:valor}</span></code> onde <code class="docutils literal notranslate"><span class="pre">chave</span></code> deve ser um nome de país e <code class="docutils literal notranslate"><span class="pre">valor</span></code> o nome da cor associada. Por exemplo:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;Alemanha&#39;</span><span class="p">:</span> <span class="s1">&#39;azul&#39;</span><span class="p">,</span> <span class="o">...</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Seja <code class="docutils literal notranslate"><span class="pre">c</span></code> a lista dos nomes dos países cuja cor associada é uma cor da bandeira do Brasil e <code class="docutils literal notranslate"><span class="pre">n</span></code> o número de países nesta lista à exceção do próprio Brasil. Assinale a alternativa correta.</p>
+<p>a. <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">8</span></code></p>
+<p>b. <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">10</span></code></p>
+<p>c. <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">11</span></code></p>
+<p>d. <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">9</span></code></p>
+</div>
+<div class="section" id="questao-3">
+<h3>Questão 3<a class="headerlink" href="#questao-3" title="Permalink to this headline">¶</a></h3>
+<p>No texto principal, 8 parâmetros foram definidos e separados nas 3 dimensões DE, NA e E em blocos de 3, 3 e 2, respectivamente. Considere que <strong>o nome das unidades de medida</strong> desses parâmetros sejam os elementos de 3 conjuntos <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span> e <span class="math notranslate nohighlight">\(C\)</span>, onde:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(A\)</span> é o conjunto das unidades de medida dos parâmetros associadas à dimensão DE</p></li>
+<li><p><span class="math notranslate nohighlight">\(B\)</span> é o conjunto das unidades de medida dos parâmetros associadas à dimensão NA</p></li>
+<li><p><span class="math notranslate nohighlight">\(C\)</span> é o conjunto das unidades de medida dos parâmetros associadas à dimensão E</p></li>
+</ul>
+<p>Quanto ao(s) elemento(s) pertencentes ao conjunto <span class="math notranslate nohighlight">\(A \cap B \cap C\)</span>, assinale a alternativa correta.</p>
+<p>a. {}</p>
+<p>b. {terawatt-hora}</p>
+<p>c. {percentual}</p>
+<p>d. {número inteiro}</p>
+</div>
+<div class="section" id="questao-4">
+<h3>Questão 4<a class="headerlink" href="#questao-4" title="Permalink to this headline">¶</a></h3>
+<p>Crie uma função que retorne uma tupla <span class="math notranslate nohighlight">\((a,b)\)</span> em que <span class="math notranslate nohighlight">\(a\)</span> é o número dos países para os quais <span class="math notranslate nohighlight">\(35 \leq ISE \leq 55\)</span> e <span class="math notranslate nohighlight">\(b\)</span> é o valor da média aritmética do ISE para este grupo exclusivo de países. Note que a média
+aritmética de <span class="math notranslate nohighlight">\(n\)</span> valores é dada por</p>
+<p>$<span class="math notranslate nohighlight">\(\frac{x_1 + x_2 + \ldots + x_n}{n}\)</span>$.</p>
+<p>Assinale a alternativa correta.</p>
+<p>a. <code class="docutils literal notranslate"><span class="pre">(10,</span> <span class="pre">43.15)</span></code></p>
+<p>b. <code class="docutils literal notranslate"><span class="pre">(10,</span> <span class="pre">40.37)</span></code></p>
+<p>c. <code class="docutils literal notranslate"><span class="pre">(9,</span> <span class="pre">43.15)</span></code></p>
+<p>d. <code class="docutils literal notranslate"><span class="pre">(9,</span> <span class="pre">40.37)</span></code></p>
+</div>
+<div class="section" id="questao-5">
+<h3>Questão 5<a class="headerlink" href="#questao-5" title="Permalink to this headline">¶</a></h3>
+<p>Considere <code class="docutils literal notranslate"><span class="pre">I</span></code> a lista de valores de ISE de todos os países cuja cor associada é <code class="docutils literal notranslate"><span class="pre">'vermelho'</span></code>. Para todo <code class="docutils literal notranslate"><span class="pre">x</span></code> a função <code class="docutils literal notranslate"><span class="pre">round(x)</span></code> arredonda <code class="docutils literal notranslate"><span class="pre">x</span></code> para o número inteiro mais próximo. Considerando que os valores em <code class="docutils literal notranslate"><span class="pre">I</span></code> correspondam aproximadamente ao número de aeroportos do respectivo país (associado à cor vermelha), assinale a resposta correta para a lista que contém o número de aeroportos em ordem crescente.</p>
+<p>a. <code class="docutils literal notranslate"><span class="pre">[3,5,6,9,10]</span></code></p>
+<p>b. <code class="docutils literal notranslate"><span class="pre">[6,10,12,18,20]</span></code></p>
+<p>c. <code class="docutils literal notranslate"><span class="pre">[6,10,12,17,21]</span></code></p>
+<p>d. <code class="docutils literal notranslate"><span class="pre">[3,5,7,9,11]</span></code></p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./ipynb"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Gustavo Oliveira e Andrea Rocha<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

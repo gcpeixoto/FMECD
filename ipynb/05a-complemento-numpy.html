@@ -1,0 +1,1305 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tópicos complementares sobre o numpy &#8212; Fundamentos de Matemática e Estatística para Ciência de Dados</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Manipulação de dados com pandas" href="06a-pandas-series.html" />
+    <link rel="prev" title="Plotagem básica com matplotlib" href="04b-plotagem-matplotlib.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/cycle-ds.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Fundamentos de Matemática e Estatística para Ciência de Dados</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="00-apresentacao.html">
+   Apresentação
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Introdução
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01a-introducao.html">
+   Introdução à Ciência de Dados
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Matemática Computacional
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01b-fundamentos-python.html">
+   Fundamentos de
+   <em>
+    Python
+   </em>
+   para Computação Científica
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02a-computacao-simbolica.html">
+   Introdução à Computação Simbólica com
+   <em>
+    sympy
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03a-matematica-discreta.html">
+   Fundamentos de Matemática Discreta com Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04a-computacao-vetorizada.html">
+   Computação vetorizada com
+   <em>
+    numpy
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04b-plotagem-matplotlib.html">
+   Plotagem básica com
+   <em>
+    matplotlib
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Tópicos complementares sobre o
+   <em>
+    numpy
+   </em>
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Estatística e Análise de Dados
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="06a-pandas-series.html">
+   Manipulação de dados com
+   <em>
+    pandas
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06b-pandas-dataframe.html">
+   Operações com
+   <em>
+    DataFrames
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06c-pandas-agrupamento.html">
+   Agregação e agrupamento
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07a-visualizacao-dados.html">
+   Visualização gráfica de dados
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07b-formatacao-matplotlib.html">
+   Formatação de gráficos com
+   <em>
+    matplotlib
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07c-plotly.html">
+   Gráficos interativos com o
+   <em>
+    plotly
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07d-seaborn.html">
+   Visualização gráfica de dados com
+   <em>
+    seaborn
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08a-estatistica-descritiva.html">
+   Estatística Descritiva com apoio do
+   <em>
+    Python
+   </em>
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Problemas
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01c-laboratorio-computacional.html">
+   Laboratório Computacional 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02c-laboratorio-computacional.html">
+   Laboratório Computacional 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03c-laboratorio-computacional.html">
+   Laboratório Computacional 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04c-laboratorio-computacional.html">
+   Laboratório Computacional 4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06d-laboratorio-computacional.html">
+   Laboratório Computacional 6
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07e-laboratorio-computacional.html">
+   Laboratório Computacional 7
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08c-laboratorio-computacional.html">
+   Laboratório Computacional 8
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/ipynb/05a-complemento-numpy.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#funcoes-universais">
+   Funções universais
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exemplos-de-ufuncs-unarias">
+     Exemplos de
+     <em>
+      ufuncs
+     </em>
+     unárias
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#abs-fabs">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       abs
+      </span>
+     </code>
+     ,
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       fabs
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#floor-round-e-ceil">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         floor
+        </span>
+       </code>
+       ,
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         round
+        </span>
+       </code>
+       e
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         ceil
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#sign">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         sign
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#modf">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         modf
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exemplos-de-ufuncs-binarias">
+     Exemplos de
+     <em>
+      ufuncs
+     </em>
+     binárias
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#multiply">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         multiply
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#power">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         power
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#currying">
+   <em>
+    Currying
+   </em>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#agregacoes">
+   Agregações
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sum">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       sum
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mean">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       mean
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ordenacao">
+   Ordenação
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#entrada-e-saida-de-arquivos">
+   Entrada e saída de arquivos
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#script">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       %%script
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#who-e-whos">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       %who
+      </span>
+     </code>
+     e
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       %whos
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="topicos-complementares-sobre-o-numpy">
+<h1>Tópicos complementares sobre o <em>numpy</em><a class="headerlink" href="#topicos-complementares-sobre-o-numpy" title="Permalink to this headline">¶</a></h1>
+<p>Nesta aula, faremos uma explanação sobre os seguintes tópicos complementares:</p>
+<ul class="simple">
+<li><p>Funções universais (<em>ufuncs</em>)</p></li>
+<li><p><em>Currying</em></p></li>
+<li><p>Agregações</p></li>
+<li><p>Ordenação</p></li>
+<li><p>Entrada e saída de arquivos</p></li>
+</ul>
+<div class="section" id="funcoes-universais">
+<h2>Funções universais<a class="headerlink" href="#funcoes-universais" title="Permalink to this headline">¶</a></h2>
+<p>Funções universais (<em>universal functions</em>, ou <em>ufuncs</em>) é o nome dado a qualquer função que pode operar sobre todos os elementos de um <em>array</em> nos moldes da computação vetorizada. Já aprendemos várias <em>ufuncs</em> do <em>numpy</em> como <code class="docutils literal notranslate"><span class="pre">sqrt</span></code>, <code class="docutils literal notranslate"><span class="pre">cos</span></code>, <code class="docutils literal notranslate"><span class="pre">exp</span></code> e <code class="docutils literal notranslate"><span class="pre">random.rand</span></code>.</p>
+<p>Temos diversos tipos de <em>ufuncs</em>, porém, vamos dar exemplos de <em>ufuncs</em> unárias e binárias.</p>
+<ul class="simple">
+<li><p><em>ufunc</em> unária: é aquela que usa um único array como argumento. Por exemplo, quando fazemos algo como <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">np.sqrt(x)</span></code>, <code class="docutils literal notranslate"><span class="pre">x</span></code> é o único <em>array</em> usado de modo que <span class="math notranslate nohighlight">\(\sqrt{x}\)</span> para cada elemento de <code class="docutils literal notranslate"><span class="pre">x</span></code> seja o resultado em <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p></li>
+<li><p><em>ufunc</em> binária: é aquela que usa dois <em>arrays</em> para produzir um resultado.</p></li>
+</ul>
+<p><em>Ufuncs</em> também podem produzir mais de um array como resultado, mas você aprenderá mais sobre isto durante a graduação. Aqui vamos mostrar apenas um exemplo: <code class="docutils literal notranslate"><span class="pre">modf</span></code>, uma função unária que é capaz de separar as partes inteira e fracionária de um array contendo números de ponto flutuante (<code class="docutils literal notranslate"><span class="pre">float</span></code>).</p>
+<div class="section" id="exemplos-de-ufuncs-unarias">
+<h3>Exemplos de <em>ufuncs</em> unárias<a class="headerlink" href="#exemplos-de-ufuncs-unarias" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="abs-fabs">
+<h3><code class="docutils literal notranslate"><span class="pre">abs</span></code>, <code class="docutils literal notranslate"><span class="pre">fabs</span></code><a class="headerlink" href="#abs-fabs" title="Permalink to this headline">¶</a></h3>
+<p>Calcula a função valor absoluto (módulo)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># auxiliar </span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span> <span class="c1"># domínio</span>
+
+<span class="c1"># y = f(x) = -x </span>
+<span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="n">x</span><span class="p">;</span> 
+<span class="n">ya</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="c1"># &lt;===</span>
+
+<span class="c1"># </span>
+<span class="n">z</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">5</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="c1"># </span>
+<span class="n">za</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fabs</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="c1"># &lt;====</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">131</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$y=-x$&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">();</span> <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">132</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">ya</span><span class="p">,</span><span class="s1">&#39;o-r&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$y=|-x|$&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">();</span> <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">133</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">za</span><span class="p">,</span><span class="s1">&#39;-bo&#39;</span><span class="p">);</span>\
+         <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">();</span>\
+         <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;$z=-1/5x^2 - 0.5$&#39;</span><span class="p">,</span><span class="s1">&#39;$z=| -1/5x^2 - 0.5 |$&#39;</span><span class="p">],</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower center&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/05a-complemento-numpy_6_0.png" src="../_images/05a-complemento-numpy_6_0.png" />
+</div>
+</div>
+<div class="section" id="floor-round-e-ceil">
+<h4><code class="docutils literal notranslate"><span class="pre">floor</span></code>, <code class="docutils literal notranslate"><span class="pre">round</span></code> e <code class="docutils literal notranslate"><span class="pre">ceil</span></code><a class="headerlink" href="#floor-round-e-ceil" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">floor</span></code> aproxima números usando a função “piso” (maior inteiro menor ou igual ao número).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">round</span></code> aproxima números usando a função “arredondamento” (inteiro mais próximo do número).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ceil</span></code> aproxima números usando a função “teto” (menor inteiro maior ou igual ao número).</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">*</span><span class="mi">8</span><span class="p">)</span> <span class="c1"># &lt;====</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> 
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="s1">&#39;og&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span><span class="n">ms</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;round(x)&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="s1">&#39;vb&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;floor(x)&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="s1">&#39;^r&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;ceil(x)&#39;</span><span class="p">);</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x | floor(x) | round(x) | ceil(x)&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>    
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{0:.2f}</span><span class="s1"> | </span><span class="si">{1:.1f}</span><span class="s1"> | </span><span class="si">{2:.1f}</span><span class="s1"> | </span><span class="si">{3:.1f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x | floor(x) | round(x) | ceil(x)
+0.33 | 0.0 | 0.0 | 1.0
+1.48 | 1.0 | 1.0 | 2.0
+2.83 | 2.0 | 3.0 | 3.0
+3.82 | 3.0 | 4.0 | 4.0
+3.99 | 3.0 | 4.0 | 4.0
+4.31 | 4.0 | 4.0 | 5.0
+5.34 | 5.0 | 5.0 | 6.0
+5.67 | 5.0 | 6.0 | 6.0
+6.35 | 6.0 | 6.0 | 7.0
+6.78 | 6.0 | 7.0 | 7.0
+</pre></div>
+</div>
+<img alt="../_images/05a-complemento-numpy_8_1.png" src="../_images/05a-complemento-numpy_8_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="sign">
+<h4><code class="docutils literal notranslate"><span class="pre">sign</span></code><a class="headerlink" href="#sign" title="Permalink to this headline">¶</a></h4>
+<p>Retorna o “sinal” do número:</p>
+<ul class="simple">
+<li><p>-1, se negativo</p></li>
+<li><p>0, se zero</p></li>
+<li><p>1, se positivo</p></li>
+</ul>
+<p>Isto é:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+f(x) =
+\begin{cases}
+-1,&amp; \text{se }x &lt; 0 \\
+0,&amp; \text{se }x = 0  \\
+1,&amp; \text{se }x &gt; 0
+\end{cases}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">21</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">[</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="p">],</span> <span class="n">s</span><span class="p">[</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="p">],</span><span class="s1">&#39;ro&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">[</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">],</span> <span class="n">s</span><span class="p">[</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">],</span><span class="s1">&#39;go&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">[</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">],</span> <span class="n">s</span><span class="p">[</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">],</span><span class="s1">&#39;bo&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/05a-complemento-numpy_10_0.png" src="../_images/05a-complemento-numpy_10_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="modf">
+<h4><code class="docutils literal notranslate"><span class="pre">modf</span></code><a class="headerlink" href="#modf" title="Permalink to this headline">¶</a></h4>
+<p>Separa parte inteira e fracionária de um número.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="o">*</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># &lt;=====</span>
+
+<span class="n">f</span><span class="p">,</span> <span class="n">i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">modf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1"># desempacota as partes fracionária e inteira em f, i </span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x | i | f&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>    
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{0:.8f}</span><span class="s1"> | </span><span class="si">{1:.0f}</span><span class="s1"> | </span><span class="si">{2:.8f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">v</span><span class="p">],</span><span class="n">i</span><span class="p">[</span><span class="n">v</span><span class="p">],</span><span class="n">f</span><span class="p">[</span><span class="n">v</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x | i | f
+4.51015228 | 4 | 0.51015228
+4.72162018 | 4 | 0.72162018
+4.98194012 | 4 | 0.98194012
+7.70060614 | 7 | 0.70060614
+7.81969068 | 7 | 0.81969068
+8.31883238 | 8 | 0.31883238
+9.36442290 | 9 | 0.36442290
+9.45267047 | 9 | 0.45267047
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="exemplos-de-ufuncs-binarias">
+<h3>Exemplos de <em>ufuncs</em> binárias<a class="headerlink" href="#exemplos-de-ufuncs-binarias" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="multiply">
+<h4><code class="docutils literal notranslate"><span class="pre">multiply</span></code><a class="headerlink" href="#multiply" title="Permalink to this headline">¶</a></h4>
+<p>Multiplica os elementos do primeiro array pelos elementos do segundo array.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">21</span><span class="p">)</span> <span class="c1"># numeros</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">21</span><span class="p">)</span> <span class="c1"># numeros</span>
+
+<span class="n">xy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{0:.0f}</span><span class="s1">*</span><span class="si">{1:.0f}</span><span class="s1"> = </span><span class="si">{2:.0f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">xy</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-10*0 = -0
+-9*1 = -9
+-8*2 = -16
+-7*3 = -21
+-6*4 = -24
+-5*5 = -25
+-4*6 = -24
+-3*7 = -21
+-2*8 = -16
+-1*9 = -9
+0*10 = 0
+1*11 = 11
+2*12 = 24
+3*13 = 39
+4*14 = 56
+5*15 = 75
+6*16 = 96
+7*17 = 119
+8*18 = 144
+9*19 = 171
+10*20 = 200
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="power">
+<h4><code class="docutils literal notranslate"><span class="pre">power</span></code><a class="headerlink" href="#power" title="Permalink to this headline">¶</a></h4>
+<p>Eleva os elementos no primeiro array à potência especificada pelos elementos do segundo array.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">21</span><span class="p">)</span> <span class="c1"># numeros</span>
+<span class="n">exps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">21</span><span class="p">)</span> <span class="c1"># expoentes</span>
+<span class="n">xe</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">exps</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{0:.0f}</span><span class="s1">**</span><span class="si">{1:.0f}</span><span class="s1"> = </span><span class="si">{2:.0f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">exps</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">xe</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-10**0 = 1
+-9**1 = -9
+-8**2 = 64
+-7**3 = -343
+-6**4 = 1296
+-5**5 = -3125
+-4**6 = 4096
+-3**7 = -2187
+-2**8 = 256
+-1**9 = -1
+0**10 = 0
+1**11 = 1
+2**12 = 4096
+3**13 = 1594323
+4**14 = 268435456
+5**15 = 30517578125
+6**16 = 2821109907456
+7**17 = 232630513987207
+8**18 = 18014398509481984
+9**19 = 1350851717672992000
+10**20 = 100000000000000000000
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="currying">
+<h2><em>Currying</em><a class="headerlink" href="#currying" title="Permalink to this headline">¶</a></h2>
+<p><em>Currying</em> é o processo de derivar novas funções a partir de funções existentes pela <em>aplicação parcial de argumentos</em>.</p>
+<p>Por exemplo:</p>
+<ul class="simple">
+<li><p>Defina uma UDF;</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pot_a</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">a</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="o">+</span> <span class="n">a</span> <span class="c1"># eleva x a y e soma a </span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Use a UDF em uma segunda função de modo que um de seus argumentos seja fornecido por esta segunda função;</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+
+<span class="n">segunda_funcao</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">k</span><span class="p">:</span> <span class="n">pot_a</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">k</span><span class="p">)</span> <span class="c1"># currying em a </span>
+<span class="n">segunda_funcao</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([  4,  19, 246])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Acima, dizemos que o argumento <code class="docutils literal notranslate"><span class="pre">a</span></code> de <code class="docutils literal notranslate"><span class="pre">pot_a</span></code> sofreu <em>currying</em> porque foi substituído pelo valor <code class="docutils literal notranslate"><span class="pre">k</span></code>, fornecido pela <code class="docutils literal notranslate"><span class="pre">lambda</span></code> <code class="docutils literal notranslate"><span class="pre">segunda_funcao</span></code>.</p>
+</div>
+<div class="section" id="agregacoes">
+<h2>Agregações<a class="headerlink" href="#agregacoes" title="Permalink to this headline">¶</a></h2>
+<p>Agregações (ou reduções) são funções de bastante utilidade em matemática e estatística para calcular somas, médias e outras grandezas ao longo do eixo de um <em>array</em>. Daremos dois exemplos: <code class="docutils literal notranslate"><span class="pre">sum</span></code> (soma) e <code class="docutils literal notranslate"><span class="pre">mean</span></code> (média).</p>
+<div class="section" id="sum">
+<h3><code class="docutils literal notranslate"><span class="pre">sum</span></code><a class="headerlink" href="#sum" title="Permalink to this headline">¶</a></h3>
+<p>Suponha que tenhamos uma matriz como a seguinte:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">A</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0, 91, 61],
+       [66,  2,  3],
+       [92, 24, 18]])
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Para calcular a soma de todos os seus elementos, podemos usar a função <code class="docutils literal notranslate"><span class="pre">np.sum</span></code> ou o método <code class="docutils literal notranslate"><span class="pre">.sum</span></code>:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">A</span><span class="p">)</span> <span class="c1"># como função </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>357
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="c1"># como método</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>357
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Para calcular a soma dos elementos ao longo das colunas (somar cada linha), podemos fazer:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># soma por linhas</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([152,  71, 134])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ou seja, isto é equivalente a:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="nb">sum</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]),</span> <span class="nb">sum</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]),</span> <span class="nb">sum</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">2</span><span class="p">,:])</span> <span class="p">]</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([152,  71, 134])
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Para calcular a soma dos elementos ao longo das linhas (somar cada coluna), podemos fazer:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># soma por colunas</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([158, 117,  82])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ou seja, isto é equivalente a:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="nb">sum</span><span class="p">(</span><span class="n">A</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">sum</span><span class="p">(</span><span class="n">A</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]),</span> <span class="nb">sum</span><span class="p">(</span><span class="n">A</span><span class="p">[:,</span><span class="mi">2</span><span class="p">])</span> <span class="p">]</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([158, 117,  82])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="mean">
+<h3><code class="docutils literal notranslate"><span class="pre">mean</span></code><a class="headerlink" href="#mean" title="Permalink to this headline">¶</a></h3>
+<p>O cálculo da média aritmética pode ser realizado da mesma forma.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">A</span><span class="p">),</span> <span class="n">A</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">A</span><span class="p">)</span> <span class="o">==</span> <span class="n">A</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(39.666666666666664, 39.666666666666664, True)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># média por linhas</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([50.66666667, 23.66666667, 44.66666667])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># média por colunas</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([52.66666667, 39.        , 27.33333333])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ordenacao">
+<h2>Ordenação<a class="headerlink" href="#ordenacao" title="Permalink to this headline">¶</a></h2>
+<p>Na plotagem das funções “piso”, “teto” e “arredondamento”, usamos ordenação. Para ordenar elementos de um array, use <code class="docutils literal notranslate"><span class="pre">sort</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">desordenado</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ordenado</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">desordenado</span><span class="p">)</span>
+<span class="n">ordenado</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-24,  -7,  -2,   0,   6,  13,  29,  31,  76,  89])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">desordenado</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ordenado</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/05a-complemento-numpy_43_0.png" src="../_images/05a-complemento-numpy_43_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="entrada-e-saida-de-arquivos">
+<h2>Entrada e saída de arquivos<a class="headerlink" href="#entrada-e-saida-de-arquivos" title="Permalink to this headline">¶</a></h2>
+<p>Podemos ler o conteúdo de um arquivo através do Numpy, bem como escrever e salvar um arquivo novo quando o propósito é trabalhar com matrizes de dados. Mostraremos duas maneira de trabalhar com arquivos:</p>
+<ul class="simple">
+<li><p>manipulando arquivos de dados simples com extensão <code class="docutils literal notranslate"><span class="pre">.txt</span></code>.</p></li>
+<li><p>manipulando arquivos especiais do numpy com extensão <code class="docutils literal notranslate"><span class="pre">.npy</span></code>.</p></li>
+</ul>
+<p>Os arquivos <code class="docutils literal notranslate"><span class="pre">.npy</span></code> são do tipo binário e puros do numpy. Eles possuem propriedades de eficiência e servem para armazenarem informações pertinentes ao numpy. Ou seja, o numpy tem seu próprio tipo de arquivo.</p>
+<p><strong>Exemplo:</strong> O arquivo <code class="docutils literal notranslate"><span class="pre">data/consumo.txt</span></code> (disponibilizado junto com o material) contém uma matriz de dados contendo a massa em quilogramas (2a. coluna) e o consumo medido em quilômetros por litro (3a. coluna) de alguns modelos de automóveis. Você pode usar um editor de texto para visualizar o arquivo. Ele deve se parecer com</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p>modelo</p></th>
+<th class="text-align:center head"><p>massa (kg)</p></th>
+<th class="text-align:center head"><p>C (km/litro)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>Focus</p></td>
+<td class="text-align:center"><p>1198</p></td>
+<td class="text-align:center"><p>11.90</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>Crown Victoria</p></td>
+<td class="text-align:center"><p>1715</p></td>
+<td class="text-align:center"><p>6.80</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>Expedition</p></td>
+<td class="text-align:center"><p>2530</p></td>
+<td class="text-align:center"><p>5.53</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>Explorer</p></td>
+<td class="text-align:center"><p>2014</p></td>
+<td class="text-align:center"><p>6.38</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>F-150</p></td>
+<td class="text-align:center"><p>2136</p></td>
+<td class="text-align:center"><p>5.53</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>Fusion</p></td>
+<td class="text-align:center"><p>1492</p></td>
+<td class="text-align:center"><p>8.50</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>Taurus</p></td>
+<td class="text-align:center"><p>1652</p></td>
+<td class="text-align:center"><p>7.65</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>Fit</p></td>
+<td class="text-align:center"><p>1168</p></td>
+<td class="text-align:center"><p>13.60</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>Accord</p></td>
+<td class="text-align:center"><p>1492</p></td>
+<td class="text-align:center"><p>9.78</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>CR-V</p></td>
+<td class="text-align:center"><p>1602</p></td>
+<td class="text-align:center"><p>8.93</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>Civic</p></td>
+<td class="text-align:center"><p>1192</p></td>
+<td class="text-align:center"><p>11.90</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>Ridgeline</p></td>
+<td class="text-align:center"><p>2045</p></td>
+<td class="text-align:center"><p>6.38</p></td>
+</tr>
+</tbody>
+</table>
+<p>Podemos ler o conteúdo deste arquivo e salvá-lo diretamente em uma matriz com a função <code class="docutils literal notranslate"><span class="pre">loadtxt('caminho_do_arquivo')</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;data/consumo.txt&#39;</span><span class="p">)</span>
+<span class="n">M</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">22</span><span class="o">-</span><span class="mi">864339</span><span class="n">eea655</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;data/consumo.txt&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">M</span>
+
+<span class="nn">~/anaconda3/lib/python3.7/site-packages/numpy/lib/npyio.py</span> in <span class="ni">loadtxt</span><span class="nt">(fname, dtype, comments, delimiter, converters, skiprows, usecols, unpack, ndmin, encoding, max_rows)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1137</span>         <span class="c1"># converting the data</span>
+<span class="g g-Whitespace">   </span><span class="mi">1138</span>         <span class="n">X</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="ne">-&gt; </span><span class="mi">1139</span>         <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">read_data</span><span class="p">(</span><span class="n">_loadtxt_chunksize</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1140</span>             <span class="k">if</span> <span class="n">X</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1141</span>                 <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dtype</span><span class="p">)</span>
+
+<span class="nn">~/anaconda3/lib/python3.7/site-packages/numpy/lib/npyio.py</span> in <span class="ni">read_data</span><span class="nt">(chunk_size)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1065</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1066</span>             <span class="c1"># Convert each value according to its column and store</span>
+<span class="ne">-&gt; </span><span class="mi">1067</span>             <span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="n">conv</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="k">for</span> <span class="p">(</span><span class="n">conv</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">converters</span><span class="p">,</span> <span class="n">vals</span><span class="p">)]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1068</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1069</span>             <span class="c1"># Then pack it according to the dtype&#39;s nesting</span>
+
+<span class="nn">~/anaconda3/lib/python3.7/site-packages/numpy/lib/npyio.py</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1065</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1066</span>             <span class="c1"># Convert each value according to its column and store</span>
+<span class="ne">-&gt; </span><span class="mi">1067</span>             <span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="n">conv</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="k">for</span> <span class="p">(</span><span class="n">conv</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">converters</span><span class="p">,</span> <span class="n">vals</span><span class="p">)]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1068</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1069</span>             <span class="c1"># Then pack it according to the dtype&#39;s nesting</span>
+
+<span class="nn">~/anaconda3/lib/python3.7/site-packages/numpy/lib/npyio.py</span> in <span class="ni">floatconv</span><span class="nt">(x)</span>
+<span class="g g-Whitespace">    </span><span class="mi">761</span>         <span class="k">if</span> <span class="s1">&#39;0x&#39;</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">762</span>             <span class="k">return</span> <span class="nb">float</span><span class="o">.</span><span class="n">fromhex</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">763</span>         <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">764</span> 
+<span class="g g-Whitespace">    </span><span class="mi">765</span>     <span class="n">typ</span> <span class="o">=</span> <span class="n">dtype</span><span class="o">.</span><span class="n">type</span>
+
+<span class="ne">ValueError</span>: could not convert string to float: &#39;Focus&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Por que o erro?</p>
+<p>Porque a primeira coluna contém strings. Para ignorá-las, selecionamos as colunas que queremos usar com <code class="docutils literal notranslate"><span class="pre">usecols</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;data/consumo.txt&#39;</span><span class="p">,</span><span class="n">usecols</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span> <span class="c1"># usa 2a. e 3a. colunas </span>
+<span class="n">M</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1198.  ,   11.9 ],
+       [2530.  ,    5.53],
+       [2014.  ,    6.38],
+       [2136.  ,    5.53],
+       [1492.  ,    8.5 ],
+       [1652.  ,    7.65],
+       [1168.  ,   13.6 ],
+       [1492.  ,    9.78],
+       [1602.  ,    8.93],
+       [1192.  ,   11.9 ],
+       [2045.  ,    6.38]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Podemos operar livremente com este array. Digamos que queiramos calcular o consumo para uma viagem de 250 km com cada veículo. Fazemos simplesmente:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c200</span> <span class="o">=</span> <span class="n">M</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="mi">250</span>
+<span class="n">c200</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2975. , 1382.5, 1595. , 1382.5, 2125. , 1912.5, 3400. , 2445. ,
+       2232.5, 2975. , 1595. ])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Agora, digamos que queiramos salvar um novo arquivo com esta coluna adicional. Primeiro, concatenamos este resultado na matriz.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">M</span><span class="p">,</span><span class="n">c200</span><span class="p">[:,</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]),</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># concatena</span>
+<span class="n">M2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1198.  ,   11.9 , 2975.  ],
+       [2530.  ,    5.53, 1382.5 ],
+       [2014.  ,    6.38, 1595.  ],
+       [2136.  ,    5.53, 1382.5 ],
+       [1492.  ,    8.5 , 2125.  ],
+       [1652.  ,    7.65, 1912.5 ],
+       [1168.  ,   13.6 , 3400.  ],
+       [1492.  ,    9.78, 2445.  ],
+       [1602.  ,    8.93, 2232.5 ],
+       [1192.  ,   11.9 , 2975.  ],
+       [2045.  ,    6.38, 1595.  ]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Enfim, podemos usar a função <code class="docutils literal notranslate"><span class="pre">savetxt('caminho_do_arquivo',array)</span></code> para exportar o conteúdo de <code class="docutils literal notranslate"><span class="pre">array</span></code> para um arquivo. No caso a seguir, nosso novo arquivo tem o nome de <code class="docutils literal notranslate"><span class="pre">05a-consumo-tabela.txt</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="s1">&#39;data/consumo-tabela.txt&#39;</span><span class="p">,</span><span class="n">M2</span><span class="p">)</span> <span class="c1"># salva o conteúdo de M2 em arquivo</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Para verificar que ambos os arquivos estão salvos, faça:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">script</span> bash 
+ls data/*.txt # lista os arquivos .txt nesta pasta.
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data/consumo-tabela.txt
+data/consumo.txt
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="script">
+<h3><code class="docutils literal notranslate"><span class="pre">%%script</span></code><a class="headerlink" href="#script" title="Permalink to this headline">¶</a></h3>
+<p>O comando <code class="docutils literal notranslate"><span class="pre">%%script</span></code> permite que uma instrução em outra linguagem de programação (<em>shell script</em>) seja executada. No caso anterior, a instrução diz: “no diretório em que estou, liste para mim todos os arquivos com extensão <em>.txt</em>”.</p>
+</div>
+<div class="section" id="who-e-whos">
+<h3><code class="docutils literal notranslate"><span class="pre">%who</span></code> e <code class="docutils literal notranslate"><span class="pre">%whos</span></code><a class="headerlink" href="#who-e-whos" title="Permalink to this headline">¶</a></h3>
+<p>O comando mágico <code class="docutils literal notranslate"><span class="pre">%who</span></code> (significando <em>Who is here?</em>, “Quem está aqui?”) serve para listarmos todas as variáveis presentes no atual espaço de trabalho. Já <code class="docutils literal notranslate"><span class="pre">%whos</span></code> expande as informações acerca delas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">who</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A	 M	 M2	 c	 c200	 desordenado	 exps	 f	 i	 
+np	 ordenado	 plt	 pot_a	 r	 s	 segunda_funcao	 v	 x	 
+xe	 xy	 y	 ya	 z	 za	 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">whos</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Variable         Type        Data/Info
+--------------------------------------
+A                ndarray     3x3: 9 elems, type `int64`, 72 bytes
+M                ndarray     11x2: 22 elems, type `float64`, 176 bytes
+M2               ndarray     11x3: 33 elems, type `float64`, 264 bytes
+c                ndarray     10: 10 elems, type `float64`, 80 bytes
+c200             ndarray     11: 11 elems, type `float64`, 88 bytes
+desordenado      ndarray     10: 10 elems, type `int64`, 80 bytes
+exps             ndarray     21: 21 elems, type `float64`, 168 bytes
+f                ndarray     8: 8 elems, type `float64`, 64 bytes
+i                int         20
+np               module      &lt;module &#39;numpy&#39; from &#39;/Us&lt;...&gt;kages/numpy/__init__.py&#39;&gt;
+ordenado         ndarray     10: 10 elems, type `int64`, 80 bytes
+plt              module      &lt;module &#39;matplotlib.pyplo&lt;...&gt;es/matplotlib/pyplot.py&#39;&gt;
+pot_a            function    &lt;function pot_a at 0x7fe7dad528c0&gt;
+r                ndarray     10: 10 elems, type `float64`, 80 bytes
+s                ndarray     21: 21 elems, type `float64`, 168 bytes
+segunda_funcao   function    &lt;function &lt;lambda&gt; at 0x7fe7dad52050&gt;
+v                int         7
+x                ndarray     3: 3 elems, type `int64`, 24 bytes
+xe               ndarray     21: 21 elems, type `float64`, 168 bytes
+xy               ndarray     21: 21 elems, type `float64`, 168 bytes
+y                ndarray     3: 3 elems, type `int64`, 24 bytes
+ya               ndarray     30: 30 elems, type `float64`, 240 bytes
+z                ndarray     30: 30 elems, type `float64`, 240 bytes
+za               ndarray     30: 30 elems, type `float64`, 240 bytes
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./ipynb"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="04b-plotagem-matplotlib.html" title="previous page">Plotagem básica com <em>matplotlib</em></a>
+    <a class='right-next' id="next-link" href="06a-pandas-series.html" title="next page">Manipulação de dados com <em>pandas</em></a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Gustavo Oliveira e Andrea Rocha<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
