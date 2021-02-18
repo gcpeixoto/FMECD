@@ -49,9 +49,9 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -217,7 +217,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="08a-estatistica-descritiva.html">
-   Estatística Descritiva com apoio do
+   Estatística Descritiva com
    <em>
     Python
    </em>
@@ -324,6 +324,31 @@
                     class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/gcpeixoto/FMECD/master?urlpath=lab/tree/ipynb/01b-fundamentos-python.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/gcpeixoto/FMECD/blob/master/ipynb/01b-fundamentos-python.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
 
     </div>
 
@@ -584,8 +609,7 @@
 <div class="section" id="expressoes-numericas">
 <h3>Expressões numéricas<a class="headerlink" href="#expressoes-numericas" title="Permalink to this headline">¶</a></h3>
 <p>Comutatividade, associatividade, distributividade e agrupamento de números por meio de parênteses, colchetes ou chaves são escritos em Python usando apenas parênteses.</p>
-<p><strong>Exemplo:</strong> calcule o valor de
-$<span class="math notranslate nohighlight">\(2 - 98\{ 7/3 \, [ 2 \times (3 + 5 \times 6) - ( 2^3 + 2^2 ) - (2^2 + 2^3) ] - (-1) \}\)</span>$</p>
+<p><strong>Exemplo:</strong> calcule o valor de <span class="math notranslate nohighlight">\(2 - 98\{ 7/3 \, [ 2 \times (3 + 5 \times 6) - ( 2^3 + 2^2 ) - (2^2 + 2^3) ] - (-1) \}\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">-</span> <span class="mi">98</span><span class="o">*</span><span class="p">(</span><span class="mi">7</span><span class="o">/</span><span class="mi">3</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="mi">3</span><span class="o">+</span><span class="mi">5</span><span class="o">*</span><span class="mi">6</span><span class="p">)</span><span class="o">-</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">3</span><span class="o">+</span><span class="mi">2</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">2</span><span class="o">**</span><span class="mi">3</span><span class="p">))</span><span class="o">-</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
@@ -659,7 +683,7 @@ $<span class="math notranslate nohighlight">\(2 - 98\{ 7/3 \, [ 2 \times (3 + 5 
 </div>
 </div>
 <p><strong>Exemplo:</strong> Calcule o valor de
-$<span class="math notranslate nohighlight">\(2,0 + 3\)</span>$</p>
+<span class="math notranslate nohighlight">\(2,0 + 3\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mf">2.0</span> <span class="o">+</span> <span class="mi">3</span>
@@ -986,7 +1010,7 @@ $<span class="math notranslate nohighlight">\(2,0 + 3\)</span>$</p>
 </div>
 </div>
 </div>
-<p><strong>Exemplo:</strong> qual é o valor de $<span class="math notranslate nohighlight">\((3 - 4)^2 + (7/2 - 2 - (3 + 1))\)</span>$?</p>
+<p><strong>Exemplo:</strong> qual é o valor de <span class="math notranslate nohighlight">\((3 - 4)^2 + (7/2 - 2 - (3 + 1))\)</span>?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; ORDEM DE OPERAÇÕES </span>
@@ -2510,7 +2534,7 @@ abs(x, /)
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
+            repo: "gcpeixoto/FMECD",
             ref: "master",
         },
         codeMirrorConfig: {

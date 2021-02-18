@@ -24,8 +24,7 @@ Os símbolos são os seguintes:
 
 Comutatividade, associatividade, distributividade e agrupamento de números por meio de parênteses, colchetes ou chaves são escritos em Python usando apenas parênteses.
 
-**Exemplo:** calcule o valor de 
-$$2 - 98\{ 7/3 \, [ 2 \times (3 + 5 \times 6) - ( 2^3 + 2^2 ) - (2^2 + 2^3) ] - (-1) \}$$
+**Exemplo:** calcule o valor de $2 - 98\{ 7/3 \, [ 2 \times (3 + 5 \times 6) - ( 2^3 + 2^2 ) - (2^2 + 2^3) ] - (-1) \}$
 
 2 - 98*(7/3*(2*(3+5*6)-(2**3+2**2)-(2**2+2**3))-(-1))
 
@@ -52,7 +51,7 @@ Em Python, números inteiros e fracionários são escritos de maneira distinta a
 2 + 3
 
 **Exemplo:** Calcule o valor de 
-$$2,0 + 3$$
+$2,0 + 3$
 
 2.0 + 3
 
@@ -194,7 +193,7 @@ A instrução abaixo resulta em 2, pois `+ 3` está comentado.
 
 2 # + 3
 
-**Exemplo:** qual é o valor de $$(3 - 4)^2 + (7/2 - 2 - (3 + 1))$$?
+**Exemplo:** qual é o valor de $(3 - 4)^2 + (7/2 - 2 - (3 + 1))$?
 
 """ ORDEM DE OPERAÇÕES 
 primeiramente, (3 + 1) = 4 é calculado :: parêntese mais interno

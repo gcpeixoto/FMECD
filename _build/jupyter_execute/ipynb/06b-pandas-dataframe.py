@@ -1,4 +1,4 @@
-## Operações com *DataFrames*
+# Operações com *DataFrames*
 
 Como dissemos anterioremente, o *DataFrame* é a segunda estrutura basilar do *pandas*. Um *DataFrame*:
 - é uma tabela, ou seja, é bidimensional;
@@ -8,7 +8,7 @@ Como dissemos anterioremente, o *DataFrame* é a segunda estrutura basilar do *p
 import numpy as np
 import pandas as pd
 
-### Criando um *DataFrame*
+## Criação de um *DataFrame*
 
 O método padrão para criarmos um *DataFrame* é através de uma função com mesmo nome.
 
@@ -32,7 +32,7 @@ No _template_, `dados_de_interesse` pode ser
 * uma *Series* do *Pandas*;
 * outro *DataFrame*.
 
-### Criando um *DataFrame* a partir de dicionários de *Series*
+### *DataFrame* a partir de dicionários de *Series*
 
 Neste método de criação, as *Series* do dicionário não precisam possuir o mesmo número de elementos. O *index* do *DataFrame* será dado pela **união** dos *index* de todas as *Series* contidas no dicionário.
 
@@ -72,7 +72,7 @@ df_exemplo_IMC['IMC']=round(df_exemplo_IMC['Peso']/(df_exemplo_IMC['Altura']/100
 
 df_exemplo_IMC
 
-### Criando um *DataFrame* a partir de dicionários de listas ou *arrays* do *numpy*:
+### *DataFrame* a partir de dicionários de listas ou *arrays* do *numpy*
 
 Neste método de criação, os *arrays* ou as listas **devem** possuir o mesmo comprimento. Se o *index* não for informado, o *index* será dado de forma similar ao do objeto tipo *Series*.
 
@@ -100,7 +100,7 @@ Mais exemplos:
 
 pd.DataFrame(dicionario_array_exemplo, index=['Ana','João','Maria','Pedro','Túlio'])
 
-### Criando um *DataFrame* a partir de uma *Series* do *pandas*
+### *DataFrame* a partir de uma *Series* do *pandas*
 
 Neste caso, o *DataFrame* terá o mesmo *index* que a *Series* do *pandas* e apenas uma coluna.
 
@@ -114,7 +114,7 @@ series_exemplo_Idade = pd.Series({'Ana':20, 'João': 19, 'Maria': 21, 'Pedro': 2
 
 pd.DataFrame(series_exemplo_Idade)
 
-### Criando um *DataFrame* a partir de lista de *Series* do *pandas*
+### *DataFrame* a partir de lista de *Series* do *pandas*
 
 Neste caso, a entrada dos dados da lista no *DataFrame* será feita por linha.
 
@@ -124,7 +124,7 @@ Podemos corrigir a orientação usando o método `transpose`.
 
 pd.DataFrame([serie_Peso, serie_Altura, serie_Idade]).transpose()
 
-### Criando um *DataFrame* a partir de arquivos
+### *DataFrame* a partir de arquivos
 
 Para criar um *DataFrame* a partir de um arquivo, precisamos de funções do tipo `pd.read_FORMATO`, onde `FORMATO` indica o formato a ser importado sob o pressuposto de que a biblioteca *pandas* foi devidamente importada com `pd`.
 
@@ -179,7 +179,7 @@ df_exemplo = pd.read_csv('data/exemplo_data.csv', index_col=0)
 
 df_exemplo
 
-### O método *head* do *DataFrame*
+#### O método *head* do *DataFrame*
 
 O método `head`, sem argumento, permite que visualizemos as 5 primeiras linhas do *DataFrame*.
 
@@ -191,7 +191,7 @@ df_exemplo.head(2)
 
 df_exemplo.head(7)
 
-### O método `tail` do *DataFrame*
+#### O método `tail` do *DataFrame*
 
 O método `tail`, sem argumento, retorna as últimas 5 linhas do *DataFrame*.
 
@@ -203,7 +203,7 @@ df_exemplo.tail(2)
 
 df_exemplo.tail(7)
 
-### Atributos de *Series* e *DataFrames*
+## Atributos de *Series* e *DataFrames*
 
 Atributos comumente usados para *Series* e *DataFrames* são:
 
@@ -259,7 +259,7 @@ Exemplo:
 
 df_exemplo.info()
 
-### Criando arquivos a partir de *DataFrames*
+## Criando arquivos a partir de *DataFrames*
 
 Para criar arquivos a partir de *DataFrames*, basta utilizar os métodos do tipo `pd.to_FORMATO`, onde `FORMATO` indica o formato a ser exportado e supondo que a biblioteca *pandas* foi importada com `pd`.
 
@@ -351,7 +351,7 @@ Exemplos:
 
 df_dict_series.reindex(index=['Victor', 'Túlio', 'Pedro', 'João'], columns=['Altura','Peso','IMC'])
 
-### Remoção de linhas ou colunas de um *DataFrame*
+## Remoção de linhas ou colunas de um *DataFrame*
 
 Para remover linhas ou colunas de um *DataFrame* do *pandas* podemos utilizar o método `drop`. O argumento `axis` identifica o eixo de remoção: `axis=0`, que é o padrão, indica a remoção de uma ou mais linhas; `axis=1` indica a remoção de uma ou mais colunas.
 
@@ -392,7 +392,7 @@ Neste exemplo, usamos a função `str.upper` (altera a `str` para "todas maiúsc
 
 df_dict_series.rename(columns=str.upper)
 
-### Ordenando *Series* e *DataFrames*
+## Ordenação de *Series* e *DataFrames*
 
 É possível ordenar ambos pelos rótulos do *index* (para tanto é necessário que eles sejam ordenáveis) ou por valores nas colunas. 
 
@@ -429,7 +429,7 @@ df_desordenado.sort_index(ascending=False)
 
 df_desordenado.sort_values(by=['Idade'], ascending=False)
 
-### Comparando *Series* e *DataFrames*
+## Comparação de *Series* e *DataFrames*
 
 *Series* e *DataFrames* possuem os seguintes métodos de comparação lógica: 
 
@@ -485,7 +485,7 @@ O motivo de haver entradas como `False` ainda que `df_exemplo_2` seja uma cópia
 
 df_exemplo.equals(df_exemplo_2)
 
-### Os métodos `any`, `all` e a propriedade `empty`
+## Os métodos `any`, `all` e a propriedade `empty`
 
 O método `any` é aplicado a entradas booleanas (verdadeiras ou falsas) e retorna *verdadeiro* se existir alguma entrada verdadeira, ou *falso*, se todas forem falsas. O método `all` é aplicado a entradas booleanas e retorna *verdadeiro* se todas as entradas forem verdadeiras, ou *falso*,  se houver pelo menos uma entrada falsa. A propriedade `empty` retorna *verdadeiro* se a *Series* ou o *DataFrame* estiver vazio, ou *falso* caso contrário.
 
@@ -516,7 +516,7 @@ df_vazio = pd.DataFrame()
 
 df_vazio.empty
 
-### Selecionando colunas de um *DataFrame*
+## Seleção de colunas de um *DataFrame*
 
 Para selecionar colunas de um *DataFrame*, basta aplicar *colchetes* a uma lista contendo os nomes das colunas de interesse.
 
@@ -532,7 +532,7 @@ Para remover colunas, podemos utilizar o método `drop`.
 
 df_dict_series.drop(['Peso','Altura'], axis=1)
 
-### Criando novas colunas a partir de colunas existentes
+### Criação de novas colunas a partir de colunas existentes
 
 Um método eficiente para criar novas colunas a partir de colunas já existentes é `eval`. Neste método, podemos utilizar como argumento uma *string* contendo uma expressão matemática envolvendo nomes de colunas do *DataFrame*.
 
@@ -552,7 +552,7 @@ df_dict_series['IMC']=round(df_dict_series.eval('Peso/(Altura/100)**2'),2)
 
 df_dict_series # modificado "in-place"
 
-### Selecionando linhas de um *DataFrame*:
+## Seleção de linhas de um *DataFrame*
 
 Podemos selecionar linhas de um *DataFrame* de diversas formas diferentes. Veremos agora algumas dessas formas.
 
@@ -593,7 +593,7 @@ Podemos colocar um intervalo como argumento:
 
 dados_covid_PB.iloc[50:55].drop('Letalidade', axis=1).astype('int') 
 
-### Selecionando colunas pelos métodos *loc* e *iloc*
+### Seleção de colunas com `loc` e `iloc`
 
 Podemos selecionar colunas utilizando os métodos `loc` e `iloc` utilizando um argumento adicional.
 
@@ -601,7 +601,7 @@ dados_covid_PB.loc[:,['casosNovos','obitosNovos']]
 
 dados_covid_PB.iloc[:,4:6] # fatiamento na coluna
 
-### Selecionando linhas e colunas específicas pelos métodos *loc* e *iloc*:
+### Seleção de linhas e colunas específicas com `loc` e `iloc`
 
 Usando o mesmo princípio de *fatiamento* aplicado a *arrays* do numpy, podemos selecionar linhas e colunas em um intervalo específico de forma a obter uma subtabela.
 
@@ -623,7 +623,7 @@ df_dict_series = df_dict_series.assign(IMC=round(df_dict_series.eval('Peso/(Altu
 
 df_dict_series
 
-### Selecionando linha através de critérios lógicos ou funções
+### Seleção de linhas através de critérios lógicos ou funções
 
 Vamos selecionar quais os dias em que houve mais de 40 mortes registradas:
 
@@ -660,7 +660,7 @@ Vamos selecionar as linhas do mês 2 (fevereiro) usando `index.month`:
 
 dados_covid_PB.loc[dados_covid_PB.index.month==2].head()
 
-### Selecionando linhas com o método *query*
+### Seleção de linhas com o método *query*
 
 Similarmente ao método `eval`, ao utilizarmos `query`, podemos criar expressões lógicas a partir de nomes das colunas do *DataFrame*.
 

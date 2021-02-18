@@ -49,9 +49,9 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -217,7 +217,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="08a-estatistica-descritiva.html">
-   Estatística Descritiva com apoio do
+   Estatística Descritiva com
    <em>
     Python
    </em>
@@ -325,6 +325,31 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/gcpeixoto/FMECD/master?urlpath=lab/tree/ipynb/06b-pandas-dataframe.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/gcpeixoto/FMECD/blob/master/ipynb/06b-pandas-dataframe.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
     </div>
 
     <!-- Table of contents -->
@@ -336,108 +361,106 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#criando-um-dataframe">
-   Criando um
+  <a class="reference internal nav-link" href="#criacao-de-um-dataframe">
+   Criação de um
    <em>
     DataFrame
    </em>
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#criando-um-dataframe-a-partir-de-dicionarios-de-series">
-   Criando um
-   <em>
-    DataFrame
-   </em>
-   a partir de dicionários de
-   <em>
-    Series
-   </em>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#criando-um-dataframe-a-partir-de-dicionarios-de-listas-ou-arrays-do-numpy">
-   Criando um
-   <em>
-    DataFrame
-   </em>
-   a partir de dicionários de listas ou
-   <em>
-    arrays
-   </em>
-   do
-   <em>
-    numpy
-   </em>
-   :
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#criando-um-dataframe-a-partir-de-uma-series-do-pandas">
-   Criando um
-   <em>
-    DataFrame
-   </em>
-   a partir de uma
-   <em>
-    Series
-   </em>
-   do
-   <em>
-    pandas
-   </em>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#criando-um-dataframe-a-partir-de-lista-de-series-do-pandas">
-   Criando um
-   <em>
-    DataFrame
-   </em>
-   a partir de lista de
-   <em>
-    Series
-   </em>
-   do
-   <em>
-    pandas
-   </em>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#criando-um-dataframe-a-partir-de-arquivos">
-   Criando um
-   <em>
-    DataFrame
-   </em>
-   a partir de arquivos
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#o-metodo-head-do-dataframe">
-   O método
-   <em>
-    head
-   </em>
-   do
-   <em>
-    DataFrame
-   </em>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#o-metodo-tail-do-dataframe">
-   O método
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     tail
-    </span>
-   </code>
-   do
-   <em>
-    DataFrame
-   </em>
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dataframe-a-partir-de-dicionarios-de-series">
+     <em>
+      DataFrame
+     </em>
+     a partir de dicionários de
+     <em>
+      Series
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dataframe-a-partir-de-dicionarios-de-listas-ou-arrays-do-numpy">
+     <em>
+      DataFrame
+     </em>
+     a partir de dicionários de listas ou
+     <em>
+      arrays
+     </em>
+     do
+     <em>
+      numpy
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dataframe-a-partir-de-uma-series-do-pandas">
+     <em>
+      DataFrame
+     </em>
+     a partir de uma
+     <em>
+      Series
+     </em>
+     do
+     <em>
+      pandas
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dataframe-a-partir-de-lista-de-series-do-pandas">
+     <em>
+      DataFrame
+     </em>
+     a partir de lista de
+     <em>
+      Series
+     </em>
+     do
+     <em>
+      pandas
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dataframe-a-partir-de-arquivos">
+     <em>
+      DataFrame
+     </em>
+     a partir de arquivos
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#o-metodo-head-do-dataframe">
+       O método
+       <em>
+        head
+       </em>
+       do
+       <em>
+        DataFrame
+       </em>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#o-metodo-tail-do-dataframe">
+       O método
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         tail
+        </span>
+       </code>
+       do
+       <em>
+        DataFrame
+       </em>
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#atributos-de-series-e-dataframes">
@@ -450,14 +473,16 @@
     DataFrames
    </em>
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#informacoes-sobre-as-colunas-de-um-dataframe">
-   Informações sobre as colunas de um
-   <em>
-    DataFrame
-   </em>
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#informacoes-sobre-as-colunas-de-um-dataframe">
+     Informações sobre as colunas de um
+     <em>
+      DataFrame
+     </em>
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#criando-arquivos-a-partir-de-dataframes">
@@ -466,24 +491,26 @@
     DataFrames
    </em>
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exemplo-covid-19-pb">
-   Exemplo COVID-19 PB
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#indices-dos-valores-maximos-ou-minimos">
-   Índices dos valores máximos ou mínimos
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#reindexacao-de-dataframes">
-   Reindexação de
-   <em>
-    DataFrames
-   </em>
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exemplo-covid-19-pb">
+     Exemplo COVID-19 PB
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#indices-dos-valores-maximos-ou-minimos">
+     Índices dos valores máximos ou mínimos
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reindexacao-de-dataframes">
+     Reindexação de
+     <em>
+      DataFrames
+     </em>
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#remocao-de-linhas-ou-colunas-de-um-dataframe">
@@ -492,22 +519,24 @@
     DataFrame
    </em>
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#renomeando-index-e-columns">
+     Renomeando
+     <em>
+      index
+     </em>
+     e
+     <em>
+      columns
+     </em>
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#renomeando-index-e-columns">
-   Renomeando
-   <em>
-    index
-   </em>
-   e
-   <em>
-    columns
-   </em>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ordenando-series-e-dataframes">
-   Ordenando
+  <a class="reference internal nav-link" href="#ordenacao-de-series-e-dataframes">
+   Ordenação de
    <em>
     Series
    </em>
@@ -518,8 +547,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#comparando-series-e-dataframes">
-   Comparando
+  <a class="reference internal nav-link" href="#comparacao-de-series-e-dataframes">
+   Comparação de
    <em>
     Series
    </em>
@@ -552,64 +581,74 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#selecionando-colunas-de-um-dataframe">
-   Selecionando colunas de um
+  <a class="reference internal nav-link" href="#selecao-de-colunas-de-um-dataframe">
+   Seleção de colunas de um
    <em>
     DataFrame
    </em>
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#criacao-de-novas-colunas-a-partir-de-colunas-existentes">
+     Criação de novas colunas a partir de colunas existentes
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#criando-novas-colunas-a-partir-de-colunas-existentes">
-   Criando novas colunas a partir de colunas existentes
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#selecionando-linhas-de-um-dataframe">
-   Selecionando linhas de um
+  <a class="reference internal nav-link" href="#selecao-de-linhas-de-um-dataframe">
+   Seleção de linhas de um
    <em>
     DataFrame
    </em>
-   :
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#selecionando-colunas-pelos-metodos-loc-e-iloc">
-   Selecionando colunas pelos métodos
-   <em>
-    loc
-   </em>
-   e
-   <em>
-    iloc
-   </em>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#selecionando-linhas-e-colunas-especificas-pelos-metodos-loc-e-iloc">
-   Selecionando linhas e colunas específicas pelos métodos
-   <em>
-    loc
-   </em>
-   e
-   <em>
-    iloc
-   </em>
-   :
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#selecionando-linha-atraves-de-criterios-logicos-ou-funcoes">
-   Selecionando linha através de critérios lógicos ou funções
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#selecionando-linhas-com-o-metodo-query">
-   Selecionando linhas com o método
-   <em>
-    query
-   </em>
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#selecao-de-colunas-com-loc-e-iloc">
+     Seleção de colunas com
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       loc
+      </span>
+     </code>
+     e
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       iloc
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#selecao-de-linhas-e-colunas-especificas-com-loc-e-iloc">
+     Seleção de linhas e colunas específicas com
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       loc
+      </span>
+     </code>
+     e
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       iloc
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#selecao-de-linhas-atraves-de-criterios-logicos-ou-funcoes">
+     Seleção de linhas através de critérios lógicos ou funções
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#selecao-de-linhas-com-o-metodo-query">
+     Seleção de linhas com o método
+     <em>
+      query
+     </em>
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -638,8 +677,8 @@
 </div>
 </div>
 </div>
-<div class="section" id="criando-um-dataframe">
-<h2>Criando um <em>DataFrame</em><a class="headerlink" href="#criando-um-dataframe" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="criacao-de-um-dataframe">
+<h2>Criação de um <em>DataFrame</em><a class="headerlink" href="#criacao-de-um-dataframe" title="Permalink to this headline">¶</a></h2>
 <p>O método padrão para criarmos um <em>DataFrame</em> é através de uma função com mesmo nome.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df_exemplo</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">dados_de_interesse</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="n">indice_de_interesse</span><span class="p">,</span> 
                           <span class="n">columns</span> <span class="o">=</span> <span class="n">colunas_de_interesse</span><span class="p">)</span>
@@ -664,9 +703,8 @@
 <li><p>uma <em>Series</em> do <em>Pandas</em>;</p></li>
 <li><p>outro <em>DataFrame</em>.</p></li>
 </ul>
-</div>
-<div class="section" id="criando-um-dataframe-a-partir-de-dicionarios-de-series">
-<h2>Criando um <em>DataFrame</em> a partir de dicionários de <em>Series</em><a class="headerlink" href="#criando-um-dataframe-a-partir-de-dicionarios-de-series" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="dataframe-a-partir-de-dicionarios-de-series">
+<h3><em>DataFrame</em> a partir de dicionários de <em>Series</em><a class="headerlink" href="#dataframe-a-partir-de-dicionarios-de-series" title="Permalink to this headline">¶</a></h3>
 <p>Neste método de criação, as <em>Series</em> do dicionário não precisam possuir o mesmo número de elementos. O <em>index</em> do <em>DataFrame</em> será dado pela <strong>união</strong> dos <em>index</em> de todas as <em>Series</em> contidas no dicionário.</p>
 <p>Exemplo:</p>
 <div class="cell docutils container">
@@ -999,8 +1037,8 @@
 </div></div></div>
 </div>
 </div>
-<div class="section" id="criando-um-dataframe-a-partir-de-dicionarios-de-listas-ou-arrays-do-numpy">
-<h2>Criando um <em>DataFrame</em> a partir de dicionários de listas ou <em>arrays</em> do <em>numpy</em>:<a class="headerlink" href="#criando-um-dataframe-a-partir-de-dicionarios-de-listas-ou-arrays-do-numpy" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="dataframe-a-partir-de-dicionarios-de-listas-ou-arrays-do-numpy">
+<h3><em>DataFrame</em> a partir de dicionários de listas ou <em>arrays</em> do <em>numpy</em><a class="headerlink" href="#dataframe-a-partir-de-dicionarios-de-listas-ou-arrays-do-numpy" title="Permalink to this headline">¶</a></h3>
 <p>Neste método de criação, os <em>arrays</em> ou as listas <strong>devem</strong> possuir o mesmo comprimento. Se o <em>index</em> não for informado, o <em>index</em> será dado de forma similar ao do objeto tipo <em>Series</em>.</p>
 <p>Exemplo com dicionário de listas:</p>
 <div class="cell docutils container">
@@ -1285,8 +1323,8 @@
 </div></div></div>
 </div>
 </div>
-<div class="section" id="criando-um-dataframe-a-partir-de-uma-series-do-pandas">
-<h2>Criando um <em>DataFrame</em> a partir de uma <em>Series</em> do <em>pandas</em><a class="headerlink" href="#criando-um-dataframe-a-partir-de-uma-series-do-pandas" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="dataframe-a-partir-de-uma-series-do-pandas">
+<h3><em>DataFrame</em> a partir de uma <em>Series</em> do <em>pandas</em><a class="headerlink" href="#dataframe-a-partir-de-uma-series-do-pandas" title="Permalink to this headline">¶</a></h3>
 <p>Neste caso, o <em>DataFrame</em> terá o mesmo <em>index</em> que a <em>Series</em> do <em>pandas</em> e apenas uma coluna.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1410,8 +1448,8 @@
 </div></div></div>
 </div>
 </div>
-<div class="section" id="criando-um-dataframe-a-partir-de-lista-de-series-do-pandas">
-<h2>Criando um <em>DataFrame</em> a partir de lista de <em>Series</em> do <em>pandas</em><a class="headerlink" href="#criando-um-dataframe-a-partir-de-lista-de-series-do-pandas" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="dataframe-a-partir-de-lista-de-series-do-pandas">
+<h3><em>DataFrame</em> a partir de lista de <em>Series</em> do <em>pandas</em><a class="headerlink" href="#dataframe-a-partir-de-lista-de-series-do-pandas" title="Permalink to this headline">¶</a></h3>
 <p>Neste caso, a entrada dos dados da lista no <em>DataFrame</em> será feita por linha.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1541,8 +1579,8 @@
 </div></div></div>
 </div>
 </div>
-<div class="section" id="criando-um-dataframe-a-partir-de-arquivos">
-<h2>Criando um <em>DataFrame</em> a partir de arquivos<a class="headerlink" href="#criando-um-dataframe-a-partir-de-arquivos" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="dataframe-a-partir-de-arquivos">
+<h3><em>DataFrame</em> a partir de arquivos<a class="headerlink" href="#dataframe-a-partir-de-arquivos" title="Permalink to this headline">¶</a></h3>
 <p>Para criar um <em>DataFrame</em> a partir de um arquivo, precisamos de funções do tipo <code class="docutils literal notranslate"><span class="pre">pd.read_FORMATO</span></code>, onde <code class="docutils literal notranslate"><span class="pre">FORMATO</span></code> indica o formato a ser importado sob o pressuposto de que a biblioteca <em>pandas</em> foi devidamente importada com <code class="docutils literal notranslate"><span class="pre">pd</span></code>.</p>
 <p>Os formatos mais comuns são:</p>
 <ul class="simple">
@@ -1776,9 +1814,8 @@
 </table>
 </div></div></div>
 </div>
-</div>
 <div class="section" id="o-metodo-head-do-dataframe">
-<h2>O método <em>head</em> do <em>DataFrame</em><a class="headerlink" href="#o-metodo-head-do-dataframe" title="Permalink to this headline">¶</a></h2>
+<h4>O método <em>head</em> do <em>DataFrame</em><a class="headerlink" href="#o-metodo-head-do-dataframe" title="Permalink to this headline">¶</a></h4>
 <p>O método <code class="docutils literal notranslate"><span class="pre">head</span></code>, sem argumento, permite que visualizemos as 5 primeiras linhas do <em>DataFrame</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1955,7 +1992,7 @@
 </div>
 </div>
 <div class="section" id="o-metodo-tail-do-dataframe">
-<h2>O método <code class="docutils literal notranslate"><span class="pre">tail</span></code> do <em>DataFrame</em><a class="headerlink" href="#o-metodo-tail-do-dataframe" title="Permalink to this headline">¶</a></h2>
+<h4>O método <code class="docutils literal notranslate"><span class="pre">tail</span></code> do <em>DataFrame</em><a class="headerlink" href="#o-metodo-tail-do-dataframe" title="Permalink to this headline">¶</a></h4>
 <p>O método <code class="docutils literal notranslate"><span class="pre">tail</span></code>, sem argumento, retorna as últimas 5 linhas do <em>DataFrame</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2129,6 +2166,8 @@
   </tbody>
 </table>
 </div></div></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="atributos-de-series-e-dataframes">
@@ -2334,9 +2373,8 @@ Length: 2, dtype: object
 </div>
 </div>
 </div>
-</div>
 <div class="section" id="informacoes-sobre-as-colunas-de-um-dataframe">
-<h2>Informações sobre as colunas de um <em>DataFrame</em><a class="headerlink" href="#informacoes-sobre-as-colunas-de-um-dataframe" title="Permalink to this headline">¶</a></h2>
+<h3>Informações sobre as colunas de um <em>DataFrame</em><a class="headerlink" href="#informacoes-sobre-as-colunas-de-um-dataframe" title="Permalink to this headline">¶</a></h3>
 <p>Para obtermos uma breve descrição sobre as colunas de um <em>DataFrame</em> utilizamos o método <code class="docutils literal notranslate"><span class="pre">info</span></code>.</p>
 <p>Exemplo:</p>
 <div class="cell docutils container">
@@ -2356,6 +2394,7 @@ Data columns (total 2 columns):
 dtypes: float64(2)
 memory usage: 240.0+ bytes
 </pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -2380,9 +2419,8 @@ memory usage: 240.0+ bytes
 </div>
 </div>
 </div>
-</div>
 <div class="section" id="exemplo-covid-19-pb">
-<h2>Exemplo COVID-19 PB<a class="headerlink" href="#exemplo-covid-19-pb" title="Permalink to this headline">¶</a></h2>
+<h3>Exemplo COVID-19 PB<a class="headerlink" href="#exemplo-covid-19-pb" title="Permalink to this headline">¶</a></h3>
 <p>Dados diários de COVID-19 do estado da Paraíba:</p>
 <p><em>Fonte: <a class="reference external" href="https://superset.plataformatarget.com.br/superset/dashboard/microdados/">https://superset.plataformatarget.com.br/superset/dashboard/microdados/</a></em></p>
 <div class="cell docutils container">
@@ -2738,7 +2776,7 @@ memory usage: 20.7+ KB
 </div>
 </div>
 <div class="section" id="indices-dos-valores-maximos-ou-minimos">
-<h2>Índices dos valores máximos ou mínimos<a class="headerlink" href="#indices-dos-valores-maximos-ou-minimos" title="Permalink to this headline">¶</a></h2>
+<h3>Índices dos valores máximos ou mínimos<a class="headerlink" href="#indices-dos-valores-maximos-ou-minimos" title="Permalink to this headline">¶</a></h3>
 <p>Os métodos <code class="docutils literal notranslate"><span class="pre">idxmin()</span></code> e <code class="docutils literal notranslate"><span class="pre">idxmax()</span></code> retornam o <em>index</em> cuja entrada fornece o valor mínimo ou máximo da <em>Series</em> ou <em>DataFrame</em>. Se houver múltiplas ocorrências de mínimos ou máximos, o método retorna a primeira ocorrência.</p>
 <p>Vamos recriar um <em>DataFrame</em> genérico.</p>
 <div class="cell docutils container">
@@ -3083,7 +3121,7 @@ dtype: object
 </div>
 </div>
 <div class="section" id="reindexacao-de-dataframes">
-<h2>Reindexação de <em>DataFrames</em><a class="headerlink" href="#reindexacao-de-dataframes" title="Permalink to this headline">¶</a></h2>
+<h3>Reindexação de <em>DataFrames</em><a class="headerlink" href="#reindexacao-de-dataframes" title="Permalink to this headline">¶</a></h3>
 <p>No <em>pandas</em>, o método <code class="docutils literal notranslate"><span class="pre">reindex</span></code></p>
 <ul class="simple">
 <li><p>reordena o <em>DataFrame</em> de acordo com o conjunto de rótulos inserido como argumento;</p></li>
@@ -3149,6 +3187,7 @@ dtype: object
   </tbody>
 </table>
 </div></div></div>
+</div>
 </div>
 </div>
 <div class="section" id="remocao-de-linhas-ou-colunas-de-um-dataframe">
@@ -3326,9 +3365,8 @@ dtype: object
 </table>
 </div></div></div>
 </div>
-</div>
 <div class="section" id="renomeando-index-e-columns">
-<h2>Renomeando <em>index</em> e <em>columns</em><a class="headerlink" href="#renomeando-index-e-columns" title="Permalink to this headline">¶</a></h2>
+<h3>Renomeando <em>index</em> e <em>columns</em><a class="headerlink" href="#renomeando-index-e-columns" title="Permalink to this headline">¶</a></h3>
 <p>O método <code class="docutils literal notranslate"><span class="pre">rename</span></code> retorna uma cópia na qual o <em>index</em> (no caso de <em>Series</em> e <em>DataFrames</em>) e <em>columns</em> (no caso de <em>DataFrames</em>) foram renomeados. O método aceita como entrada um dicionário, uma <em>Series</em> do <em>pandas</em> ou uma função.</p>
 <p>Exemplo:</p>
 <div class="cell docutils container">
@@ -3640,8 +3678,9 @@ dtype: int64
 </div></div></div>
 </div>
 </div>
-<div class="section" id="ordenando-series-e-dataframes">
-<h2>Ordenando <em>Series</em> e <em>DataFrames</em><a class="headerlink" href="#ordenando-series-e-dataframes" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="ordenacao-de-series-e-dataframes">
+<h2>Ordenação de <em>Series</em> e <em>DataFrames</em><a class="headerlink" href="#ordenacao-de-series-e-dataframes" title="Permalink to this headline">¶</a></h2>
 <p>É possível ordenar ambos pelos rótulos do <em>index</em> (para tanto é necessário que eles sejam ordenáveis) ou por valores nas colunas.</p>
 <p>O método <code class="docutils literal notranslate"><span class="pre">sort_index</span></code> ordena a <em>Series</em> ou o <em>DataFrame</em> pelo <em>index</em>. O método <code class="docutils literal notranslate"><span class="pre">sort_values</span></code> ordena a <em>Series</em> ou o <em>DataFrame</em> pelos valores (escolhendo uma ou mais colunas no caso de <em>DataFrames</em>). No caso do <em>DataFrame</em>, o argumento <code class="docutils literal notranslate"><span class="pre">by</span></code> é necessário para indicar qual(is) coluna(s) será(ão) utilizada(s) como base para a ordenação.</p>
 <p>Exemplos:</p>
@@ -4099,8 +4138,8 @@ dtype: int64
 </div></div></div>
 </div>
 </div>
-<div class="section" id="comparando-series-e-dataframes">
-<h2>Comparando <em>Series</em> e <em>DataFrames</em><a class="headerlink" href="#comparando-series-e-dataframes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="comparacao-de-series-e-dataframes">
+<h2>Comparação de <em>Series</em> e <em>DataFrames</em><a class="headerlink" href="#comparacao-de-series-e-dataframes" title="Permalink to this headline">¶</a></h2>
 <p><em>Series</em> e <em>DataFrames</em> possuem os seguintes métodos de comparação lógica:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">eq</span></code> (igual);</p></li>
@@ -4585,8 +4624,8 @@ dtype: bool
 </div>
 </div>
 </div>
-<div class="section" id="selecionando-colunas-de-um-dataframe">
-<h2>Selecionando colunas de um <em>DataFrame</em><a class="headerlink" href="#selecionando-colunas-de-um-dataframe" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="selecao-de-colunas-de-um-dataframe">
+<h2>Seleção de colunas de um <em>DataFrame</em><a class="headerlink" href="#selecao-de-colunas-de-um-dataframe" title="Permalink to this headline">¶</a></h2>
 <p>Para selecionar colunas de um <em>DataFrame</em>, basta aplicar <em>colchetes</em> a uma lista contendo os nomes das colunas de interesse.</p>
 <p>No exemplo abaixo, temos um <em>DataFrame</em> contendo as colunas <code class="docutils literal notranslate"><span class="pre">'Idade'</span></code>, <code class="docutils literal notranslate"><span class="pre">'Peso'</span></code> e <code class="docutils literal notranslate"><span class="pre">'Altura'</span></code>. Selecionaremos <code class="docutils literal notranslate"><span class="pre">'Peso'</span></code> e <code class="docutils literal notranslate"><span class="pre">'Altura'</span></code>, apenas.</p>
 <div class="cell docutils container">
@@ -4720,9 +4759,8 @@ Name: Peso, dtype: int64
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="criando-novas-colunas-a-partir-de-colunas-existentes">
-<h2>Criando novas colunas a partir de colunas existentes<a class="headerlink" href="#criando-novas-colunas-a-partir-de-colunas-existentes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="criacao-de-novas-colunas-a-partir-de-colunas-existentes">
+<h3>Criação de novas colunas a partir de colunas existentes<a class="headerlink" href="#criacao-de-novas-colunas-a-partir-de-colunas-existentes" title="Permalink to this headline">¶</a></h3>
 <p>Um método eficiente para criar novas colunas a partir de colunas já existentes é <code class="docutils literal notranslate"><span class="pre">eval</span></code>. Neste método, podemos utilizar como argumento uma <em>string</em> contendo uma expressão matemática envolvendo nomes de colunas do <em>DataFrame</em>.</p>
 <p>Como exemplo, vamos ver como calcular o IMC no <em>DataFrame</em> anterior:</p>
 <div class="cell docutils container">
@@ -4959,8 +4997,9 @@ dtype: float64
 </div></div></div>
 </div>
 </div>
-<div class="section" id="selecionando-linhas-de-um-dataframe">
-<h2>Selecionando linhas de um <em>DataFrame</em>:<a class="headerlink" href="#selecionando-linhas-de-um-dataframe" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="selecao-de-linhas-de-um-dataframe">
+<h2>Seleção de linhas de um <em>DataFrame</em><a class="headerlink" href="#selecao-de-linhas-de-um-dataframe" title="Permalink to this headline">¶</a></h2>
 <p>Podemos selecionar linhas de um <em>DataFrame</em> de diversas formas diferentes. Veremos agora algumas dessas formas.</p>
 <p>Diferentemente da forma de selecionar colunas, para selecionar diretamente linhas de um <em>DataFrame</em> devemos utilizar o método <code class="docutils literal notranslate"><span class="pre">loc</span></code> (fornecendo o <em>index</em>, isto é, o rótulo da linha) ou o <code class="docutils literal notranslate"><span class="pre">iloc</span></code> (fornecendo a posição da linha):</p>
 <p>Trabalharemos a seguir com um banco de dados atualizado sobre a COVID-19. Para tanto, importaremos o módulo <code class="docutils literal notranslate"><span class="pre">datetime</span></code> que nos auxiliará com datas.</p>
@@ -5319,9 +5358,8 @@ Name: 2020-11-01 00:00:00, dtype: int64
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="selecionando-colunas-pelos-metodos-loc-e-iloc">
-<h2>Selecionando colunas pelos métodos <em>loc</em> e <em>iloc</em><a class="headerlink" href="#selecionando-colunas-pelos-metodos-loc-e-iloc" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="selecao-de-colunas-com-loc-e-iloc">
+<h3>Seleção de colunas com <code class="docutils literal notranslate"><span class="pre">loc</span></code> e <code class="docutils literal notranslate"><span class="pre">iloc</span></code><a class="headerlink" href="#selecao-de-colunas-com-loc-e-iloc" title="Permalink to this headline">¶</a></h3>
 <p>Podemos selecionar colunas utilizando os métodos <code class="docutils literal notranslate"><span class="pre">loc</span></code> e <code class="docutils literal notranslate"><span class="pre">iloc</span></code> utilizando um argumento adicional.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -5514,8 +5552,8 @@ Name: 2020-11-01 00:00:00, dtype: int64
 </div></div></div>
 </div>
 </div>
-<div class="section" id="selecionando-linhas-e-colunas-especificas-pelos-metodos-loc-e-iloc">
-<h2>Selecionando linhas e colunas específicas pelos métodos <em>loc</em> e <em>iloc</em>:<a class="headerlink" href="#selecionando-linhas-e-colunas-especificas-pelos-metodos-loc-e-iloc" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="selecao-de-linhas-e-colunas-especificas-com-loc-e-iloc">
+<h3>Seleção de linhas e colunas específicas com <code class="docutils literal notranslate"><span class="pre">loc</span></code> e <code class="docutils literal notranslate"><span class="pre">iloc</span></code><a class="headerlink" href="#selecao-de-linhas-e-colunas-especificas-com-loc-e-iloc" title="Permalink to this headline">¶</a></h3>
 <p>Usando o mesmo princípio de <em>fatiamento</em> aplicado a <em>arrays</em> do numpy, podemos selecionar linhas e colunas em um intervalo específico de forma a obter uma subtabela.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -5795,8 +5833,8 @@ Name: 2020-11-01 00:00:00, dtype: int64
 </div></div></div>
 </div>
 </div>
-<div class="section" id="selecionando-linha-atraves-de-criterios-logicos-ou-funcoes">
-<h2>Selecionando linha através de critérios lógicos ou funções<a class="headerlink" href="#selecionando-linha-atraves-de-criterios-logicos-ou-funcoes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="selecao-de-linhas-atraves-de-criterios-logicos-ou-funcoes">
+<h3>Seleção de linhas através de critérios lógicos ou funções<a class="headerlink" href="#selecao-de-linhas-atraves-de-criterios-logicos-ou-funcoes" title="Permalink to this headline">¶</a></h3>
 <p>Vamos selecionar quais os dias em que houve mais de 40 mortes registradas:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -6277,8 +6315,8 @@ Name: Sobrenome, dtype: bool
 </div></div></div>
 </div>
 </div>
-<div class="section" id="selecionando-linhas-com-o-metodo-query">
-<h2>Selecionando linhas com o método <em>query</em><a class="headerlink" href="#selecionando-linhas-com-o-metodo-query" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="selecao-de-linhas-com-o-metodo-query">
+<h3>Seleção de linhas com o método <em>query</em><a class="headerlink" href="#selecao-de-linhas-com-o-metodo-query" title="Permalink to this headline">¶</a></h3>
 <p>Similarmente ao método <code class="docutils literal notranslate"><span class="pre">eval</span></code>, ao utilizarmos <code class="docutils literal notranslate"><span class="pre">query</span></code>, podemos criar expressões lógicas a partir de nomes das colunas do <em>DataFrame</em>.</p>
 <p>Assim, podemos reescrever o código</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dados_covid_PB</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">dados_covid_PB</span><span class="o">.</span><span class="n">obitosNovos</span><span class="o">&gt;</span><span class="mi">25</span><span class="p">)</span> <span class="o">&amp;</span> 
@@ -6417,12 +6455,13 @@ Name: Sobrenome, dtype: bool
 </div>
 </div>
 </div>
+</div>
 
     <script type="text/x-thebe-config">
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
+            repo: "gcpeixoto/FMECD",
             ref: "master",
         },
         codeMirrorConfig: {

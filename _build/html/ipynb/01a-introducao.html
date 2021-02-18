@@ -49,9 +49,9 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -217,7 +217,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="08a-estatistica-descritiva.html">
-   Estatística Descritiva com apoio do
+   Estatística Descritiva com
    <em>
     Python
    </em>
@@ -324,6 +324,31 @@
                     class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/gcpeixoto/FMECD/master?urlpath=lab/tree/ipynb/01a-introducao.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/gcpeixoto/FMECD/blob/master/ipynb/01a-introducao.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
 
     </div>
 
@@ -474,11 +499,11 @@ escala jamais vista na história humana em virtude da evolução exponencial dos
 <p>Assim como a terra era o recurso fundamental para a agricultura, e o ferro o era para a indústria, os dados tornaram-se um bem de valor inestimável para pessoas, empresas, governos e para a própria ciência. Com a expansão do fenômeno <em>Big Data</em>, diversos nichos do conhecimento começaram a eclodir trazendo consigo uma série de nomes elegantes, tais como <em>business intelligence</em>, <em>data analytics</em>, <em>data warehouse</em> e <em>data engineering</em>.</p>
 <p>Apesar disso, <em>ciência de dados</em> desponta-se como o conceito mais razoável para denotar o aspecto científico dos dados. Em um contexto acadêmico, ela encontra-se na interseção de outras áreas do conhecimento e no cerne de uma cadeia maior envolvendo gestão de processos e o pensamento científico.</p>
 <p>É difícil estabelecer um modelo holístico unificado que traduza de maneira exata a capilaridade da ciência de dados nas atividades modernas. Diante disso, a Figura abaixo tenta ilustrar, para nossos propósitos, como a ciência de dados relaciona-se com outros domínios do conhecimento de maneira multidisciplinar.</p>
-<!-- Figura -->
-<center>
-    <img src='../figs/01/cycle-ds.png' width=300px> </img>
-</center>
-<p>O diagrama possui três camadas. A camada mais interna mostra como áreas do conhecimento tradicionais se intersectam para dar forma ao que chamamos de <em>ciência de dados</em>. Aqui, enfatizamos três grandes conjuntos:</p>
+<div class="figure align-default" id="cycle-ds">
+<a class="reference internal image-reference" href="../_images/cycle-ds.png"><img alt="../_images/cycle-ds.png" src="../_images/cycle-ds.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Modelo holístico da ciência de dados.</span><a class="headerlink" href="#cycle-ds" title="Permalink to this image">¶</a></p>
+</div>
+<p>O diagrama mostrado na <a class="reference internal" href="#cycle-ds"><span class="std std-numref">Fig. 1</span></a> possui três camadas. A camada mais interna mostra como áreas do conhecimento tradicionais se intersectam para dar forma ao que chamamos de <em>ciência de dados</em>. Aqui, enfatizamos três grandes conjuntos:</p>
 <ol class="simple">
 <li><p><strong>Matemática/Estatística</strong>, que fornece os modelos matemáticos e estatísticos fundamentais para estudo, análise e  inferência de dados, aos quais se agregam as técnicas de aprendizagem de máquina;</p></li>
 <li><p><strong>Ciência da Computação/Engenharia de Software</strong>, que fornece elementos básicos de hardware e software para projetar soluções de intercâmbio, armazenamento e segurança de dados, por exemplo.</p></li>
@@ -651,7 +676,7 @@ escala jamais vista na história humana em virtude da evolução exponencial dos
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
+            repo: "gcpeixoto/FMECD",
             ref: "master",
         },
         codeMirrorConfig: {

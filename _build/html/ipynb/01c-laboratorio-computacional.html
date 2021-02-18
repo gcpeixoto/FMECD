@@ -49,15 +49,15 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Laboratório Computacional 2" href="02c-laboratorio-computacional.html" />
-    <link rel="prev" title="Estatística Descritiva com apoio do Python" href="08a-estatistica-descritiva.html" />
+    <link rel="prev" title="Estatística Descritiva com Python" href="08a-estatistica-descritiva.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -217,7 +217,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="08a-estatistica-descritiva.html">
-   Estatística Descritiva com apoio do
+   Estatística Descritiva com
    <em>
     Python
    </em>
@@ -325,6 +325,31 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/gcpeixoto/FMECD/master?urlpath=lab/tree/ipynb/01c-laboratorio-computacional.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/gcpeixoto/FMECD/blob/master/ipynb/01c-laboratorio-computacional.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
     </div>
 
     <!-- Table of contents -->
@@ -400,7 +425,7 @@
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
+            repo: "gcpeixoto/FMECD",
             ref: "master",
         },
         codeMirrorConfig: {
@@ -424,7 +449,7 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="08a-estatistica-descritiva.html" title="previous page">Estatística Descritiva com apoio do <em>Python</em></a>
+    <a class='left-prev' id="prev-link" href="08a-estatistica-descritiva.html" title="previous page">Estatística Descritiva com <em>Python</em></a>
     <a class='right-next' id="next-link" href="02c-laboratorio-computacional.html" title="next page">Laboratório Computacional 2</a>
 
     </div>

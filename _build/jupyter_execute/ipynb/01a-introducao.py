@@ -11,12 +11,16 @@ Apesar disso, *ciência de dados* desponta-se como o conceito mais razoável par
 
 É difícil estabelecer um modelo holístico unificado que traduza de maneira exata a capilaridade da ciência de dados nas atividades modernas. Diante disso, a Figura abaixo tenta ilustrar, para nossos propósitos, como a ciência de dados relaciona-se com outros domínios do conhecimento de maneira multidisciplinar. 
 
-<!-- Figura -->
-<center>
-    <img src='../figs/01/cycle-ds.png' width=300px> </img>
-</center>
+```{figure} ../figs/01/cycle-ds.png
+---
+width: 300px
+name: cycle-ds
+---
+Modelo holístico da ciência de dados.
+```
 
-O diagrama possui três camadas. A camada mais interna mostra como áreas do conhecimento tradicionais se intersectam para dar forma ao que chamamos de *ciência de dados*. Aqui, enfatizamos três grandes conjuntos: 
+
+O diagrama mostrado na {numref}`cycle-ds` possui três camadas. A camada mais interna mostra como áreas do conhecimento tradicionais se intersectam para dar forma ao que chamamos de *ciência de dados*. Aqui, enfatizamos três grandes conjuntos: 
 
 1. **Matemática/Estatística**, que fornece os modelos matemáticos e estatísticos fundamentais para estudo, análise e  inferência de dados, aos quais se agregam as técnicas de aprendizagem de máquina;
 
